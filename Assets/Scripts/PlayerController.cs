@@ -21,17 +21,6 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     void Move() {
 
-        if (Input.GetKey(GameManager.GM.Forward)) {
-            transform.position += Vector3.up * Time.deltaTime;
-        }
-        else if(Input.GetKey(GameManager.GM.Backward)) {
-            transform.position += Vector3.down * Time.deltaTime;
-        }
-        else if (Input.GetKey(GameManager.GM.Left)) {
-            transform.position += Vector3.left * Time.deltaTime;
-        }
-        else if (Input.GetKey(GameManager.GM.Right)) {
-            transform.position += Vector3.right * Time.deltaTime;
-        }
+    
     }
 }
