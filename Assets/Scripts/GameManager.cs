@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public KeyCode Backward { get; set; }
     public KeyCode Left { get; set; }
     public KeyCode Right { get; set; }
+    public KeyCode Pause { get; set; }
 
     private void Awake() {
        //If a manager doesn't already exist, make this the manager
@@ -26,5 +27,6 @@ public class GameManager : MonoBehaviour
         Backward = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("BackwardKey", "S"));
         Left = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("LeftKey", "A"));
         Right = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("RightKey", "D"));
+        Pause = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("PauseKey", "Escape"));
     }
 }

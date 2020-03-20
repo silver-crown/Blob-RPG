@@ -14,11 +14,11 @@ public class MenuScript : MonoBehaviour
 
     void Start()
     {
-        menuPanel = transform.FindChild("Panel");
+        menuPanel = transform.Find("Panel");
         menuPanel.gameObject.SetActive(false);
         waitingForKey = false;
         //iterate through each child, set the corresponding buttons to display the appropriate key
-        for(int i = 0; i < 4; i++) {
+        for(int i = 0; i < menuPanel.childCount; i++) {
             if(menuPanel.GetChild(i).name == "ForwardKey") {
                 menuPanel.GetChild(i).GetComponentInChildren<Text>().text = GameManager.GM.Forward.ToString();
             }
@@ -31,13 +31,16 @@ public class MenuScript : MonoBehaviour
             else if (menuPanel.GetChild(i).name == "RightKey") {
                 menuPanel.GetChild(i).GetComponentInChildren<Text>().text = GameManager.GM.Right.ToString();
             }
+            else if(menuPanel.GetChild(i).name == "PauseKey") {
+                menuPanel.GetChild(i).GetComponentInChildren<Text>().text = GameManager.GM.Pause.ToString();
+            }
         }
     }
 
     void Update(){
-        if (Input.GetKeyDown(KeyCode.Escape) && !menuPanel.gameObject.activeSelf) {
+        if (Input.GetKeyDown(GameManager.GM.Pause) && !menuPanel.gameObject.activeSelf) {
             menuPanel.gameObject.SetActive(true);
-        } else if(Input.GetKeyDown(KeyCode.Escape)){
+        } else if(Input.GetKeyDown(GameManager.GM.Pause)){
             menuPanel.gameObject.SetActive(false);
         }
     }
@@ -90,6 +93,11 @@ public class MenuScript : MonoBehaviour
                 GameManager.GM.Right = newKey;
                 buttonText.text = GameManager.GM.Right.ToString();
                 PlayerPrefs.SetString("RightKey", GameManager.GM.Right.ToString());
+                break;
+            case ("Pause"):
+                GameManager.GM.Pause = newKey;
+                buttonText.text = GameManager.GM.Pause.ToString();
+                PlayerPrefs.SetString("PauseKey", GameManager.GM.Pause.ToString());
                 break;
         }
         yield return null;
