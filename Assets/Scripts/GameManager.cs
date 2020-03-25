@@ -6,8 +6,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager GM;
 
-    public KeyCode Forward { get; set;}
-    public KeyCode Backward { get; set; }
+    public KeyCode Upward { get; set;}
+    public KeyCode Downward { get; set; }
     public KeyCode Left { get; set; }
     public KeyCode Right { get; set; }
     public KeyCode Pause { get; set; }
@@ -23,8 +23,8 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
         //assign the keys based on player preferences, defaults to value given otherwise.
-        Forward = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("ForwardKey", "W"));
-        Backward = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("BackwardKey", "S"));
+        Upward = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("ForwardKey", "W"));
+        Downward = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("BackwardKey", "S"));
         Left = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("LeftKey", "A"));
         Right = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("RightKey", "D"));
         Pause = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("PauseKey", "Escape"));

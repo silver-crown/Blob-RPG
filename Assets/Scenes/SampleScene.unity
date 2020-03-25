@@ -555,6 +555,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 2
   movePoint: {fileID: 122532402}
+  anim: {fileID: 427881015}
+  gridLength: 0.2
 --- !u!114 &427881019
 MonoBehaviour:
   m_ObjectHideFlags: 0

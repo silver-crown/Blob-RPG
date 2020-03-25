@@ -30,10 +30,10 @@ public class NPCGridMovement : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);
 
         if (Vector3.Distance(transform.position, movePoint.position) <= 0.0f) {
-            if (Input.GetKey(GameManager.GM.Forward)) {
+            if (Input.GetKey(GameManager.GM.Upward)) {
                 movePoint.position += new Vector3(0.0f, 1.0f, 0.0f);
             }
-            else if (Input.GetKey(GameManager.GM.Backward)) {
+            else if (Input.GetKey(GameManager.GM.Downward)) {
                 movePoint.position += new Vector3(0.0f, -1.0f, 0.0f);
             }
             else if (Input.GetKey(GameManager.GM.Left)) {

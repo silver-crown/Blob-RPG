@@ -60,14 +60,14 @@ public class MenuScript : MonoBehaviour
 
         switch (keyName) {
             case ("Forward"):
-                GameManager.GM.Forward = newKey;
-                buttonText.text = GameManager.GM.Forward.ToString();
-                PlayerPrefs.SetString("ForwardKey", GameManager.GM.Forward.ToString());
+                GameManager.GM.Upward = newKey;
+                buttonText.text = GameManager.GM.Upward.ToString();
+                PlayerPrefs.SetString("ForwardKey", GameManager.GM.Upward.ToString());
                 break;
             case ("Backward"):
-                GameManager.GM.Backward = newKey;
-                buttonText.text = GameManager.GM.Backward.ToString();
-                PlayerPrefs.SetString("BackwardKey", GameManager.GM.Backward.ToString());
+                GameManager.GM.Downward = newKey;
+                buttonText.text = GameManager.GM.Downward.ToString();
+                PlayerPrefs.SetString("BackwardKey", GameManager.GM.Downward.ToString());
                 break;
             case ("Left"):
                 GameManager.GM.Left = newKey;
@@ -97,10 +97,10 @@ public class MenuScript : MonoBehaviour
             if (ButtonNames().Contains(menuPanel.GetChild(i).name)) {
                 switch (menuPanel.GetChild(i).name) {
                     case "ForwardKey":
-                        menuPanel.GetChild(i).GetComponentInChildren<Text>().text = GameManager.GM.Forward.ToString();
+                        menuPanel.GetChild(i).GetComponentInChildren<Text>().text = GameManager.GM.Upward.ToString();
                         break;
                     case "BackwardKey":
-                        menuPanel.GetChild(i).GetComponentInChildren<Text>().text = GameManager.GM.Backward.ToString();
+                        menuPanel.GetChild(i).GetComponentInChildren<Text>().text = GameManager.GM.Downward.ToString();
                         break;
                     case "LeftKey":
                         menuPanel.GetChild(i).GetComponentInChildren<Text>().text = GameManager.GM.Left.ToString();
