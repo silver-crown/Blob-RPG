@@ -29,4 +29,34 @@ public class GameManager : MonoBehaviour
         Right = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("RightKey", "D"));
         Pause = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("PauseKey", "Escape"));
     }
+
+    /// <summary>
+    /// returns an integer based on the input given to from the player
+    /// </summary>
+    /// <param name="s"></param>
+    /// <returns></returns>
+    public static int GetGameManagerAxis(string s) {
+        switch (s) {
+            case ("Horizontal"):
+                if (Input.GetKey(GM.Left)) {
+                    return -1;
+                }
+                if (Input.GetKey(GM.Right)) {
+                    return 1;
+                }
+                break;
+            case ("Vertical"):
+                if (Input.GetKey(GM.Upward)) {
+                    return 1;
+                }
+                if (Input.GetKey(GM.Downward)) {
+                    return -1;
+                }
+                break;
+            default:
+                Debug.Log("Not a game manager axis");
+                break;
+        }
+        return 0;
+    }
 }

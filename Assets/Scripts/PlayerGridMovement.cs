@@ -12,7 +12,6 @@ public class PlayerGridMovement : MonoBehaviour
     [SerializeField] private Transform movePoint;
     [SerializeField] Animator anim;
     [SerializeField] float gridLength;
-    [SerializeField] Transform frontCollider;
     bool walkingIntoAWall;
 
     // Start is called before the first frame update
@@ -37,10 +36,20 @@ public class PlayerGridMovement : MonoBehaviour
     /// Function for moving across the grid in a linear fashion, no diagonal movements allowed
     /// </summary>
     void Move() {
-        if (!walkingIntoAWall) {
+        int mask = LayerMask.GetMask("Obstacle");
+        if (Physics2D.OverlapCircle(transform.position + new Vector3(0.0f,0.0f, 0.0f), 0.5f, mask)) {
+            if(Physics2D.OverlapCircle(movePoint.position + new Vector3(0.0f, 0.0f, 0.0f), 0.2f, mask)) {
+                Debug.Log("Player Touched an obstacle!");
+                movePoint.position = transform.position;
+            }
+            else {
+                transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);
+            }
+        }
+        else {
             transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);
         }
-        frontCollider.position = movePoint.position;
+
         ///<summary> Moving Up on the map</summary>
         if (Vector3.Distance(transform.position, movePoint.position) <= 0.0f) {
             ///<summary>Set the animator to start animating</summary>
@@ -69,7 +78,6 @@ public class PlayerGridMovement : MonoBehaviour
             }
         }
     }
-
     /// <summary>
     /// A function for setting the animation bools for the animator, because I'm a lazy bum.
     /// It makes the player animate properly when walking around
@@ -173,18 +181,6 @@ public class PlayerGridMovement : MonoBehaviour
                 }
                 break;
 
-        }
-    }
-
-    private void OnCollisionStay2D(Collision2D collision) {
-        int mask = LayerMask.GetMask("Obstacle");
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.TransformDirection(movePoint.position), Vector3.Distance(transform.position, movePoint.position), mask);
-        Debug.DrawRay(transform.position, movePoint.position, Color.red);
-        ///<summary>Does the ray intersect with any obstacles?</summary>
-        if(collision.collider.tag == "Obstacle" ) {
-            Debug.Log("Ray hit an obstacle!");
-            walkingIntoAWall = true;
-            movePoint.position = new Vector3(transform.position.x, transform.position.y, 0.0f);
         }
     }
 }
