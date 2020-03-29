@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class GameManager : StateMachine
 {
     public static GameManager GM;
-
+    [SerializeField] GameObject Player;
     #region Input Manager
     public KeyCode Upward { get; set;}
     public KeyCode Downward { get; set; }
@@ -32,6 +32,10 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
-    #region State Manager
+    #region State Machine
+
+    private void Start() {
+        SetState(new PlayerWalking(Player));
+    }
     #endregion
 }
