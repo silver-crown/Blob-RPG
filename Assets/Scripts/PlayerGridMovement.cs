@@ -12,9 +12,16 @@ public class PlayerGridMovement : MonoBehaviour
     [SerializeField] private GameObject movePoint;
     [SerializeField] Animator anim;
     [SerializeField] float gridLength;
+    /// <summary> How long a button han been pressed for</summary>
+    float pressTimer;
+    /// <summary>The threshold for the press timer </summary>
+    [SerializeField] float pressTimerThreshold;
     // Start is called before the first frame update
     void Start()
     {
+        if(pressTimerThreshold == 0) {
+            pressTimerThreshold = 0.5f;
+        }
         if(gridLength == 0) {
             gridLength = 1.0f;
         }
@@ -47,27 +54,40 @@ public class PlayerGridMovement : MonoBehaviour
             ///<summary>Set the animator to start animating</summary>
             anim.speed = 1;
             if (Input.GetKey(GameManager.GM.Upward)) {
-                movePoint.transform.position += new Vector3(0.0f, gridLength, 0.0f);
+                pressTimer += Time.deltaTime;
+                if(pressTimer >= pressTimerThreshold) {
+                    movePoint.transform.position += new Vector3(0.0f, gridLength, 0.0f);
+                    
+                }
                 SetAnimationBools("Walking Up");
-
             } 
             ///<summary> Moving Down on the map</summary>
             else if (Input.GetKey(GameManager.GM.Downward)) {
-                movePoint.transform.position += new Vector3(0.0f, -gridLength, 0.0f);
+                pressTimer += Time.deltaTime;
+                if (pressTimer >= pressTimerThreshold) {
+                    movePoint.transform.position += new Vector3(0.0f, -gridLength, 0.0f);
+                }
                 SetAnimationBools("Walking Down");
             }
             ///<summary> Moving Right on the map</summary>
             else if (Input.GetKey(GameManager.GM.Left)) {
-                movePoint.transform.position += new Vector3(-gridLength, 0.0f, 0.0f);
+                pressTimer += Time.deltaTime;
+                if (pressTimer >= pressTimerThreshold) {
+                    movePoint.transform.position += new Vector3(-gridLength, 0.0f, 0.0f);
+                }
                 SetAnimationBools("Walking Left");
             }
             ///<summary> Moving Right on the map</summary>
             else if (Input.GetKey(GameManager.GM.Right)) {
-                movePoint.transform.position += new Vector3(gridLength, 0.0f, 0.0f);
+                pressTimer += Time.deltaTime;
+                if (pressTimer >= pressTimerThreshold) {
+                    movePoint.transform.position += new Vector3(gridLength, 0.0f, 0.0f);
+                }
                 SetAnimationBools("Walking Right");
             }
             else {
                 SetAnimationBools("Idle");
+                pressTimer = 0;
             }
         }
     }
