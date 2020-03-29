@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class State
 {
+    protected bool executingMethod;
     /// <summary>
     /// Beginning the state
     /// </summary>
@@ -38,5 +39,5 @@ public abstract class State
     /// <returns></returns>
     public virtual IEnumerator Resume() {
         yield break;
-    }
+    } 
 }
