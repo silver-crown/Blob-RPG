@@ -9,11 +9,9 @@ using UnityEngine;
 public class PlayerGridMovement : MonoBehaviour
 {
     [SerializeField] private float moveSpeed;
-    [SerializeField] private Transform movePoint;
+    [SerializeField] private GameObject movePoint;
     [SerializeField] Animator anim;
     [SerializeField] float gridLength;
-    bool walkingIntoAWall;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +21,7 @@ public class PlayerGridMovement : MonoBehaviour
         if(moveSpeed == 0) {
             moveSpeed = 2.0f;
         }
-        movePoint.parent = null;
+        movePoint.transform.parent = null;
     }
 
     // Update is called once per frame
@@ -36,42 +34,37 @@ public class PlayerGridMovement : MonoBehaviour
     /// Function for moving across the grid in a linear fashion, no diagonal movements allowed
     /// </summary>
     void Move() {
-        int mask = LayerMask.GetMask("Obstacle");
-        if (Physics2D.OverlapCircle(transform.position + new Vector3(0.0f,0.0f, 0.0f), 0.5f, mask)) {
-            if(Physics2D.OverlapCircle(movePoint.position + new Vector3(0.0f, 0.0f, 0.0f), 0.2f, mask)) {
-                Debug.Log("Player Touched an obstacle!");
-                movePoint.position = transform.position;
-            }
-            else {
-                transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);
-            }
+        if(movePoint.GetComponent<PlayerFrontColliderCheck>().WalkingIntoWall) {
+            Debug.Log("Player walking into a wall!");
+            movePoint.transform.position = transform.position;
         }
         else {
-            transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, movePoint.transform.position, moveSpeed * Time.deltaTime);
         }
 
         ///<summary> Moving Up on the map</summary>
-        if (Vector3.Distance(transform.position, movePoint.position) <= 0.0f) {
+        if (Vector3.Distance(transform.position, movePoint.transform.position) <= 0.0f) {
             ///<summary>Set the animator to start animating</summary>
             anim.speed = 1;
             if (Input.GetKey(GameManager.GM.Upward)) {
-                movePoint.position += new Vector3(0.0f, gridLength, 0.0f);
+                movePoint.transform.position += new Vector3(0.0f, gridLength, 0.0f);
                 SetAnimationBools("Walking Up");
-            }
+
+            } 
             ///<summary> Moving Down on the map</summary>
             else if (Input.GetKey(GameManager.GM.Downward)) {
-                movePoint.position += new Vector3(0.0f, -gridLength, 0.0f);
+                movePoint.transform.position += new Vector3(0.0f, -gridLength, 0.0f);
                 SetAnimationBools("Walking Down");
             }
             ///<summary> Moving Right on the map</summary>
             else if (Input.GetKey(GameManager.GM.Left)) {
-                    movePoint.position += new Vector3(-gridLength, 0.0f, 0.0f);
-                    SetAnimationBools("Walking Left");
+                movePoint.transform.position += new Vector3(-gridLength, 0.0f, 0.0f);
+                SetAnimationBools("Walking Left");
             }
             ///<summary> Moving Right on the map</summary>
             else if (Input.GetKey(GameManager.GM.Right)) {
-                    movePoint.position += new Vector3(gridLength, 0.0f, 0.0f);
-                    SetAnimationBools("Walking Right");
+                movePoint.transform.position += new Vector3(gridLength, 0.0f, 0.0f);
+                SetAnimationBools("Walking Right");
             }
             else {
                 SetAnimationBools("Idle");

@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class PlayerFrontColliderCheck : MonoBehaviour
 {
+    int mask;
     public bool WalkingIntoWall;
-    private void OnCollisionStay2D(Collision2D collision) {
-        if (collision.gameObject.tag == "Obstacle") {
-            Debug.Log("collider moved into a wall");
+
+    private void Update() {
+        mask = LayerMask.GetMask("Obstacle");
+        if (Physics2D.OverlapCircle(transform.position, 0.2f, mask)) {
+            Debug.Log("Front Collider overlapping");
             WalkingIntoWall = true;
         }
-        else WalkingIntoWall = false;
+        else {
+            WalkingIntoWall = false;
+        }
     }
 }
