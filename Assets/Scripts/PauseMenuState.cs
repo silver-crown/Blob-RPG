@@ -2,30 +2,34 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PauseMenu : State
+public class PauseMenuState : State
 {
     GameObject Player;
-    public PauseMenu(GameObject player) {
+    public PauseMenuState(GameObject player) {
         Player = player;
     }
 
     public override IEnumerator Start() {
         Debug.Log("Starting PauseMenu state");
-        Execute();
-        return base.Start();
+        return Execute();
     }
     public override IEnumerator End() {
         Debug.Log("Ending PauseMenu state");
-        GameManager.GM.SetState(new PlayerWalking(Player));
+        GameManager.GM.SetState(new PlayerWalkingState(Player));
         return base.End();
     }
 
     public override IEnumerator Execute() {
         Debug.Log("Executing PauseMenu state");
-        if (Input.GetKey(GameManager.GM.Test)) {
-            End();
+        ///<summary>This loop runs every frame until the test key is pressed</summary>
+        while (true) {
+            if (Input.GetKeyDown(GameManager.GM.Test)) {
+                yield return End();
+                yield break;
+            }
+            ///<summary>Wait for a frame</summary>
+            yield return true;
         }
-        return base.Execute();
     }
 
     public override IEnumerator Pause() {

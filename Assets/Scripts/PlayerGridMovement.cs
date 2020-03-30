@@ -196,4 +196,11 @@ public class PlayerGridMovement : MonoBehaviour
 
         }
     }
+    
+    /// <summary>
+    /// For use whenever the animation should stop for something important like leaving the state
+    /// </summary>
+    public void PauseAnimation() {
+        SetAnimationBools("Idle");
+    }
 }

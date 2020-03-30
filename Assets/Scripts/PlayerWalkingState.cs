@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public partial class PlayerWalking : State
+public partial class PlayerWalkingState : State
 {
     private GameObject Player;
-    public PlayerWalking(GameObject player) : base() {
+    public PlayerWalkingState(GameObject player) : base() {
         Player = player;
     }
     /// <summary>
@@ -16,25 +16,29 @@ public partial class PlayerWalking : State
     public override IEnumerator Start() {
         Debug.Log("Starting PlayerWalking state");
         Player.GetComponent<PlayerGridMovement>().enabled = true;
-        yield return Execute();
+        return Execute();
     }
     public override IEnumerator End() {
         ///<summary>stop executing the state</summary>
         Debug.Log("Ending PlayerWalking state");
-        //Player.GetComponent<PlayerGridMovement>().enabled = false;
-        //GameManager.GM.SetState(new PauseMenu(Player));
+        Player.GetComponent<PlayerGridMovement>().PauseAnimation();
+        Player.GetComponent<PlayerGridMovement>().enabled = false;
         return base.End();
     }
 
     public override IEnumerator Execute() {
         Debug.Log("Executing PlayerWalking state");
+        ///<summary>This loop runs every frame until the test key is pressed</summary>
         while (true) {
-            Debug.Log("I've entered the loop");
-            if (Input.GetKey(GameManager.GM.Test)) {
-                End();
+            if (Input.GetKeyDown(GameManager.GM.Test)) {
+                ///<summary>End the state</summary>
+                yield return End();
+                ///<summary>Set the state to PauseMenuState</summary>
+                GameManager.GM.SetState(new PauseMenuState(Player));
                 yield break;
             }
-            yield return new WaitForEndOfFrame();
+            ///<summary>Wait for a frame</summary>
+            yield return true;
         }
     }
 
