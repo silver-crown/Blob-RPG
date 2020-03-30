@@ -15,7 +15,6 @@ public class PauseMenuState : State
     }
     public override IEnumerator End() {
         Debug.Log("Ending PauseMenu state");
-        GameManager.GM.SetState(new PlayerWalkingState(Player));
         return base.End();
     }
 
@@ -24,7 +23,12 @@ public class PauseMenuState : State
         ///<summary>This loop runs every frame until the test key is pressed</summary>
         while (true) {
             if (Input.GetKeyDown(GameManager.GM.Test)) {
+                ///<summary>Wait for a frame after pressing the key</summary>
+                yield return new WaitForEndOfFrame();
+                ///<summary>End the current state</summary>
                 yield return End();
+                ///<summary>Set the new state</summary>
+                GameManager.GM.SetState(new PlayerWalkingState(Player));
                 yield break;
             }
             ///<summary>Wait for a frame</summary>
