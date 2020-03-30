@@ -23,11 +23,11 @@ public class MenuScript : MonoBehaviour
     }
 
     void Update(){
-        if (Input.GetKeyDown(GameManager.GM.Pause) && !menuPanel.gameObject.activeSelf) {
+      /*  if (Input.GetKeyDown(GameManager.GM.Pause) && !menuPanel.gameObject.activeSelf) {
             menuPanel.gameObject.SetActive(true);
         } else if(Input.GetKeyDown(GameManager.GM.Pause)){
             menuPanel.gameObject.SetActive(false);
-        }
+        }*/
     }
 
     private void OnGUI() {

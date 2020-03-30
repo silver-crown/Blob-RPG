@@ -6,8 +6,10 @@ using UnityEngine;
 public partial class PlayerWalkingState : State
 {
     private GameObject Player;
-    public PlayerWalkingState(GameObject player) : base() {
+    private MenuScript PauseMenu;
+    public PlayerWalkingState(GameObject player, MenuScript pauseMenu) : base() {
         Player = player;
+        PauseMenu = pauseMenu;
     }
     /// <summary>
     /// Activate the grid movement system
@@ -30,13 +32,13 @@ public partial class PlayerWalkingState : State
         Debug.Log("Executing PlayerWalking state");
         ///<summary>This loop runs every frame until the test key is pressed</summary>
         while (true) {
-            if (Input.GetKeyDown(GameManager.GM.Test)) {
+            if (Input.GetKeyDown(GameManager.GM.Pause)) {
                 ///<summary>Wait for a frame after pressing the key</summary>
                 yield return new WaitForEndOfFrame();
                 ///<summary>End the state</summary>
                 yield return End();
                 ///<summary>Set the state to PauseMenuState</summary>
-                GameManager.GM.SetState(new PauseMenuState(Player));
+                GameManager.GM.SetState(new PauseMenuState(Player,PauseMenu));
                 yield break;
             }
             ///<summary>Wait for a frame</summary>
