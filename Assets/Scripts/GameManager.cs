@@ -6,7 +6,6 @@ public class GameManager : StateMachine
 {
     public static GameManager GM;
     [SerializeField] GameObject Player;
-    [SerializeField] MenuScript PauseMenu;
     #region Input Manager
     public KeyCode Upward { get; set;}
     public KeyCode Downward { get; set; }
@@ -38,7 +37,7 @@ public class GameManager : StateMachine
     #region State Machine
 
     private void Start() {
-        SetState(new PlayerWalkingState(Player, PauseMenu));
+        SetState(new PlayerWalkingState(Player));
     }
     #endregion
 }

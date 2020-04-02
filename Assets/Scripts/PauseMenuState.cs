@@ -38,7 +38,7 @@ public class PauseMenuState : State
                 ///<summary>End the current state</summary>
                 yield return End();
                 ///<summary>Set the new state</summary>
-                GameManager.GM.SetState(new PlayerWalkingState(Player, PauseMenu));
+                GameManager.GM.SetState(new PlayerWalkingState(Player));
                 yield break;
             }
             ///<summary>Wait for a frame</summary>
