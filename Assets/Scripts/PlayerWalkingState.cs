@@ -48,7 +48,13 @@ public partial class PlayerWalkingState : State
                 ///<summary>Wait for a frame after pressing the key</summary>
                 yield return new WaitForEndOfFrame();
                 Debug.Log("Pressed the Interact key");
-
+                ///<summary>check if the object is interactable</summary>
+                if (Player.GetComponent<PlayerGridMovement>().CanIInteractWithThis() != null) {
+                    Debug.Log("It's an interactable object!");
+                }
+                else {
+                    Debug.Log("It's not an interactable object...");
+                }
                 ///<summary>Check if the point in front of the player is a valid object</summary>
             }
 

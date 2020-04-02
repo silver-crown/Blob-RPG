@@ -10,7 +10,7 @@ public class PlayerGridMovement : MonoBehaviour
 {
     [SerializeField] private float moveSpeed;
     [SerializeField] private GameObject movePoint;
-    [SerializeField] private GameObject frontPoint;
+    [SerializeField] public GameObject frontPoint;
     [SerializeField] Animator anim;
     [SerializeField] float gridLength;
     /// <summary>The direction the player is currently looking</summary>
@@ -22,6 +22,9 @@ public class PlayerGridMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if(direction == null) {
+            direction = "Down";
+        }
         if(pressTimerThreshold == 0) {
             pressTimerThreshold = 0.5f;
         }
@@ -31,14 +34,16 @@ public class PlayerGridMovement : MonoBehaviour
         if(moveSpeed == 0) {
             moveSpeed = 2.0f;
         }
-        movePoint.transform.parent = null;
-        frontPoint.transform.parent = null;
+        movePoint.transform.SetParent(null);
+        frontPoint.transform.SetParent(null);
     }
 
     // Update is called once per frame
     void Update()
     {
         Move();
+        ///<summary>Which direction the the player looking?</summary>
+        LookingInDirection(direction);
     }
 
     /// <summary>
@@ -100,9 +105,6 @@ public class PlayerGridMovement : MonoBehaviour
                 pressTimer = 0;
             }
         }
-
-        ///<summary>Which direction the the player looking?</summary>
-        LookingInDirection(direction);
     }
     /// <summary>
     /// A function for setting the animation bools for the animator, because I'm a lazy bum.
@@ -217,6 +219,10 @@ public class PlayerGridMovement : MonoBehaviour
         SetAnimationBools("Idle");
     }
 
+    /// <summary>
+    /// For setting the frontPoint in the direction the player is currently looking, this is needed primarily for interaction 
+    /// </summary>
+    /// <param name="direction"></param>
     void LookingInDirection(string direction) {
         switch (direction) {
             case ("Up"):
@@ -232,5 +238,12 @@ public class PlayerGridMovement : MonoBehaviour
                 frontPoint.transform.position = new Vector3(transform.position.x + gridLength, transform.position.y, 0.0f);
                 break;
         }
+    }
+    /// <summary>
+    /// Tries to return the gameobject the frontpoint is collding with, if one exists.
+    /// </summary>
+    /// <returns></returns>
+    public GameObject CanIInteractWithThis() {
+        return frontPoint.GetComponent<InteractionFrontCollisionCheck>().Interactable;
     }
 }

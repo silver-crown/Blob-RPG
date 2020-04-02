@@ -5,52 +5,22 @@
 /// </summary>
 public class InteractWithObject : MonoBehaviour
 {
-
-    float gridLength;
-    [SerializeField] private GameObject frontPoint;
-    /// <summary> How long a button han been pressed for</summary>
-    float pressTimer;
-    /// <summary>The threshold for the press timer </summary>
-    float pressTimerThreshold;
+    GameObject FrontPoint;
+    [System.NonSerialized] public GameObject Interactable;
     private void Start() {
-
-    }
-    private void Update() {
-        moveEyes();
-    }
-    bool IsObjectInteractable() {
-        
-        return false;
+        ///<summary>Get the frontPoint from the player</summary>
+        if(GetComponent<PlayerGridMovement>() != null) {
+            FrontPoint = GetComponent<PlayerGridMovement>().frontPoint;
+        }
     }
 
-
-   void moveEyes() {
-        if (Input.GetKey(GameManager.GM.Upward)) {
-            pressTimer += Time.deltaTime;
-            if (pressTimer >= pressTimerThreshold) {
-                frontPoint.transform.position += new Vector3(0.0f, gridLength, 0.0f);
-            }
+    ///<summary>If the object frontpoint is colliding with is a valid interactable, send a cool debug message!</summary>
+    public void Interact() {
+        if (FrontPoint.GetComponent<InteractionFrontCollisionCheck>().Interactable != null) {
+            Debug.Log("It's an interactable object!");
         }
-        ///<summary> Moving Down on the map</summary>
-        else if (Input.GetKey(GameManager.GM.Downward)) {
-            pressTimer += Time.deltaTime;
-            if (pressTimer >= pressTimerThreshold) {
-                frontPoint.transform.position += new Vector3(0.0f, -gridLength, 0.0f);
-            }
-        }
-        ///<summary> Moving Right on the map</summary>
-        else if (Input.GetKey(GameManager.GM.Left)) {
-            pressTimer += Time.deltaTime;
-            if (pressTimer >= pressTimerThreshold) {
-                frontPoint.transform.position += new Vector3(-gridLength, 0.0f, 0.0f);
-            }
-        }
-        ///<summary> Moving Right on the map</summary>
-        else if (Input.GetKey(GameManager.GM.Right)) {
-            pressTimer += Time.deltaTime;
-            if (pressTimer >= pressTimerThreshold) {
-                frontPoint.transform.position += new Vector3(gridLength, 0.0f, 0.0f);
-            }
+        else {
+            Debug.Log("This is not an interactable object...");
         }
     }
 }

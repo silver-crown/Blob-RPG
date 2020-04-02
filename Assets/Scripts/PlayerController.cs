@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        PauseMenu.transform.parent = null;
+        PauseMenu.transform.SetParent(null);
     }
 
     // Update is called once per frame
