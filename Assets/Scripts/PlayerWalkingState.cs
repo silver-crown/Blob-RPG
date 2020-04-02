@@ -30,12 +30,13 @@ public partial class PlayerWalkingState : State
         Debug.Log("Executing PlayerWalking state");
         ///<summary>This loop runs every frame until the test key is pressed</summary>
         while (true) {
+            ///<summary>Transitioning to the pause state</summary>
             if (Input.GetKeyDown(GameManager.GM.Pause)) {
                 ///<summary>Wait for a frame after pressing the key</summary>
                 yield return new WaitForEndOfFrame();
                 ///<summary>End the state</summary>
                 yield return End();
-
+                ///<summary>Making sure there's an actual player controller to begin with</summary>
                 if(Player.GetComponent<PlayerController>() != null) {
                     ///<summary>Set the state to PauseMenuState</summary>
                     GameManager.GM.SetState(new PauseMenuState(Player, Player.GetComponent<PlayerController>().PauseMenu));
@@ -43,6 +44,14 @@ public partial class PlayerWalkingState : State
                 ///<summary>Iteration ends here.</summary>
                 yield break;
             }
+            if (Input.GetKeyDown(GameManager.GM.Interact)) {
+                ///<summary>Wait for a frame after pressing the key</summary>
+                yield return new WaitForEndOfFrame();
+                Debug.Log("Pressed the Interact key");
+
+                ///<summary>Check if the point in front of the player is a valid object</summary>
+            }
+
             ///<summary>Wait for a frame</summary>
             yield return true;
         }

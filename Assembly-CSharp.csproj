@@ -65,6 +65,8 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\CorutineUpdater.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\InteractState.cs" />
+    <Compile Include="Assets\Scripts\InteractWithObject.cs" />
     <Compile Include="Assets\Scripts\IUpdater.cs" />
     <Compile Include="Assets\Scripts\MenuScript.cs" />
     <Compile Include="Assets\Scripts\NPCGridMovement.cs" />
