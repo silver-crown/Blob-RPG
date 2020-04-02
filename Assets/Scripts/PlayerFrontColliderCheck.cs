@@ -6,6 +6,7 @@ public class PlayerFrontColliderCheck : MonoBehaviour
 {
     int mask;
     public bool WalkingIntoWall;
+    public bool WalkingIntoInteractable;
 
     private void Update() {
         mask = LayerMask.GetMask("Obstacle");

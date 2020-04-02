@@ -10,8 +10,11 @@ public class PlayerGridMovement : MonoBehaviour
 {
     [SerializeField] private float moveSpeed;
     [SerializeField] private GameObject movePoint;
+    [SerializeField] private GameObject frontPoint;
     [SerializeField] Animator anim;
     [SerializeField] float gridLength;
+    /// <summary>The direction the player is currently looking</summary>
+    string direction;
     /// <summary> How long a button han been pressed for</summary>
     float pressTimer;
     /// <summary>The threshold for the press timer </summary>
@@ -29,6 +32,7 @@ public class PlayerGridMovement : MonoBehaviour
             moveSpeed = 2.0f;
         }
         movePoint.transform.parent = null;
+        frontPoint.transform.parent = null;
     }
 
     // Update is called once per frame
@@ -57,25 +61,30 @@ public class PlayerGridMovement : MonoBehaviour
                 pressTimer += Time.deltaTime;
                 if(pressTimer >= pressTimerThreshold) {
                     movePoint.transform.position += new Vector3(0.0f, gridLength, 0.0f);
-                    
+                    frontPoint.transform.position = movePoint.transform.position;
                 }
                 SetAnimationBools("Walking Up");
+                direction = "Up";
             } 
             ///<summary> Moving Down on the map</summary>
             else if (Input.GetKey(GameManager.GM.Downward)) {
                 pressTimer += Time.deltaTime;
                 if (pressTimer >= pressTimerThreshold) {
                     movePoint.transform.position += new Vector3(0.0f, -gridLength, 0.0f);
+                    frontPoint.transform.position = movePoint.transform.position;
                 }
                 SetAnimationBools("Walking Down");
+                direction = "Down";
             }
             ///<summary> Moving Right on the map</summary>
             else if (Input.GetKey(GameManager.GM.Left)) {
                 pressTimer += Time.deltaTime;
                 if (pressTimer >= pressTimerThreshold) {
                     movePoint.transform.position += new Vector3(-gridLength, 0.0f, 0.0f);
+                    frontPoint.transform.position = movePoint.transform.position;
                 }
                 SetAnimationBools("Walking Left");
+                direction = "Left";
             }
             ///<summary> Moving Right on the map</summary>
             else if (Input.GetKey(GameManager.GM.Right)) {
@@ -84,12 +93,16 @@ public class PlayerGridMovement : MonoBehaviour
                     movePoint.transform.position += new Vector3(gridLength, 0.0f, 0.0f);
                 }
                 SetAnimationBools("Walking Right");
+                direction = "Right";
             }
             else {
                 SetAnimationBools("Idle");
                 pressTimer = 0;
             }
         }
+
+        ///<summary>Which direction the the player looking?</summary>
+        LookingInDirection(direction);
     }
     /// <summary>
     /// A function for setting the animation bools for the animator, because I'm a lazy bum.
@@ -202,5 +215,22 @@ public class PlayerGridMovement : MonoBehaviour
     /// </summary>
     public void PauseAnimation() {
         SetAnimationBools("Idle");
+    }
+
+    void LookingInDirection(string direction) {
+        switch (direction) {
+            case ("Up"):
+                frontPoint.transform.position = new Vector3(transform.position.x, transform.position.y + gridLength, 0.0f);
+                break;
+            case ("Down"):
+                frontPoint.transform.position = new Vector3(transform.position.x, transform.position.y - gridLength, 0.0f);
+                break;
+            case ("Left"):
+                frontPoint.transform.position = new Vector3(transform.position.x - gridLength, transform.position.y, 0.0f);
+                break;
+            case ("Right"):
+                frontPoint.transform.position = new Vector3(transform.position.x + gridLength, transform.position.y, 0.0f);
+                break;
+        }
     }
 }
