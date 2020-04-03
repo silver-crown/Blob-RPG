@@ -42,11 +42,4 @@ public abstract class State
     public virtual IEnumerator Resume() {
         yield break;
     } 
-    /// <summary>
-    /// A function that runs every frame the state is active
-    /// </summary>
-    /// <returns></returns>
-    public virtual IEnumerator StateUpdate() {
-        yield break;
-    }
 }

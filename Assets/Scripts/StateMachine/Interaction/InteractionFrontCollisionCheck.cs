@@ -8,7 +8,7 @@ public class InteractionFrontCollisionCheck : MonoBehaviour
     /// </summary>
     /// <param name="collision"></param>
     private void OnCollisionEnter2D(Collision2D collision) {
-        if (collision.transform.CompareTag("Interactable")) {
+        if (collision.gameObject.GetComponent<Interactable>() != null) {
             Interactable = collision.gameObject;
         }
     }
@@ -17,7 +17,7 @@ public class InteractionFrontCollisionCheck : MonoBehaviour
     /// </summary>
     /// <param name="collision"></param>
     private void OnCollisionExit2D(Collision2D collision) {
-        if (collision.transform.CompareTag("Interactable")) {
+        if (collision.gameObject.GetComponent<Interactable>() != null) {
             Interactable = null;
         }
     }

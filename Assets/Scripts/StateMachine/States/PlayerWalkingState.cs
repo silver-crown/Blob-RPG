@@ -16,7 +16,7 @@ public partial class PlayerWalkingState : State
     public override IEnumerator Start() {
         Debug.Log("Starting PlayerWalking state");
         Player.GetComponent<PlayerGridMovement>().enabled = true;
-        return Execute();
+        yield return Execute();
     }
     public override IEnumerator End() {
         ///<summary>stop executing the state</summary>
@@ -49,8 +49,14 @@ public partial class PlayerWalkingState : State
                 yield return new WaitForEndOfFrame();
                 Debug.Log("Pressed the Interact key");
                 ///<summary>check if the object is interactable</summary>
-                if (Player.GetComponent<PlayerGridMovement>().CanIInteractWithThis() != null) {
+                if (Player.GetComponent<PlayerGridMovement>().CanIInteractWithThis()) {
                     Debug.Log("It's an interactable object!");
+                    ///<summary>End the state</summary>
+                    yield return End();
+                    ///<summary>Set the interaction state</summary>
+                    GameManager.GM.SetState(new InteractState(Player, Player.GetComponent<PlayerGridMovement>().CanIInteractWithThis()));
+                    ///<summary>Break the iteration</summary>
+                    yield break;
                 }
                 else {
                     Debug.Log("It's not an interactable object...");
@@ -71,3 +77,5 @@ public partial class PlayerWalkingState : State
         return base.Resume();
     }
 }
+
+

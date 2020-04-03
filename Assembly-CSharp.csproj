@@ -65,20 +65,21 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\CorutineUpdater.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
-    <Compile Include="Assets\Scripts\Interactable.cs" />
-    <Compile Include="Assets\Scripts\InteractionFrontCollisionCheck.cs" />
-    <Compile Include="Assets\Scripts\InteractState.cs" />
-    <Compile Include="Assets\Scripts\InteractWithObject.cs" />
     <Compile Include="Assets\Scripts\IUpdater.cs" />
     <Compile Include="Assets\Scripts\MenuScript.cs" />
     <Compile Include="Assets\Scripts\NPCGridMovement.cs" />
-    <Compile Include="Assets\Scripts\PauseMenuState.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\PlayerFrontColliderCheck.cs" />
     <Compile Include="Assets\Scripts\PlayerGridMovement.cs" />
-    <Compile Include="Assets\Scripts\PlayerWalkingState.cs" />
-    <Compile Include="Assets\Scripts\State.cs" />
-    <Compile Include="Assets\Scripts\StateMachine.cs" />
+    <Compile Include="Assets\Scripts\StateMachine\Interaction\Interactable.cs" />
+    <Compile Include="Assets\Scripts\StateMachine\Interaction\InteractableItem.cs" />
+    <Compile Include="Assets\Scripts\StateMachine\Interaction\InteractionFrontCollisionCheck.cs" />
+    <Compile Include="Assets\Scripts\StateMachine\Interaction\InteractWithObject.cs" />
+    <Compile Include="Assets\Scripts\StateMachine\State.cs" />
+    <Compile Include="Assets\Scripts\StateMachine\StateMachine.cs" />
+    <Compile Include="Assets\Scripts\StateMachine\States\InteractState.cs" />
+    <Compile Include="Assets\Scripts\StateMachine\States\PauseMenuState.cs" />
+    <Compile Include="Assets\Scripts\StateMachine\States\PlayerWalkingState.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/13sti/UnityProjects/Blob-RPG/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
