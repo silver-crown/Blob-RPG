@@ -80,6 +80,8 @@
     <Compile Include="Assets\Scripts\StateMachine\Interaction\InteractWithObject.cs" />
     <Compile Include="Assets\Scripts\StateMachine\State.cs" />
     <Compile Include="Assets\Scripts\StateMachine\StateMachine.cs" />
+    <Compile Include="Assets\Scripts\StateMachine\States\CutsceneState.cs" />
+    <Compile Include="Assets\Scripts\StateMachine\States\DialogueState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\States\InteractState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\States\PauseMenuState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\States\PlayerWalkingState.cs" />

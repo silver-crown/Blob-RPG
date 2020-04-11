@@ -18,11 +18,12 @@ public class InteractState : State
     }
 
     public override IEnumerator Start() {
-        Debug.Log("Starting Interact state");
+        Debug.Log("Starting Interact State");
         yield return Execute();
     }
 
     public override IEnumerator End() {
+        Debug.Log("Ending Interact State");
         return base.End();
     }
 
@@ -31,8 +32,14 @@ public class InteractState : State
             Debug.Log("Executing Interact state");
             ///<summary>Wait for a frame</summary>
             yield return new WaitForEndOfFrame();
+
+            //Get the interactable's dialoguetrigger
+            if(interactable.GetComponent<DialogueTrigger>() != null) {
+                yield return End();
+                ///<summary>Start the dialogue state</summary>
+                GameManager.GM.SetState(new DialogueState(Player ,interactable.GetComponent<DialogueTrigger>()));
+            }
             interactable.InteractWith();
-            GameManager.GM.SetState(new PlayerWalkingState(Player));
             yield return End();
             ///<summary>Iteration ends here.</summary>
             yield break;
