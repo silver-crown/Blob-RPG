@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
+    public DialogueTrigger dialogueTrigger;
     /// <summary>
     /// The various types of interactable objects
     /// </summary>
@@ -15,19 +16,14 @@ public class Interactable : MonoBehaviour
         Sign
     }
     public InteractableType interactableType;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    /// <summary>
+    /// Interact with whatever it is you're interacting with
+    /// </summary>
     public void InteractWith() {
-        if(interactableType == InteractableType.Item) {
+        ///<summary>Trigger the asociated dialogue</summary>
+        dialogueTrigger.TriggerDialogue();
+
+        if (interactableType == InteractableType.Item) {
             GetComponent<InteractableItem>().Interact();
         }
     }

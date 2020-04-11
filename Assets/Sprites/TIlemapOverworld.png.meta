@@ -1,32 +1,81 @@
 fileFormatVersion: 2
-guid: badafbdde3e1af740b3aed594fbb8e02
+guid: 159631c8d0da9254398851e6c241e19d
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: TIlemapOverworld_0
-    21300002: TIlemapOverworld_1
-    21300004: TIlemapOverworld_2
-    21300006: TIlemapOverworld_3
-    21300008: TIlemapOverworld_4
-    21300010: TIlemapOverworld_5
-    21300012: TIlemapOverworld_6
-    21300014: TIlemapOverworld_7
-    21300016: TIlemapOverworld_8
-    21300018: TIlemapOverworld_9
-    21300020: TIlemapOverworld_10
-    21300022: TIlemapOverworld_11
-    21300024: TIlemapOverworld_12
-    21300026: TIlemapOverworld_13
-    21300028: TIlemapOverworld_14
-    21300030: TIlemapOverworld_15
-    21300032: TIlemapOverworld_16
-    21300034: TIlemapOverworld_17
-    21300036: TIlemapOverworld_18
-    21300038: TIlemapOverworld_19
-    21300040: TIlemapOverworld_20
-    21300042: TIlemapOverworld_21
-    21300044: TIlemapOverworld_22
+  internalIDToNameTable:
+  - first:
+      213: -5277784309037592119
+    second: TIlemapOverworld 1_0
+  - first:
+      213: -3455962435377356361
+    second: TIlemapOverworld 1_1
+  - first:
+      213: 7900493689466428006
+    second: TIlemapOverworld 1_2
+  - first:
+      213: 2308625914835962653
+    second: TIlemapOverworld 1_3
+  - first:
+      213: -60076033676908819
+    second: TIlemapOverworld 1_4
+  - first:
+      213: -397801731827760329
+    second: TIlemapOverworld 1_5
+  - first:
+      213: -3090882898507243308
+    second: TIlemapOverworld 1_6
+  - first:
+      213: -1887151014469661319
+    second: TIlemapOverworld 1_7
+  - first:
+      213: -4442019308213743848
+    second: TIlemapOverworld 1_8
+  - first:
+      213: -786887548543271789
+    second: TIlemapOverworld 1_9
+  - first:
+      213: 8689757463417125445
+    second: TIlemapOverworld 1_10
+  - first:
+      213: -4771386203845257902
+    second: TIlemapOverworld 1_11
+  - first:
+      213: -7880965734500956015
+    second: TIlemapOverworld 1_12
+  - first:
+      213: 2157910521896585286
+    second: TIlemapOverworld 1_13
+  - first:
+      213: 2729083936299341630
+    second: TIlemapOverworld 1_14
+  - first:
+      213: -7582040006048186924
+    second: TIlemapOverworld 1_15
+  - first:
+      213: -728974830236269603
+    second: TIlemapOverworld 1_16
+  - first:
+      213: 1488343570337559843
+    second: TIlemapOverworld 1_17
+  - first:
+      213: 6493804045408836202
+    second: TIlemapOverworld 1_18
+  - first:
+      213: 3092786764977073502
+    second: TIlemapOverworld 1_19
+  - first:
+      213: 6080578893947383437
+    second: TIlemapOverworld 1_20
+  - first:
+      213: 1295469294568891251
+    second: TIlemapOverworld 1_21
+  - first:
+      213: -4363478317952366659
+    second: TIlemapOverworld 1_22
+  - first:
+      213: 4702278065794138909
+    second: TIlemapOverworld 1_23
   externalObjects: {}
-  serializedVersion: 9
+  serializedVersion: 10
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -81,10 +130,10 @@ TextureImporter:
   compressionQualitySet: 0
   textureFormatSet: 0
   platformSettings:
-  - serializedVersion: 2
+  - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
-    resizeAlgorithm: 1
+    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
     compressionQuality: 50
@@ -92,10 +141,11 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - serializedVersion: 2
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
-    resizeAlgorithm: 1
+    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
     compressionQuality: 50
@@ -103,11 +153,12 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: TIlemapOverworld_0
+      name: TIlemapOverworld 1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -121,13 +172,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8442875aadb584c4d9f3f39a8552827f
+      spriteID: 5393e945cad608d4bbb2dc11ab907fdb
+      internalID: -5277784309037592119
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TIlemapOverworld_1
+      name: TIlemapOverworld 1_1
       rect:
         serializedVersion: 2
         x: 16
@@ -141,13 +193,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a21035b9ac4debc48833a22f18276812
+      spriteID: 157439310e065034d9822bedc1bbf17b
+      internalID: -3455962435377356361
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TIlemapOverworld_2
+      name: TIlemapOverworld 1_2
       rect:
         serializedVersion: 2
         x: 32
@@ -161,13 +214,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 707daafc7faa9d24b92102e2687b4b4b
+      spriteID: f6d3adbcf083e934499852e9080f7abb
+      internalID: 7900493689466428006
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TIlemapOverworld_3
+      name: TIlemapOverworld 1_3
       rect:
         serializedVersion: 2
         x: 48
@@ -181,13 +235,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2a87133aa1a3d86478fa00bd22573662
+      spriteID: 7b1df6fcd876fea40948b20243520b3c
+      internalID: 2308625914835962653
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TIlemapOverworld_4
+      name: TIlemapOverworld 1_4
       rect:
         serializedVersion: 2
         x: 96
@@ -201,13 +256,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 09602b588289a614ab9318820e8b1095
+      spriteID: 8133aab02f7d80a47846b97368fee5d2
+      internalID: -60076033676908819
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TIlemapOverworld_5
+      name: TIlemapOverworld 1_5
       rect:
         serializedVersion: 2
         x: 112
@@ -221,13 +277,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 63044369f89cfac45b1858c96668088b
+      spriteID: bab64eb5d0ffbc94a8d38383f8b9afca
+      internalID: -397801731827760329
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TIlemapOverworld_6
+      name: TIlemapOverworld 1_6
       rect:
         serializedVersion: 2
         x: 0
@@ -241,13 +298,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1c4601aa1a7c6554e8d186665def79ca
+      spriteID: ad6f4cb084e0a93468a38d97afcdaf74
+      internalID: -3090882898507243308
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TIlemapOverworld_7
+      name: TIlemapOverworld 1_7
       rect:
         serializedVersion: 2
         x: 16
@@ -261,13 +319,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cdcb9ab258291324ba0f5d9168cfd079
+      spriteID: 47f0cb68b59e3b140b1f36a7bf87e751
+      internalID: -1887151014469661319
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TIlemapOverworld_8
+      name: TIlemapOverworld 1_8
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b1df90a582c5524e8068d686c405bbe
+      internalID: -4442019308213743848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TIlemapOverworld 1_9
       rect:
         serializedVersion: 2
         x: 96
@@ -281,13 +361,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 01dfbc4a7d84fb94eab9696bf350ca99
+      spriteID: 8dc19d7ec8ee6d248b2cfd9291b4fc29
+      internalID: -786887548543271789
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TIlemapOverworld_9
+      name: TIlemapOverworld 1_10
       rect:
         serializedVersion: 2
         x: 112
@@ -301,13 +382,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 27ea4d88d97a1254aabf9b83206adaee
+      spriteID: 51337a3990effe34e97a752b9cddd97e
+      internalID: 8689757463417125445
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TIlemapOverworld_10
+      name: TIlemapOverworld 1_11
       rect:
         serializedVersion: 2
         x: 0
@@ -321,13 +403,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2d28e6ec9616fa247af52d051092eaf6
+      spriteID: 8a86e9ed20cb9234c8930ce2acaccec4
+      internalID: -4771386203845257902
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TIlemapOverworld_11
+      name: TIlemapOverworld 1_12
       rect:
         serializedVersion: 2
         x: 16
@@ -341,13 +424,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fd7939e729653324298166a0f20ba5bc
+      spriteID: ae9f5d354b79d3d428712ff9920d878a
+      internalID: -7880965734500956015
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TIlemapOverworld_12
+      name: TIlemapOverworld 1_13
       rect:
         serializedVersion: 2
         x: 32
@@ -361,13 +445,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7e8a9ea047452894cae5ba46d0bca7d5
+      spriteID: 413a4eceaeeddbf44b2bcf16232ad07b
+      internalID: 2157910521896585286
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TIlemapOverworld_13
+      name: TIlemapOverworld 1_14
       rect:
         serializedVersion: 2
         x: 48
@@ -381,13 +466,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 09c59fc752baca14991d52bb60134d65
+      spriteID: fbd2c992971ef514698b49cc597e10e2
+      internalID: 2729083936299341630
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TIlemapOverworld_14
+      name: TIlemapOverworld 1_15
       rect:
         serializedVersion: 2
         x: 64
@@ -401,13 +487,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1f73c6581bfd05d4797dc0e11c76eec8
+      spriteID: e6a7c2b18bcc3844d8f409a7517de8a9
+      internalID: -7582040006048186924
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TIlemapOverworld_15
+      name: TIlemapOverworld 1_16
       rect:
         serializedVersion: 2
         x: 80
@@ -421,13 +508,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0b318011444ff494682df38f9f33d0b2
+      spriteID: 0e20372268da71d409381941354c8590
+      internalID: -728974830236269603
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TIlemapOverworld_16
+      name: TIlemapOverworld 1_17
       rect:
         serializedVersion: 2
         x: 96
@@ -441,13 +529,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1e636744a3cbd394a83411be122d066b
+      spriteID: 15fcefe02eaa38143b2040feaa3d2e0b
+      internalID: 1488343570337559843
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TIlemapOverworld_17
+      name: TIlemapOverworld 1_18
       rect:
         serializedVersion: 2
         x: 32
@@ -461,13 +550,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 707b386453450ab4c8269737b80928dc
+      spriteID: 84d8e84deec2e4b46804264fccaf7d21
+      internalID: 6493804045408836202
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TIlemapOverworld_18
+      name: TIlemapOverworld 1_19
       rect:
         serializedVersion: 2
         x: 48
@@ -481,13 +571,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2ee1fb8ef6dfdd840b0a637c4dafcd15
+      spriteID: f20a13784799fad42bb63da5d0ea9e22
+      internalID: 3092786764977073502
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TIlemapOverworld_19
+      name: TIlemapOverworld 1_20
       rect:
         serializedVersion: 2
         x: 64
@@ -501,13 +592,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 38fc6a023fccdef4098d978e05190915
+      spriteID: eacec25296f2c2c4cb1e40428427f4fd
+      internalID: 6080578893947383437
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TIlemapOverworld_20
+      name: TIlemapOverworld 1_21
       rect:
         serializedVersion: 2
         x: 80
@@ -521,13 +613,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6324fbf85cb42b4449aa6f1ac4751f58
+      spriteID: 9418847e055d4da4dba893f21eca94d8
+      internalID: 1295469294568891251
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TIlemapOverworld_21
+      name: TIlemapOverworld 1_22
       rect:
         serializedVersion: 2
         x: 96
@@ -541,13 +634,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d936d4b77aa5a384994db30f56826c30
+      spriteID: 00fe0929384e0e142bb9314e17a6cd34
+      internalID: -4363478317952366659
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TIlemapOverworld_22
+      name: TIlemapOverworld 1_23
       rect:
         serializedVersion: 2
         x: 112
@@ -561,7 +655,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 75487100eeba1414083174b4b84912f9
+      spriteID: c0feba11d9798b84d924a652c89a3f53
+      internalID: 4702278065794138909
       vertices: []
       indices: 
       edges: []
@@ -569,11 +664,13 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: fa27d8b34cf2fc24e901b87e1b5349ad
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
+    secondaryTextures: []
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
