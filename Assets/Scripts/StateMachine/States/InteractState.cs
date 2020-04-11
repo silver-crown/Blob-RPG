@@ -23,7 +23,6 @@ public class InteractState : State
     }
 
     public override IEnumerator End() {
-        Debug.Log("Ending Interact State");
         return base.End();
     }
 

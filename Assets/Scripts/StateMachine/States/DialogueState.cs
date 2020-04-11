@@ -16,7 +16,6 @@ class DialogueState : State
         return Execute();
     }
     public override IEnumerator End() {
-        Debug.Log("Ending Dialogue State");
         ///<summary>The new state is being set back to player in the previous state, nothing needs to be done here.</summary>
         return base.End();
     }
@@ -26,12 +25,11 @@ class DialogueState : State
         dialogueTrigger.TriggerDialogue();
         ///<summary>This loop runs every frame until the test key is pressed</summary>
         while (true) {
-            ///<summary>Wait for a frame after pressing the key</summary>
-            yield return new WaitForEndOfFrame();
+            ///<summary>If there's more sentences left to be displayed</summary>
             ///<summary>End the current state</summary>
             yield return End();
             ///<summary>Set the new state</summary>
-            GameManager.GM.SetState(new PlayerWalkingState(Player));
+            //GameManager.GM.SetState(new PlayerWalkingState(Player));
             yield break;
         }
     }

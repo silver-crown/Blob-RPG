@@ -32,17 +32,29 @@ public class DialogueManager : MonoBehaviour
         foreach(string sentence in dialogue.sentences) {
             sentences.Enqueue(sentence);
         }
-        DisplayNextSentence();
+        StartCoroutine(DisplayNextSentence());
     }
 
-    public void DisplayNextSentence() {
-        if(sentences.Count <= 0) {
-            EndDialogue();
-            return;
-        }
+    public IEnumerator DisplayNextSentence() {
         string sentence = sentences.Dequeue();
         Debug.Log(sentence);
+        new WaitForEndOfFrame();
+        ///<summary>While there's still sentences left, wait for input before displaying the next sentence</summary>
+        while (true) {
+            if (Input.GetKeyDown(GameManager.GM.Interact)) {
+                new WaitForEndOfFrame();
+                sentence = sentences.Dequeue();
+                Debug.Log(sentence);
+            }
+                if (sentences.Count <= 0) {
+                EndDialogue();
+                yield break;
+            }
+            ///<summary>Wait for a frame</summary>
+            yield return true;
+        }
     }
+
     void EndDialogue() {
         Debug.Log("End of dialogue");
     }

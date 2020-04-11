@@ -3350,6 +3350,49 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &691744773
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 691744775}
+  - component: {fileID: 691744774}
+  m_Layer: 0
+  m_Name: DialogueManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &691744774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 691744773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f4e8eca50fe7e6439d8307a5e5881b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &691744775
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 691744773}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.6033051, y: -0.33891866, z: -39.06836}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &702922572
 GameObject:
   m_ObjectHideFlags: 0
@@ -6739,6 +6782,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b625ec10af160764cb78a2eadc13867a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogueTrigger: {fileID: 0}
   interactableType: 0
 --- !u!114 &1462627146
 MonoBehaviour:
@@ -6752,7 +6796,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 619a61d15b7026c448261a1f168439ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueTrigger: {fileID: 1462627147}
 --- !u!114 &1462627147
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6769,6 +6812,11 @@ MonoBehaviour:
   - name: hello
     sentences:
     - An ordinary nothing.
+    - An ordinary nothing.
+  - name: negroid
+    sentences:
+    - "alabama\t"
+    - bus seat
 --- !u!1 &1644468923
 GameObject:
   m_ObjectHideFlags: 0
