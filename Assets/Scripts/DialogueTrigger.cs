@@ -1,14 +1,20 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
 public class DialogueTrigger : MonoBehaviour
 {
-    public Dialogue[] dialogue;
-
+    public Dialogue[] dialogues;
+    public enum TransitioningState
+    {
+        WalkingState,
+        BattleState,
+        ShopState
+    }
+    /// <summary>The state which dialogue will transition into upon completion</summary>
+    public TransitioningState transitioningState;
     public void TriggerDialogue() {
-       if(dialogue.Length != 0) {
-           foreach (Dialogue d in dialogue) {
-                Debug.Log("displaying new dialogue");
-                DialogueManager.DM.StartDialogue(d);
-           }
-       }
+        Debug.Log("displaying new dialogue");
+        DialogueManager.DM.StartDialogue(dialogues);
     }
 }
