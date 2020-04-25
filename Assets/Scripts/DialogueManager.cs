@@ -8,6 +8,8 @@ public class DialogueManager : MonoBehaviour
     public Queue<string> sentences;
     /// <summary>Index of current dialogue being displayed</summary>
     int currentDialogue;
+    /// <summary>Simple variable to check that it's done displaying dialogues</summary>
+    public bool done;
     // Start is called before the first frame update
     void Start()
     {
@@ -56,7 +58,7 @@ public class DialogueManager : MonoBehaviour
         while (true) {
             ///<summary>if the interact button is pressed, there's no sentences left, but there's still dialogues</summary>
             if (Input.GetKeyDown(GameManager.GM.Interact)) {
-                new WaitForEndOfFrame();
+                yield return 0;
                 if (sentences.Count <= 0) {
                     ///<summary>If there's no sentences left, but there's still dialogues</summary>
                     if (currentDialogue != dialogues.Length - 1) {
@@ -86,6 +88,7 @@ public class DialogueManager : MonoBehaviour
 
     void EndDialogue() {
         Debug.Log("End of dialogue chain");
-        currentDialogue = 1;
+        currentDialogue = 0;
+        done = true;
     }
 }

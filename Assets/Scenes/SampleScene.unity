@@ -6716,13 +6716,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1462627141}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0.003435346, z: 0, w: 0.99999416}
   m_LocalPosition: {x: 0, y: -2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -0.39400002, z: 0}
 --- !u!61 &1462627143
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6734,7 +6734,7 @@ BoxCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
@@ -6808,15 +6808,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccd04ed95dfddfb4ea9f0f239e7a1a8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogue:
-  - name: hello
+  dialogues:
+  - name: someone
     sentences:
-    - An ordinary nothing.
-    - An ordinary nothing.
-  - name: negroid
+    - Just an ordinary nothing
+    - One day it'll become a great something
+  - name: egg
     sentences:
-    - "alabama\t"
-    - bus seat
+    - fuck niggy
+  transitioningState: 0
 --- !u!1 &1644468923
 GameObject:
   m_ObjectHideFlags: 0

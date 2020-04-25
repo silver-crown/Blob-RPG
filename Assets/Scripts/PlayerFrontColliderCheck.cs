@@ -11,7 +11,6 @@ public class PlayerFrontColliderCheck : MonoBehaviour
     private void Update() {
         mask = LayerMask.GetMask("Obstacle");
         if (Physics2D.OverlapCircle(transform.position, 0.2f, mask)) {
-            Debug.Log("Front Collider overlapping");
             WalkingIntoWall = true;
         }
         else {
