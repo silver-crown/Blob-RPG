@@ -9,7 +9,7 @@ using UnityEngine;
 public class PlayerGridMovement : MonoBehaviour
 {
     [SerializeField] private float moveSpeed;
-    [SerializeField] private GameObject movePoint;
+    [SerializeField] public GameObject movePoint;
     [SerializeField] public GameObject frontPoint;
     [SerializeField] Animator anim;
     [SerializeField] float gridLength;
@@ -53,6 +53,7 @@ public class PlayerGridMovement : MonoBehaviour
         if(movePoint.GetComponent<PlayerFrontColliderCheck>().WalkingIntoWall) {
             Debug.Log("Player walking into a wall!");
             movePoint.transform.position = transform.position;
+            ///<summary>Add a check for if you're walking into a scene loader here, if so, abort everything</summary>
         }
         else {
             transform.position = Vector3.MoveTowards(transform.position, movePoint.transform.position, moveSpeed * Time.deltaTime);

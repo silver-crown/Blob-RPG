@@ -5,10 +5,12 @@ using UnityEngine;
 class DialogueState : State
 {
     GameObject Player;
+    Interactable interactable;
     DialogueTrigger dialogueTrigger;
-    public DialogueState(GameObject player, DialogueTrigger d) {
+    public DialogueState(GameObject player, Interactable i) {
         Player = player;
-        dialogueTrigger = d;
+        interactable = i;
+        dialogueTrigger = i.GetComponent<DialogueTrigger>();
     }
 
     public override IEnumerator Start() {
@@ -31,6 +33,7 @@ class DialogueState : State
             if (DialogueManager.DM.done) {
                 switch (dialogueTrigger.transitioningState) {
                     case DialogueTrigger.TransitioningState.WalkingState:
+                        interactable.InteractWith();
                         GameManager.GM.SetState(new PlayerWalkingState(Player));
                         break;
                     case DialogueTrigger.TransitioningState.BattleState:
@@ -47,14 +50,6 @@ class DialogueState : State
             ///<summary>Set the new state</summary>
             yield return true;
         }
-    }
-
-    public override IEnumerator Pause() {
-        return base.Pause();
-    }
-
-    public override IEnumerator Resume() {
-        return base.Resume();
     }
 }
 

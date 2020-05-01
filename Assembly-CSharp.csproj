@@ -63,7 +63,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\LevelLoader.cs" />
     <Compile Include="Assets\Scripts\CorutineUpdater.cs" />
     <Compile Include="Assets\Scripts\Dialogue.cs" />
     <Compile Include="Assets\Scripts\DialogueManager.cs" />
@@ -86,6 +85,9 @@
     <Compile Include="Assets\Scripts\StateMachine\States\InteractState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\States\PauseMenuState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\States\PlayerWalkingState.cs" />
+    <Compile Include="Assets\Scripts\StateMachine\States\TransitionState.cs" />
+    <Compile Include="Assets\Scripts\Transitioner.cs" />
+    <Compile Include="Assets\Scripts\TransitionManager.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/13sti/UnityProjects/Blob-RPG/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

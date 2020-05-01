@@ -32,24 +32,19 @@ public class InteractState : State
             ///<summary>Wait for a frame</summary>
             yield return new WaitForEndOfFrame();
 
-            //Get the interactable's dialoguetrigger
+            //<summary>Get the interactable's dialoguetrigger</summary>
             if(interactable.GetComponent<DialogueTrigger>() != null) {
-                yield return End();
                 ///<summary>Start the dialogue state</summary>
-                GameManager.GM.SetState(new DialogueState(Player ,interactable.GetComponent<DialogueTrigger>()));
+                GameManager.GM.SetState(new DialogueState(Player, interactable));
             }
-            interactable.InteractWith();
-            yield return End();
+            ///<summary>If there is none just interact normally</summary>
+            else {
+                interactable.InteractWith();
+                ///<summary>Start the walking state</summary>
+                GameManager.GM.SetState(new PlayerWalkingState(Player));
+            }
             ///<summary>Iteration ends here.</summary>
             yield break;
         }
-    }
-
-    public override IEnumerator Pause() {
-        return base.Pause();
-    }
-
-    public override IEnumerator Resume() {
-        return base.Resume();
     }
 }

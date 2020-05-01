@@ -48,12 +48,14 @@ public class DialogueManager : MonoBehaviour
     /// <returns></returns>
     public IEnumerator DisplayNextSentence(Dialogue[] dialogues) {
         string sentence;
-        if (currentDialogue == 0) {
+        //For some reason, it was a problem that it would register two presses once a dialogue was finished, it seems i fixed it so 
+        //the 'if' is unnecessary???
+       // if (currentDialogue == 0) {
             Debug.Log(currentDialogue);
             sentence = sentences.Dequeue();
             Debug.Log(sentence);
             new WaitForEndOfFrame();
-        }
+        //}
         ///<summary>While there's still sentences left, wait for input before displaying the next sentence</summary>
         while (true) {
             ///<summary>if the interact button is pressed, there's no sentences left, but there's still dialogues</summary>

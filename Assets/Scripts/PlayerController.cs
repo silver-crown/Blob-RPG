@@ -9,15 +9,23 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] public MenuScript PauseMenu;
+    [SerializeField] public GameObject MovePoint;
+    static public GameObject Player;
 
     // Start is called before the first frame update
     void Start()
     {
         PauseMenu.transform.SetParent(null);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
+    private void Awake() {
+        //If a manager doesn't already exist, make this the manager
+        if (Player == null) {
+            DontDestroyOnLoad(this);
+            Player = gameObject;
+        }
+        //if there is a manager 
+        else if (Player != this) {
+            Destroy(gameObject);
+        }
     }
 }

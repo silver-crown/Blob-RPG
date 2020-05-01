@@ -216,9 +216,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4167283876880344429}
-  - component: {fileID: 5150580095827863954}
+  - component: {fileID: 7919962884672173533}
   m_Layer: 0
-  m_Name: LevelLoader
+  m_Name: TransitionManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -239,7 +239,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5150580095827863954
+--- !u!114 &7919962884672173533
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -248,7 +248,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4167283876880344428}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74cea3989591f504bae98243933a4ba5, type: 3}
+  m_Script: {fileID: 11500000, guid: 08c0cfffce514164db4dcee25f4bb86f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   transition: {fileID: 4167283876308594893}

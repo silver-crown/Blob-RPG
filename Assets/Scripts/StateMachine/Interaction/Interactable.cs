@@ -21,7 +21,7 @@ public class Interactable : MonoBehaviour
     /// </summary>
     public void InteractWith() {
         ///<summary>Trigger the asociated dialogue</summary>
-       // dialogueTrigger.TriggerDialogue();
+        //dialogueTrigger.TriggerDialogue();
 
         if (interactableType == InteractableType.Item) {
             GetComponent<InteractableItem>().Interact();
