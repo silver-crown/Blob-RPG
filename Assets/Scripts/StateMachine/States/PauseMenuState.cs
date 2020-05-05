@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class PauseMenuState : State
 {
-    GameObject Player;
     MenuScript PauseMenu;
-    public PauseMenuState(GameObject player, MenuScript pauseMenu) {
-        Player = player;
+    public PauseMenuState(MenuScript pauseMenu) {
         PauseMenu = pauseMenu; 
     }
 
@@ -38,7 +36,7 @@ public class PauseMenuState : State
                 ///<summary>End the current state</summary>
                 yield return End();
                 ///<summary>Set the new state</summary>
-                GameManager.GM.SetState(new PlayerWalkingState(Player));
+                GameManager.GM.SetState(new OverworldState());
                 yield break;
             }
             ///<summary>Wait for a frame</summary>

@@ -4,11 +4,9 @@ using UnityEngine;
 
 class DialogueState : State
 {
-    GameObject Player;
     Interactable interactable;
     DialogueTrigger dialogueTrigger;
-    public DialogueState(GameObject player, Interactable i) {
-        Player = player;
+    public DialogueState(Interactable i) {
         interactable = i;
         dialogueTrigger = i.GetComponent<DialogueTrigger>();
     }
@@ -34,7 +32,7 @@ class DialogueState : State
                 switch (dialogueTrigger.transitioningState) {
                     case DialogueTrigger.TransitioningState.WalkingState:
                         interactable.InteractWith();
-                        GameManager.GM.SetState(new PlayerWalkingState(Player));
+                        GameManager.GM.SetState(new OverworldState());
                         break;
                     case DialogueTrigger.TransitioningState.BattleState:
                         break;

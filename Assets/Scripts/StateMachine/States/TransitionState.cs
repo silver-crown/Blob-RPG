@@ -4,19 +4,25 @@ using UnityEngine;
 
 public class TransitionState : State
 {
-    GameObject Player;
-    GameObject Other;
-    TransitionState(GameObject player, GameObject other) : base() {
-        Player = player;
-        Other = other;
+    public TransitionState() : base() {
     }
 
     public override IEnumerator Start() {
-        return base.Start();
+        yield return Execute();
     }
 
     public override IEnumerator Execute() {
-        return base.Execute();
+        while (true) {
+
+            ///<summary>If it's done transitioning, the world can move again</summary>
+            if (!TransitionManager.TM.Transitioning) {
+                GameManager.GM.SetState(new OverworldState());
+                yield break;
+            }
+
+            ///<summary>TODO: Transition into a battle state when this is appropriate.</summary>
+            yield return true;
+        }
     }
 
     public override IEnumerator End() {

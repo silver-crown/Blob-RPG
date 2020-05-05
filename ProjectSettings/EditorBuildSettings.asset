@@ -6,9 +6,33 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/WorldScene.unity
+    path: Assets/Scenes/BluesHome.unity
     guid: 5b2d57e79d7b39043b0f8f4b0bfc3dbe
   - enabled: 1
-    path: Assets/Scenes/FirstHouseScene.unity
-    guid: 87fa57d087c1f2e418597e7c74cc80a4
+    path: Assets/Plugins/Pixel Crushers/Scene Streamer/Example/Scenes/Scene 1.unity
+    guid: 9878f3c53dac0e9448bcb1919c3157eb
+  - enabled: 1
+    path: Assets/Plugins/Pixel Crushers/Scene Streamer/Example/Scenes/Scene 2.unity
+    guid: 4a977d68192c8904d9c8a700ba3c26f9
+  - enabled: 1
+    path: Assets/Plugins/Pixel Crushers/Scene Streamer/Example/Scenes/Scene 3.unity
+    guid: 2503db24a83ffea43a7ae66020261a2b
+  - enabled: 1
+    path: Assets/Plugins/Pixel Crushers/Scene Streamer/Example/Scenes/Scene 4.unity
+    guid: 69cadd23fd89604428f1bfdcd1cab20f
+  - enabled: 1
+    path: Assets/Plugins/Pixel Crushers/Scene Streamer/Example/Scenes/Scene 5.unity
+    guid: 92d9515f29d6f684abc89e4b84b84afd
+  - enabled: 1
+    path: Assets/Plugins/Pixel Crushers/Scene Streamer/Example/Scenes/Scene 6.unity
+    guid: 3ad20b4d4d9179649bf263f5bbf4521e
+  - enabled: 1
+    path: Assets/Scenes/AboveBluesHome.unity
+    guid: a23e461c2b276ea46bc0a863b97ea2af
+  - enabled: 1
+    path: Assets/Scenes/BelowBluesHome.unity
+    guid: a08b36739828b8f4aa6bdc0802ef5a5f
+  - enabled: 1
+    path: Assets/Scenes/BonusScene.unity
+    guid: 30686c6a0b710ba4b865caacb6ba2c63
   m_configObjects: {}

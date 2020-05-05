@@ -37,7 +37,7 @@ public class GameManager : StateMachine
     #region State Machine
 
     private void Start() {
-        SetState(new PlayerWalkingState(Player));
+        SetState(new OverworldState());
     }
     #endregion
 }

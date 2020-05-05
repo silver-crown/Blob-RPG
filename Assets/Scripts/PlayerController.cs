@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
         PauseMenu.transform.SetParent(null);
     }
     private void Awake() {
-        //If a manager doesn't already exist, make this the manager
+        //If a player doesn't already exist, make this the player
         if (Player == null) {
             DontDestroyOnLoad(this);
             Player = gameObject;

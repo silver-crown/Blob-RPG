@@ -6,21 +6,20 @@ using UnityEngine.SceneManagement;
 
 public class TransitionManager : MonoBehaviour
 {
-    public static TransitionManager LL;
+    public static TransitionManager TM;
     public string transitionSpot;
     public Animator transition;
     public float transitionTime = 1.0f;
     private GameObject[] doors;
-    private GameObject movePoint;
-    bool levelWasLoaded;
+    public bool Transitioning;
     private void Awake() {
         //If a manager doesn't already exist, make this the manager
-        if (LL == null) {
+        if (TM == null) {
             DontDestroyOnLoad(this);
-            LL = this;
+            TM = this;
         }
         //if there is a manager 
-        else if (LL != this) {
+        else if (TM != this) {
             Destroy(gameObject);
         }
     }
@@ -32,6 +31,7 @@ public class TransitionManager : MonoBehaviour
     public  IEnumerator LoadLevel(string scene) {
         transition.ResetTrigger("End");
         transition.SetTrigger("Start");
+        Transitioning = true;
         yield return new WaitForSeconds(transitionTime);
         SceneManager.LoadScene(scene);
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -53,6 +53,7 @@ public class TransitionManager : MonoBehaviour
         }
         transition.ResetTrigger("Start");
         transition.SetTrigger("End");
+        Transitioning = false;
     }
 }
 

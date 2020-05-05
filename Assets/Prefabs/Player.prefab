@@ -1211,6 +1211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PauseMenu: {fileID: 6368644126188469952}
+  MovePoint: {fileID: 0}
 --- !u!114 &6368644126866965958
 MonoBehaviour:
   m_ObjectHideFlags: 0

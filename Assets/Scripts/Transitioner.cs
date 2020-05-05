@@ -10,8 +10,8 @@ public class Transitioner : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision) {
         if (collision.gameObject.tag == "Player") {
-            TransitionManager.LL.transitionSpot = transitionSpot;
-            StartCoroutine(TransitionManager.LL.LoadLevel(sceneToTransitionTo));
+            TransitionManager.TM.transitionSpot = transitionSpot;
+            StartCoroutine(TransitionManager.TM.LoadLevel(sceneToTransitionTo));
         }
     }
 }

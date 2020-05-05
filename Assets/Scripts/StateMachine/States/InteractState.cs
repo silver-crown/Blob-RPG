@@ -7,12 +7,10 @@ using UnityEngine;
 /// </summary>
 public class InteractState : State
 {
-    public GameObject Player;
     public GameObject other;
     private Interactable interactable;
 
-    public InteractState(GameObject player,GameObject Other) : base() {
-        Player = player;
+    public InteractState(GameObject Other) : base() {
         other = Other;
         interactable = Other.gameObject.GetComponent<Interactable>();
     }
@@ -35,13 +33,13 @@ public class InteractState : State
             //<summary>Get the interactable's dialoguetrigger</summary>
             if(interactable.GetComponent<DialogueTrigger>() != null) {
                 ///<summary>Start the dialogue state</summary>
-                GameManager.GM.SetState(new DialogueState(Player, interactable));
+                GameManager.GM.SetState(new DialogueState(interactable));
             }
             ///<summary>If there is none just interact normally</summary>
             else {
                 interactable.InteractWith();
                 ///<summary>Start the walking state</summary>
-                GameManager.GM.SetState(new PlayerWalkingState(Player));
+                GameManager.GM.SetState(new OverworldState());
             }
             ///<summary>Iteration ends here.</summary>
             yield break;
