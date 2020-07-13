@@ -83,6 +83,11 @@ public class MenuScript : MonoBehaviour
                 buttonText.text = GameManager.GM.Pause.ToString();
                 PlayerPrefs.SetString("PauseKey", GameManager.GM.Pause.ToString());
                 break;
+            case ("Sprint"):
+                GameManager.GM.Sprint = newKey;
+                buttonText.text = GameManager.GM.Sprint.ToString();
+                PlayerPrefs.SetString("SprintKey", GameManager.GM.Sprint.ToString());
+                break;
         }
         yield return null;
     }
@@ -92,26 +97,37 @@ public class MenuScript : MonoBehaviour
     /// </summary>
     /// <returns></returns>
     void SetupMenuButtonNames() {
-        for (int i = 0; i < menuPanel.childCount; i++) {
-            if (ButtonNames().Contains(menuPanel.GetChild(i).name)) {
-                switch (menuPanel.GetChild(i).name) {
-                    case "ForwardKey":
-                        menuPanel.GetChild(i).GetComponentInChildren<Text>().text = GameManager.GM.Upward.ToString();
-                        break;
-                    case "BackwardKey":
-                        menuPanel.GetChild(i).GetComponentInChildren<Text>().text = GameManager.GM.Downward.ToString();
-                        break;
-                    case "LeftKey":
-                        menuPanel.GetChild(i).GetComponentInChildren<Text>().text = GameManager.GM.Left.ToString();
-                        break;
-                    case "RightKey":
-                        menuPanel.GetChild(i).GetComponentInChildren<Text>().text = GameManager.GM.Right.ToString();
-                        break;
-                    case "PauseKey":
-                        menuPanel.GetChild(i).GetComponentInChildren<Text>().text = GameManager.GM.Pause.ToString();
-                        break;
-                }
+        Transform[] allPanelChildren = menuPanel.GetComponentsInChildren<Transform>();
+        foreach(Transform i in allPanelChildren){
+            switch(i.name){
+                case "ForwardKey":
+                    i.GetComponentInChildren<Text>().text = GameManager.GM.Upward.ToString();
+                    break;
+                case "BackwardKey":
+                    i.GetComponentInChildren<Text>().text = GameManager.GM.Downward.ToString();
+                    break;
+                case "LeftKey":
+                    i.GetComponentInChildren<Text>().text = GameManager.GM.Left.ToString();
+                    break;
+                case "RightKey":
+                    i.GetComponentInChildren<Text>().text = GameManager.GM.Right.ToString();
+                    break;
+                case "PauseKey":
+                    i.GetComponentInChildren<Text>().text = GameManager.GM.Pause.ToString();
+                    break;  
+                case "SprintKey":
+                    i.GetComponentInChildren<Text>().text = GameManager.GM.Sprint.ToString();
+                    break;  
             }
+        }
+    }
+
+
+    public void ToggleButtons(string keyName){
+        switch(keyName){
+            case "ToggleSprint":
+            Debug.Log("heil hitler");
+            break;
         }
     }
     //iterate through the list of names, it it matches. do the thing
@@ -124,4 +140,6 @@ public class MenuScript : MonoBehaviour
         buttonNames.Add("PauseKey");
         return buttonNames;
     }
+    //^^^^ Idk what this does, it's never used for anything ever.
 }
+

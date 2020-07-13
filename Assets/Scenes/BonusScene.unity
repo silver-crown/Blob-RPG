@@ -322,6 +322,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1636624297367724523, guid: 3f0a14b4c1c92f44e9273fedd11afd74,
+        type: 3}
+      propertyPath: transitionSpot
+      value: nothing
+      objectReference: {fileID: 0}
     - target: {fileID: 6880903541910699601, guid: 3f0a14b4c1c92f44e9273fedd11afd74,
         type: 3}
       propertyPath: m_IsTrigger
@@ -2840,15 +2845,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1636624297367724523, guid: 3f0a14b4c1c92f44e9273fedd11afd74,
+        type: 3}
+      propertyPath: transitionSpot
+      value: nil
+      objectReference: {fileID: 0}
     - target: {fileID: 6880903541910699601, guid: 3f0a14b4c1c92f44e9273fedd11afd74,
         type: 3}
       propertyPath: m_IsTrigger
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1636624297367724523, guid: 3f0a14b4c1c92f44e9273fedd11afd74,
-        type: 3}
-      propertyPath: transitionSpot
-      value: ByTheTrees
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f0a14b4c1c92f44e9273fedd11afd74, type: 3}
@@ -5901,16 +5906,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 6368644126916595587, guid: 2f0d5d46350d66f41ab1cc4e0fef548f,
-        type: 3}
-      propertyPath: orthographic size
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 6368644126916595587, guid: 2f0d5d46350d66f41ab1cc4e0fef548f,
-        type: 3}
-      propertyPath: near clip plane
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6368644126866965957, guid: 2f0d5d46350d66f41ab1cc4e0fef548f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5975,6 +5970,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6368644126916595587, guid: 2f0d5d46350d66f41ab1cc4e0fef548f,
+        type: 3}
+      propertyPath: orthographic size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6368644126916595587, guid: 2f0d5d46350d66f41ab1cc4e0fef548f,
+        type: 3}
+      propertyPath: near clip plane
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f0d5d46350d66f41ab1cc4e0fef548f, type: 3}

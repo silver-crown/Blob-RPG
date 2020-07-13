@@ -13,6 +13,7 @@ public class GameManager : StateMachine
     public KeyCode Right { get; set; }
     public KeyCode Pause { get; set; }
     public KeyCode Interact { get; set; }
+    public KeyCode Sprint { get; set; }
 
     private void Awake() {
        //If a manager doesn't already exist, make this the manager
@@ -31,6 +32,7 @@ public class GameManager : StateMachine
         Right = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("RightKey", "D"));
         Pause = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("PauseKey", "Escape"));
         Interact = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("InteractKey", "E"));
+        Sprint = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("SprintKey", "LeftShift"));
     }
     #endregion
 

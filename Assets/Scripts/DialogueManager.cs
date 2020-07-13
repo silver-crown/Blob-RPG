@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -11,10 +12,13 @@ public class DialogueManager : MonoBehaviour
     /// <summary>Simple variable to check that it's done displaying dialogues</summary>
     public bool done;
     // Start is called before the first frame update
+    public Canvas dialogueBox;
+    [SerializeField] Text dialogueText;
+    [SerializeField] Text dialogueName;
     void Start()
     {
         sentences = new Queue<string>();
-
+        dialogueBox.gameObject.SetActive(false);
     }
 
     private void Awake() {
@@ -54,11 +58,12 @@ public class DialogueManager : MonoBehaviour
             Debug.Log(currentDialogue);
             sentence = sentences.Dequeue();
             Debug.Log(sentence);
-            new WaitForEndOfFrame();
         //}
         ///<summary>While there's still sentences left, wait for input before displaying the next sentence</summary>
         while (true) {
-            ///<summary>if the interact button is pressed, there's no sentences left, but there's still dialogues</summary>
+            dialogueName.text = dialogues[currentDialogue].name; 
+            dialogueText.text = sentence;
+            ///<summary>if the interact button is pressed</summary>
             if (Input.GetKeyDown(GameManager.GM.Interact)) {
                 yield return 0;
                 if (sentences.Count <= 0) {
@@ -83,7 +88,6 @@ public class DialogueManager : MonoBehaviour
                     Debug.Log(sentence);
                 }
             }
-            ///<summary>Wait for a frame</summary>
             yield return true;
         }
     }

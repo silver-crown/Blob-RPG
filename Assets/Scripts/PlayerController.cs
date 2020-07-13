@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     private void Awake() {
         //If a player doesn't already exist, make this the player
         if (Player == null) {
-            DontDestroyOnLoad(this);
+            DontDestroyOnLoad(gameObject);
             Player = gameObject;
         }
         //if there is a manager 

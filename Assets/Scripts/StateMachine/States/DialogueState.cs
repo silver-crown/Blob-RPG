@@ -13,6 +13,7 @@ class DialogueState : State
 
     public override IEnumerator Start() {
         Debug.Log("Starting Dialogue State");
+        DialogueManager.DM.dialogueBox.gameObject.SetActive(true);
         return Execute();
     }
     public override IEnumerator End() {
@@ -29,6 +30,7 @@ class DialogueState : State
             yield return new WaitForEndOfFrame();
             ///<summary>If there's no more dialogues left to be displayed</summary>
             if (DialogueManager.DM.done) {
+                    DialogueManager.DM.dialogueBox.gameObject.SetActive(false);
                 switch (dialogueTrigger.transitioningState) {
                     case DialogueTrigger.TransitioningState.WalkingState:
                         interactable.InteractWith();

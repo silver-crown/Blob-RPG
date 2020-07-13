@@ -9,6 +9,7 @@ using UnityEngine;
 public class PlayerGridMovement : MonoBehaviour
 {
     [SerializeField] private float moveSpeed;
+    [SerializeField] private float sprintModifier;
     [SerializeField] public GameObject movePoint;
     [SerializeField] public GameObject frontPoint;
     [SerializeField] Animator anim;
@@ -19,6 +20,9 @@ public class PlayerGridMovement : MonoBehaviour
     float pressTimer;
     /// <summary>The threshold for the press timer </summary>
     [SerializeField] float pressTimerThreshold;
+    //Dictates whether or not the sprint key is a toggle
+    bool usingToggleSprint;
+    bool sprinting;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +38,9 @@ public class PlayerGridMovement : MonoBehaviour
         if(moveSpeed == 0) {
             moveSpeed = 2.0f;
         }
+        if(sprintModifier == 0){
+            sprintModifier = 1;
+        }
         movePoint.transform.SetParent(null);
         frontPoint.transform.SetParent(null);
     }
@@ -46,6 +53,12 @@ public class PlayerGridMovement : MonoBehaviour
         LookingInDirection(direction);
     }
 
+
+    void playerInput() {
+
+
+    }
+
     /// <summary>
     /// Function for moving across the grid in a linear fashion, no diagonal movements allowed
     /// </summary>
@@ -56,13 +69,17 @@ public class PlayerGridMovement : MonoBehaviour
             ///<summary>Add a check for if you're walking into a scene loader here, if so, abort everything</summary>
         }
         else {
-            transform.position = Vector3.MoveTowards(transform.position, movePoint.transform.position, moveSpeed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, movePoint.transform.position, moveSpeed * sprintModifier * Time.deltaTime);
         }
 
-        ///<summary> Moving Up on the map</summary>
+
+        //Moving around in the game, done by moving the movepoints around.
+
+        ///<summary>The player can only move to the next point on the map if they've already reached their current point</summary>
         if (Vector3.Distance(transform.position, movePoint.transform.position) <= 0.0f) {
             ///<summary>Set the animator to start animating</summary>
             anim.speed = 1;
+            ///<summary> Moving Up on the map</summary>
             if (Input.GetKey(GameManager.GM.Upward)) {
                 pressTimer += Time.deltaTime;
                 if(pressTimer >= pressTimerThreshold) {
@@ -105,6 +122,50 @@ public class PlayerGridMovement : MonoBehaviour
                 SetAnimationBools("Idle");
                 pressTimer = 0;
             }
+        }
+        Sprint();
+    }
+    ///<summary>
+    ///Method controlling the sprint key's functionality
+    ///<summary>
+    void Sprint() {
+        //if the sprint key is a hold, not a toggle
+        if(!usingToggleSprint){
+            if (Input.GetKeyDown(GameManager.GM.Sprint)) {
+                sprintModifier = 2;
+                anim.speed = 2;
+            }
+            if (Input.GetKeyUp(GameManager.GM.Sprint)) {
+                sprintModifier = 1;
+                anim.speed = 1;
+            }
+        }
+        //else if it's a toggle
+        else{
+            if (Input.GetKeyDown(GameManager.GM.Sprint)) {
+                //if the player is sprinting
+                if(!sprinting){
+                    sprintModifier = 2;
+                    anim.speed = 2;
+                    sprinting = true;
+                }
+                else{
+                    sprintModifier = 1;
+                    anim.speed = 1;  
+                    sprinting = false;
+                }
+            }
+        }
+    }
+    /// <summary>
+    /// Helper method for toggling sprint functionality
+    /// </summary>
+    public void ToggleSprint(){
+        if(usingToggleSprint){
+            usingToggleSprint = false;
+        }
+        else{
+            usingToggleSprint = true;
         }
     }
     /// <summary>
