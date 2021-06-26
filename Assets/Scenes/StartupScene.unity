@@ -191,7 +191,7 @@ PrefabInstance:
         type: 3}
       propertyPath: Player
       value: 
-      objectReference: {fileID: 100994800}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d8fe12aa6c2b68146bc46159a2b5ed4b, type: 3}
 --- !u!1001 &88353558
@@ -263,19 +263,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b53136e5280ec64dbecbea97981cbcc, type: 3}
---- !u!1 &100994800 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6368644126866965962, guid: 2f0d5d46350d66f41ab1cc4e0fef548f,
-    type: 3}
-  m_PrefabInstance: {fileID: 2144738622}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &100994804 stripped
+--- !u!114 &210215805 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6368644126866965958, guid: 2f0d5d46350d66f41ab1cc4e0fef548f,
     type: 3}
-  m_PrefabInstance: {fileID: 2144738622}
+  m_PrefabInstance: {fileID: 1772942523}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 100994800}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a5fb8777c0d05d442941bb6e79aa0f52, type: 3}
@@ -441,19 +435,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ebadf6343f0e01f47ba1d543d925f708, type: 3}
---- !u!223 &1917843379 stripped
-Canvas:
-  m_CorrespondingSourceObject: {fileID: 8633560108493890683, guid: ca1ed3d03b554ce4ca96dac1184f0328,
-    type: 3}
-  m_PrefabInstance: {fileID: 384302023}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1961525939 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6368644127465116026, guid: 2f0d5d46350d66f41ab1cc4e0fef548f,
-    type: 3}
-  m_PrefabInstance: {fileID: 2144738622}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &2144738622
+--- !u!1001 &1772942523
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -468,7 +450,7 @@ PrefabInstance:
     - target: {fileID: 6368644126866965957, guid: 2f0d5d46350d66f41ab1cc4e0fef548f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6368644126866965957, guid: 2f0d5d46350d66f41ab1cc4e0fef548f,
         type: 3}
@@ -519,21 +501,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6368644126866965959, guid: 2f0d5d46350d66f41ab1cc4e0fef548f,
-        type: 3}
-      propertyPath: MovePoint
-      value: 
-      objectReference: {fileID: 1961525939}
-    - target: {fileID: 6368644126866965958, guid: 2f0d5d46350d66f41ab1cc4e0fef548f,
-        type: 3}
-      propertyPath: sprintSpeed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 8627152146020107217, guid: 2f0d5d46350d66f41ab1cc4e0fef548f,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -6.000061
       objectReference: {fileID: 0}
     - target: {fileID: 2849332499174294820, guid: 2f0d5d46350d66f41ab1cc4e0fef548f,
         type: 3}
@@ -679,7 +646,7 @@ PrefabInstance:
         type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 100994804}
+      objectReference: {fileID: 210215805}
     - target: {fileID: 1671798097976866962, guid: 2f0d5d46350d66f41ab1cc4e0fef548f,
         type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -692,3 +659,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f0d5d46350d66f41ab1cc4e0fef548f, type: 3}
+--- !u!223 &1917843379 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 8633560108493890683, guid: ca1ed3d03b554ce4ca96dac1184f0328,
+    type: 3}
+  m_PrefabInstance: {fileID: 384302023}
+  m_PrefabAsset: {fileID: 0}

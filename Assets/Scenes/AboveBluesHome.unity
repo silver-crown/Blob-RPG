@@ -96,6 +96,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
+    m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -127,11 +128,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1636624297367724525, guid: 3f0a14b4c1c92f44e9273fedd11afd74,
-        type: 3}
-      propertyPath: m_Name
-      value: Door
-      objectReference: {fileID: 0}
     - target: {fileID: 1636624297367724520, guid: 3f0a14b4c1c92f44e9273fedd11afd74,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -187,11 +183,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1636624298551866942, guid: 3f0a14b4c1c92f44e9273fedd11afd74,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1636624297367724523, guid: 3f0a14b4c1c92f44e9273fedd11afd74,
         type: 3}
       propertyPath: transitionSpot
@@ -212,6 +203,16 @@ PrefabInstance:
       propertyPath: target
       value: BluesHome
       objectReference: {fileID: 0}
+    - target: {fileID: 1636624297367724525, guid: 3f0a14b4c1c92f44e9273fedd11afd74,
+        type: 3}
+      propertyPath: m_Name
+      value: Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 1636624298551866942, guid: 3f0a14b4c1c92f44e9273fedd11afd74,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f0a14b4c1c92f44e9273fedd11afd74, type: 3}
 --- !u!1001 &6139549014701698852
@@ -221,10 +222,65 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 834486661266386163, guid: 6a511012f0ee3a44abcf109a5b0a5f0f,
+        type: 3}
+      propertyPath: sceneNames.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 834486661266386163, guid: 6a511012f0ee3a44abcf109a5b0a5f0f,
+        type: 3}
+      propertyPath: sceneNames.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 834486661266386163, guid: 6a511012f0ee3a44abcf109a5b0a5f0f,
+        type: 3}
+      propertyPath: sceneNames.Array.data[0]
+      value: BluesHome
+      objectReference: {fileID: 0}
+    - target: {fileID: 1896520053275337607, guid: 6a511012f0ee3a44abcf109a5b0a5f0f,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -5.522705
+      objectReference: {fileID: 0}
+    - target: {fileID: 1896520053275337607, guid: 6a511012f0ee3a44abcf109a5b0a5f0f,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 1.7833672
+      objectReference: {fileID: 0}
+    - target: {fileID: 1896520053275337607, guid: 6a511012f0ee3a44abcf109a5b0a5f0f,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 9.073078
+      objectReference: {fileID: 0}
+    - target: {fileID: 1896520053275337607, guid: 6a511012f0ee3a44abcf109a5b0a5f0f,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 17.820374
+      objectReference: {fileID: 0}
+    - target: {fileID: 2050921237547172462, guid: 6a511012f0ee3a44abcf109a5b0a5f0f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -11.54
+      objectReference: {fileID: 0}
+    - target: {fileID: 2050921237547172462, guid: 6a511012f0ee3a44abcf109a5b0a5f0f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 17.38
+      objectReference: {fileID: 0}
     - target: {fileID: 2867163648932498407, guid: 6a511012f0ee3a44abcf109a5b0a5f0f,
         type: 3}
       propertyPath: m_Name
       value: AboveBluesHome
+      objectReference: {fileID: 0}
+    - target: {fileID: 4434981505925493946, guid: 6a511012f0ee3a44abcf109a5b0a5f0f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6943859438418912248, guid: 6a511012f0ee3a44abcf109a5b0a5f0f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -11.71
       objectReference: {fileID: 0}
     - target: {fileID: 7900775685103476290, guid: 6a511012f0ee3a44abcf109a5b0a5f0f,
         type: 3}
@@ -281,15 +337,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 834486661266386163, guid: 6a511012f0ee3a44abcf109a5b0a5f0f,
+    - target: {fileID: 7934163172090333274, guid: 6a511012f0ee3a44abcf109a5b0a5f0f,
         type: 3}
-      propertyPath: sceneNames.Array.size
-      value: 2
+      propertyPath: m_Name
+      value: EdgeRight
       objectReference: {fileID: 0}
-    - target: {fileID: 834486661266386163, guid: 6a511012f0ee3a44abcf109a5b0a5f0f,
+    - target: {fileID: 9174880823680721406, guid: 6a511012f0ee3a44abcf109a5b0a5f0f,
         type: 3}
-      propertyPath: sceneNames.Array.data[1]
-      value: BluesHome
+      propertyPath: Player
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 9174880823927603054, guid: 6a511012f0ee3a44abcf109a5b0a5f0f,
         type: 3}
@@ -876,56 +932,6 @@ PrefabInstance:
       propertyPath: m_TileColorArray.Array.data[0].m_RefCount
       value: 96
       objectReference: {fileID: 0}
-    - target: {fileID: 9174880823680721406, guid: 6a511012f0ee3a44abcf109a5b0a5f0f,
-        type: 3}
-      propertyPath: Player
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4434981505925493946, guid: 6a511012f0ee3a44abcf109a5b0a5f0f,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6943859438418912248, guid: 6a511012f0ee3a44abcf109a5b0a5f0f,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -11.71
-      objectReference: {fileID: 0}
-    - target: {fileID: 7934163172090333274, guid: 6a511012f0ee3a44abcf109a5b0a5f0f,
-        type: 3}
-      propertyPath: m_Name
-      value: EdgeRight
-      objectReference: {fileID: 0}
-    - target: {fileID: 2050921237547172462, guid: 6a511012f0ee3a44abcf109a5b0a5f0f,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -11.54
-      objectReference: {fileID: 0}
-    - target: {fileID: 2050921237547172462, guid: 6a511012f0ee3a44abcf109a5b0a5f0f,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 17.38
-      objectReference: {fileID: 0}
-    - target: {fileID: 1896520053275337607, guid: 6a511012f0ee3a44abcf109a5b0a5f0f,
-        type: 3}
-      propertyPath: m_Offset.x
-      value: -5.522705
-      objectReference: {fileID: 0}
-    - target: {fileID: 1896520053275337607, guid: 6a511012f0ee3a44abcf109a5b0a5f0f,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 1.7833672
-      objectReference: {fileID: 0}
-    - target: {fileID: 1896520053275337607, guid: 6a511012f0ee3a44abcf109a5b0a5f0f,
-        type: 3}
-      propertyPath: m_Offset.y
-      value: 9.073078
-      objectReference: {fileID: 0}
-    - target: {fileID: 1896520053275337607, guid: 6a511012f0ee3a44abcf109a5b0a5f0f,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 17.820374
-      objectReference: {fileID: 0}
     - target: {fileID: 9174880824467387239, guid: 6a511012f0ee3a44abcf109a5b0a5f0f,
         type: 3}
       propertyPath: m_IsActive
@@ -1072,6 +1078,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TileColorArray.Array.data[0].m_Data.a
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9174880825224633013, guid: 6a511012f0ee3a44abcf109a5b0a5f0f,
+        type: 3}
+      propertyPath: m_Tiles.Array.data[0].second.m_TileObjectToInstantiateIndex
+      value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 9174880825224633013, guid: 6a511012f0ee3a44abcf109a5b0a5f0f,
+        type: 3}
+      propertyPath: m_Tiles.Array.data[0].second.m_AllTileFlags
+      value: 1073741825
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a511012f0ee3a44abcf109a5b0a5f0f, type: 3}
