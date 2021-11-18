@@ -9,10 +9,21 @@ public class TransitionManager : MonoBehaviour
 {
     public static TransitionManager TM;
     public string transitionSpot;
+    //transition animation for doors, cave entrances etc.
     public Animator transition;
+    //transition animation for battles
+    public Animator combatTransition;
+    //transition animator for boss fights
+    public Animator bossTransition;
     public float transitionTime = 1.0f;
     private GameObject[] doors;
     public bool Transitioning;
+    public enum TransitionType{
+        Normal,
+        Enemy,
+        Boss
+    }
+    public TransitionType transitionType;
     private void Awake() {
         //If a manager doesn't already exist, make this the manager
         if (TM == null) {
@@ -46,6 +57,7 @@ public class TransitionManager : MonoBehaviour
         }
         transition.ResetTrigger("Start");
         transition.SetTrigger("End");
+        yield return new WaitForSeconds(transitionTime);
         Transitioning = false;
         // SceneManager.sceneLoaded += OnSceneLoaded;
     }
@@ -68,5 +80,18 @@ public class TransitionManager : MonoBehaviour
         transition.SetTrigger("End");
         Transitioning = false;
     }
+
+    //transition into battle and enter combat state
+    public IEnumerator TransitionIntoCombat(){
+        combatTransition.ResetTrigger("End");
+        combatTransition.SetTrigger("Start");
+        Transitioning = true;
+        yield return new WaitForSeconds(transitionTime);
+        //fade into combat state
+        combatTransition.ResetTrigger("Start");
+        combatTransition.SetTrigger("End");
+        yield return new WaitForSeconds(transitionTime);
+        Transitioning = false;
+}
 }
 

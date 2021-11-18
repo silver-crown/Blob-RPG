@@ -28,4 +28,10 @@ public class PlayerController : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    private void OnCollisionEnter2D(Collision2D other) {
+        if(other.gameObject.CompareTag("Enemy")){
+            TransitionManager.TM.transitionType = TransitionManager.TransitionType.Enemy;
+            StartCoroutine(TransitionManager.TM.TransitionIntoCombat());
+        }        
+    }
 }

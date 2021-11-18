@@ -192,11 +192,10 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: 1847b58a4ed0dd34bb94c96eb0dbb7e5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -251,5 +250,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08c0cfffce514164db4dcee25f4bb86f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  transitionSpot: 
   transition: {fileID: 4167283876308594893}
+  combatTransition: {fileID: 4167283876308594893}
+  bossTransition: {fileID: 0}
   transitionTime: 1
+  Transitioning: 0
+  transitionType: 0

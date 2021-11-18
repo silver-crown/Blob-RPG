@@ -73,7 +73,7 @@ public partial class OverworldState : State
                 }
                 ///<summary>Check if the point in front of the player is a valid object</summary>
             }
-            ///<summary>Transitioning</summary>
+            ///<summary>Transitioning into a different area</summary>
             if (TransitionManager.TM.Transitioning) {
                 yield return End();
                 GameManager.GM.SetState(new TransitionState());
