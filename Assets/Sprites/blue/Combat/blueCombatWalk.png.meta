@@ -59,7 +59,7 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
-  spriteExtrude: 1
+  spriteExtrude: 0
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
@@ -110,10 +110,10 @@ TextureImporter:
         serializedVersion: 2
         x: 5
         y: 8
-        width: 29
+        width: 34
         height: 24
-      alignment: 6
-      pivot: {x: 0, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -129,12 +129,12 @@ TextureImporter:
       name: blueCombatWalk_1
       rect:
         serializedVersion: 2
-        x: 52
+        x: 51
         y: 8
-        width: 30
+        width: 36
         height: 24
-      alignment: 6
-      pivot: {x: 0, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -150,12 +150,12 @@ TextureImporter:
       name: blueCombatWalk_2
       rect:
         serializedVersion: 2
-        x: 99
+        x: 97
         y: 8
-        width: 31
+        width: 38
         height: 25
-      alignment: 6
-      pivot: {x: 0, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -171,12 +171,12 @@ TextureImporter:
       name: blueCombatWalk_3
       rect:
         serializedVersion: 2
-        x: 146
+        x: 145
         y: 8
-        width: 30
+        width: 36
         height: 24
-      alignment: 6
-      pivot: {x: 0, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -192,12 +192,12 @@ TextureImporter:
       name: blueCombatWalk_4
       rect:
         serializedVersion: 2
-        x: 193
+        x: 192
         y: 8
-        width: 30
+        width: 36
         height: 24
-      alignment: 6
-      pivot: {x: 0, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -213,12 +213,12 @@ TextureImporter:
       name: blueCombatWalk_5
       rect:
         serializedVersion: 2
-        x: 240
+        x: 238
         y: 8
-        width: 31
+        width: 38
         height: 25
-      alignment: 6
-      pivot: {x: 0, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
