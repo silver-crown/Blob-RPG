@@ -80,7 +80,7 @@ public class PlayerGridMovement : MonoBehaviour
             ///<summary>Set the animator to start animating</summary>
             anim.speed = 1;
             ///<summary> Moving Up on the map</summary>
-            if (Input.GetKey(GameManager.GM.Upward)) {
+            if (Input.GetKey(GameManager.GM.OverworldUpward)) {
                 pressTimer += Time.deltaTime;
                 if(pressTimer >= pressTimerThreshold) {
                     movePoint.transform.position += new Vector3(0.0f, gridLength, 0.0f);
@@ -90,7 +90,7 @@ public class PlayerGridMovement : MonoBehaviour
                 direction = "Up";
             } 
             ///<summary> Moving Down on the map</summary>
-            else if (Input.GetKey(GameManager.GM.Downward)) {
+            else if (Input.GetKey(GameManager.GM.OverworldDownward)) {
                 pressTimer += Time.deltaTime;
                 if (pressTimer >= pressTimerThreshold) {
                     movePoint.transform.position += new Vector3(0.0f, -gridLength, 0.0f);
@@ -100,7 +100,7 @@ public class PlayerGridMovement : MonoBehaviour
                 direction = "Down";
             }
             ///<summary> Moving Right on the map</summary>
-            else if (Input.GetKey(GameManager.GM.Left)) {
+            else if (Input.GetKey(GameManager.GM.OverworldLeft)) {
                 pressTimer += Time.deltaTime;
                 if (pressTimer >= pressTimerThreshold) {
                     movePoint.transform.position += new Vector3(-gridLength, 0.0f, 0.0f);
@@ -110,7 +110,7 @@ public class PlayerGridMovement : MonoBehaviour
                 direction = "Left";
             }
             ///<summary> Moving Right on the map</summary>
-            else if (Input.GetKey(GameManager.GM.Right)) {
+            else if (Input.GetKey(GameManager.GM.OverworldRight)) {
                 pressTimer += Time.deltaTime;
                 if (pressTimer >= pressTimerThreshold) {
                     movePoint.transform.position += new Vector3(gridLength, 0.0f, 0.0f);

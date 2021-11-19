@@ -58,25 +58,25 @@ public class MenuScript : MonoBehaviour
         yield return WaitForKey();
 
         switch (keyName) {
-            case ("Forward"):
-                GameManager.GM.Upward = newKey;
-                buttonText.text = GameManager.GM.Upward.ToString();
-                PlayerPrefs.SetString("ForwardKey", GameManager.GM.Upward.ToString());
+            case ("Up"):
+                GameManager.GM.OverworldUpward = newKey;
+                buttonText.text = GameManager.GM.OverworldUpward.ToString();
+                PlayerPrefs.SetString("OverworldUpwardKey", GameManager.GM.OverworldUpward.ToString());
                 break;
-            case ("Backward"):
-                GameManager.GM.Downward = newKey;
-                buttonText.text = GameManager.GM.Downward.ToString();
-                PlayerPrefs.SetString("BackwardKey", GameManager.GM.Downward.ToString());
+            case ("Down"):
+                GameManager.GM.OverworldDownward = newKey;
+                buttonText.text = GameManager.GM.OverworldDownward.ToString();
+                PlayerPrefs.SetString("OverworldBackwardKey", GameManager.GM.OverworldDownward.ToString());
                 break;
             case ("Left"):
-                GameManager.GM.Left = newKey;
-                buttonText.text = GameManager.GM.Left.ToString();
-                PlayerPrefs.SetString("LeftKey", GameManager.GM.Left.ToString());
+                GameManager.GM.OverworldLeft = newKey;
+                buttonText.text = GameManager.GM.OverworldLeft.ToString();
+                PlayerPrefs.SetString("OverworldLeftKey", GameManager.GM.OverworldLeft.ToString());
                 break;
             case ("Right"):
-                GameManager.GM.Right = newKey;
-                buttonText.text = GameManager.GM.Right.ToString();
-                PlayerPrefs.SetString("RightKey", GameManager.GM.Right.ToString());
+                GameManager.GM.OverworldRight = newKey;
+                buttonText.text = GameManager.GM.OverworldRight.ToString();
+                PlayerPrefs.SetString("OverworldRightKey", GameManager.GM.OverworldRight.ToString());
                 break;
             case ("Pause"):
                 GameManager.GM.Pause = newKey;
@@ -88,6 +88,42 @@ public class MenuScript : MonoBehaviour
                 buttonText.text = GameManager.GM.Sprint.ToString();
                 PlayerPrefs.SetString("SprintKey", GameManager.GM.Sprint.ToString());
                 break;
+            case ("Combat Left"):
+                GameManager.GM.BattleLeft = newKey;
+                buttonText.text = GameManager.GM.BattleLeft.ToString();
+                PlayerPrefs.SetString("CombatLeftKey", GameManager.GM.BattleLeft.ToString());
+                break;
+            case ("Combat Right"):
+                GameManager.GM.BattleRight = newKey;
+                buttonText.text = GameManager.GM.BattleRight.ToString();
+                PlayerPrefs.SetString("CombatRightKey", GameManager.GM.BattleRight.ToString());
+                break;
+            case ("Jump"):
+                GameManager.GM.Jump = newKey;
+                buttonText.text = GameManager.GM.Jump.ToString();
+                PlayerPrefs.SetString("CombatJumpKey", GameManager.GM.Jump.ToString());
+                break;
+            case ("Attack"):
+                GameManager.GM.Attack = newKey;
+                buttonText.text = GameManager.GM.Attack.ToString();
+                PlayerPrefs.SetString("AttackKey", GameManager.GM.Attack.ToString());
+                break;
+            case ("Sub Attack"):
+                GameManager.GM.SubAttack = newKey;
+                buttonText.text = GameManager.GM.SubAttack.ToString();
+                PlayerPrefs.SetString("SubAttackKey", GameManager.GM.SubAttack.ToString());
+                break;
+            case ("Cycle Left"):
+                GameManager.GM.CycleLeft = newKey;
+                buttonText.text = GameManager.GM.CycleLeft.ToString();
+                PlayerPrefs.SetString("CycleLeftKey", GameManager.GM.CycleLeft.ToString());
+                break;
+            case ("Cycle Right"):
+                GameManager.GM.CycleRight = newKey;
+                buttonText.text = GameManager.GM.CycleRight.ToString();
+                PlayerPrefs.SetString("CycleRightKey", GameManager.GM.CycleRight.ToString());
+                break;
+            
         }
         yield return null;
     }
@@ -100,23 +136,46 @@ public class MenuScript : MonoBehaviour
         Transform[] allPanelChildren = menuPanel.GetComponentsInChildren<Transform>();
         foreach(Transform i in allPanelChildren){
             switch(i.name){
-                case "ForwardKey":
-                    i.GetComponentInChildren<Text>().text = GameManager.GM.Upward.ToString();
+                case "OverworldUpwardKey":
+                    i.GetComponentInChildren<Text>().text = GameManager.GM.OverworldUpward.ToString();
                     break;
-                case "BackwardKey":
-                    i.GetComponentInChildren<Text>().text = GameManager.GM.Downward.ToString();
+                case "OverworldDownwardKey":
+                    i.GetComponentInChildren<Text>().text = GameManager.GM.OverworldDownward.ToString();
                     break;
-                case "LeftKey":
-                    i.GetComponentInChildren<Text>().text = GameManager.GM.Left.ToString();
+                case "OverworldLeftKey":
+                    i.GetComponentInChildren<Text>().text = GameManager.GM.OverworldLeft.ToString();
                     break;
-                case "RightKey":
-                    i.GetComponentInChildren<Text>().text = GameManager.GM.Right.ToString();
+                case "OverworldRightKey":
+                    i.GetComponentInChildren<Text>().text = GameManager.GM.OverworldRight.ToString();
                     break;
                 case "PauseKey":
                     i.GetComponentInChildren<Text>().text = GameManager.GM.Pause.ToString();
                     break;  
                 case "SprintKey":
                     i.GetComponentInChildren<Text>().text = GameManager.GM.Sprint.ToString();
+                    break;  
+
+                //combat controls
+                case "CombatLeftKey":
+                    i.GetComponentInChildren<Text>().text = GameManager.GM.BattleLeft.ToString();
+                    break;  
+                case "CombatRightKey":
+                    i.GetComponentInChildren<Text>().text = GameManager.GM.BattleRight.ToString();
+                    break;  
+                case "CombatJumpKey":
+                    i.GetComponentInChildren<Text>().text = GameManager.GM.Jump.ToString();
+                    break;  
+                case "AttackKey":
+                    i.GetComponentInChildren<Text>().text = GameManager.GM.Attack.ToString();
+                    break;  
+                case "SubAttackKey":
+                    i.GetComponentInChildren<Text>().text = GameManager.GM.SubAttack.ToString();
+                    break;  
+                case "CycleLeftKey":
+                    i.GetComponentInChildren<Text>().text = GameManager.GM.CycleLeft.ToString();
+                    break;  
+                case "CycleRightKey":
+                    i.GetComponentInChildren<Text>().text = GameManager.GM.CycleRight.ToString();
                     break;  
             }
         }
@@ -126,7 +185,7 @@ public class MenuScript : MonoBehaviour
     public void ToggleButtons(string keyName){
         switch(keyName){
             case "ToggleSprint":
-            Debug.Log("heil hitler");
+            Debug.Log("heil sprintler");
             break;
         }
     }

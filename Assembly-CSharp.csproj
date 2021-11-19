@@ -66,6 +66,7 @@
      <Compile Include="Assets\Scripts\StateMachine\States\TransitionState.cs" />
      <Compile Include="Assets\Scripts\TransitionManager.cs" />
      <Compile Include="Assets\Scripts\Transitioner.cs" />
+     <Compile Include="Assets\Scripts\player2DMovement.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.31f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
