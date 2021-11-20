@@ -83,11 +83,13 @@ public class TransitionManager : MonoBehaviour
 
     //transition into battle and enter combat state
     public IEnumerator TransitionIntoCombat(){
+        //fade into combat state
         combatTransition.ResetTrigger("End");
         combatTransition.SetTrigger("Start");
         Transitioning = true;
         yield return new WaitForSeconds(transitionTime);
-        //fade into combat state
+        //load combat scene
+        SceneManager.LoadScene("CombatTest", LoadSceneMode.Additive);
         combatTransition.ResetTrigger("Start");
         combatTransition.SetTrigger("End");
         yield return new WaitForSeconds(transitionTime);

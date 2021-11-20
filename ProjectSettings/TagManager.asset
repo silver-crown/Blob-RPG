@@ -19,7 +19,7 @@ TagManager:
   - 
   - Obstacle
   - Transitioner
-  - 
+  - battle
   - 
   - 
   - 
@@ -53,6 +53,18 @@ TagManager:
     locked: 0
   - name: UI
     uniqueID: 3906850027
+    locked: 0
+  - name: BatleBackdrop
+    uniqueID: 2980473979
+    locked: 0
+  - name: BattlePlatform
+    uniqueID: 3561476269
+    locked: 0
+  - name: BattleEntities
+    uniqueID: 1148037871
+    locked: 0
+  - name: BattleUI
+    uniqueID: 1045737223
     locked: 0
   - name: Transition
     uniqueID: 438785101
