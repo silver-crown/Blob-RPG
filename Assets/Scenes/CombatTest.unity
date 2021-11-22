@@ -503,8 +503,13 @@ PrefabInstance:
       objectReference: {fileID: 1470587414}
     - target: {fileID: 7120880487589711055, guid: 05e675b13edba7242a4704742fd553b8,
         type: 3}
+      propertyPath: maxJumps
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7120880487589711055, guid: 05e675b13edba7242a4704742fd553b8,
+        type: 3}
       propertyPath: jumpCount
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7120880487589711055, guid: 05e675b13edba7242a4704742fd553b8,
         type: 3}
@@ -519,7 +524,7 @@ PrefabInstance:
     - target: {fileID: 7120880487589711055, guid: 05e675b13edba7242a4704742fd553b8,
         type: 3}
       propertyPath: moveSpeed
-      value: 0.05
+      value: 0.025
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 05e675b13edba7242a4704742fd553b8, type: 3}
@@ -654,7 +659,7 @@ GameObject:
   - component: {fileID: 1624047092}
   - component: {fileID: 1624047091}
   - component: {fileID: 1624047094}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}

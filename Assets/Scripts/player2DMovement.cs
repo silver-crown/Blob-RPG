@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class player2DMovement : MonoBehaviour {
 
+        [SerializeField] private BoxCollider2D groundDetector;
         private bool attacking;
         public Rigidbody2D rb;
         [SerializeField] Animator anim;
@@ -11,6 +12,10 @@ public class player2DMovement : MonoBehaviour {
         [SerializeField] public int maxJumps;
         [SerializeField] private int jumpCount;
          private float lastY;
+
+         private void Start() {
+            jumpCount = maxJumps;    
+         }
 
         private void Update() {
             lastY = transform.position.y;
@@ -29,7 +34,7 @@ public class player2DMovement : MonoBehaviour {
         private void Jump(){
             if(Input.GetKeyDown(GameManager.GM.Jump) && jumpCount > 0){
                 rb.velocity = new Vector2(0.0f, jumpForce);
-               // jumpCount --;
+                jumpCount --;
                 SetAnimationBools("Jump");
                 attacking = false;
             }
@@ -197,4 +202,9 @@ public class player2DMovement : MonoBehaviour {
                     // Do other things based on an attack ending.
                 }
             }
+        private void OnCollisionEnter2D(Collision2D other) {
+            if(other.transform.CompareTag("battleGround")){
+                jumpCount = maxJumps;
+            }
+        }
     }
