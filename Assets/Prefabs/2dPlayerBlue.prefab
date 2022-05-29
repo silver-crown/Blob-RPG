@@ -45,17 +45,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 5818423809717055531}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee773069179ca9944a3cb347ac6d8900, type: 3}
+  m_Script: {fileID: 11500000, guid: 469be2a2e0a5e5240a5428175a4706b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundDetector: {fileID: 585227018337090183}
+  groundDetector: {fileID: 0}
   rb: {fileID: 5610883771283643077}
-  anim: {fileID: 0}
-  moveSpeed: 2
-  gravity: 4
-  jumpForce: 8
-  maxJumps: 1
+  anim: {fileID: 7773764637896558482}
+  moveSpeed: 4
+  gravity: 2
+  jumpForce: 15
+  maxJumps: 2
   jumpCount: 0
+  maxCombo: 3
 --- !u!95 &7773764637896558482
 Animator:
   serializedVersion: 3

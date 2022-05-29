@@ -1,9 +1,15 @@
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine.UI;
 
-public class player2DMovement : MonoBehaviour {
+public class player2DController : MonoBehaviour {
 
         [SerializeField] private BoxCollider2D groundDetector;
         private bool attacking;
+        private bool comboEnd;
+        private bool chainable;
+        private int currentMove = 0;
         public Rigidbody2D rb;
         [SerializeField] Animator anim;
         [SerializeField] private float moveSpeed;
@@ -11,7 +17,12 @@ public class player2DMovement : MonoBehaviour {
         [SerializeField] private float jumpForce;
         [SerializeField] public int maxJumps;
         [SerializeField] private int jumpCount;
-         private float lastY;
+        [SerializeField] private int maxCombo;
+        private float lastY;
+
+        //list of combo moves
+        List<string> comboMoveList = new List<string>
+            { "atk_frontHand","atk_backHand", "atk_2h_overHand"};
 
          private void Start() {
             jumpCount = maxJumps;    
@@ -37,6 +48,8 @@ public class player2DMovement : MonoBehaviour {
                 jumpCount --;
                 SetAnimationBools("Jump");
                 attacking = false;
+                comboEnd = false;
+                chainable = false;
             }
         }
         //movement of the player character, should only apply when knockback and such is null
@@ -65,13 +78,27 @@ public class player2DMovement : MonoBehaviour {
 
 
         void Attack(){
-            if(Input.GetKeyDown(GameManager.GM.Attack)){
-                Debug.Log("pressed the attack button");
-                SetAnimationBools("atk_2h_overHand");
+            if(Input.GetKeyDown(GameManager.GM.Attack) && !attacking){
+                currentMove = 0;
+                Debug.Log("attacking");
+                //do the first move in combo
+                SetAnimationBools(comboMoveList[currentMove]);
                 attacking = true;
-                //motion should stop, cannot resume until animation or finished or until player jumps
+                //motion should stop, cannot resume until animation is finished or until player jumps
+            }
+            else if(attacking && Input.GetKeyDown(GameManager.GM.Attack) && !chainable){
+                comboEnd = true;
+                Debug.Log("COMBO IS OVER, PLAYER PRESSED THE KEY TOO SOON");
+                currentMove = 0;
+            }
+            else if(attacking && Input.GetKeyDown(GameManager.GM.Attack) && chainable && (currentMove+1) < maxCombo){
+                Debug.Log("CONTINUING COMBO");
+                //else do the next move in the combo (this move +1 in an array/list of strings)
+                SetAnimationBools(comboMoveList[++currentMove]);
+                Debug.Log("executing combo move number " + (currentMove+1));
             }
         }
+
         void SetAnimationBools(string s) {
             switch (s) {
                 ///<summary>If the player is walking left</summary>
@@ -239,11 +266,18 @@ public class player2DMovement : MonoBehaviour {
 
         public void AlertObservers(string message)
             {
-                Debug.Log("alertobservers was called");
-                if (message.Equals("AttackAnimationEnded"))
-                {
+                if (message.Equals("AttackAnimationEnded")){
                     attacking = false;
+                    comboEnd = false;
+                    chainable = false;
+                    Debug.Log("attacking has stopped");
                     // Do other things based on an attack ending.
+                }
+                //did the player press the attack button too soon or the animation's over? end the combo
+                //If the combo's not over, the player can follow up with the next attack
+                if(message.Equals("Chainable") && !comboEnd){
+                    chainable = true;
+                    Debug.Log("move can be followed up");
                 }
             }
         private void OnCollisionEnter2D(Collision2D other) {

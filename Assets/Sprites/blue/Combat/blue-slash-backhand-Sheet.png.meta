@@ -170,10 +170,10 @@ TextureImporter:
         serializedVersion: 2
         x: 357
         y: 28
-        width: 35
+        width: 51
         height: 25
       alignment: 9
-      pivot: {x: 0.4, y: 0.5}
+      pivot: {x: 0.27450982, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -181,27 +181,6 @@ TextureImporter:
       bones: []
       spriteID: 86c34228f8376cb20800000000000000
       internalID: 3154335649220541544
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: blue-slash-backhand-Sheet_4
-      rect:
-        serializedVersion: 2
-        x: 393
-        y: 35
-        width: 15
-        height: 5
-      alignment: 9
-      pivot: {x: 15, y: 12.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4766a5c596f64c440800000000000000
-      internalID: 4955207988326065780
       vertices: []
       indices: 
       edges: []
