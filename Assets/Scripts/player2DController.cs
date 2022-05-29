@@ -18,6 +18,7 @@ public class player2DController : MonoBehaviour {
         [SerializeField] public int maxJumps;
         [SerializeField] private int jumpCount;
         [SerializeField] private int maxCombo;
+        [SerializeField] private Collision2D[] hitboxes;
         private float lastY;
 
         //list of combo moves
@@ -33,7 +34,7 @@ public class player2DController : MonoBehaviour {
             Move();
             Jump();
             Fall();
-            Attack();
+            Attack(hitboxes);
         }
         //gravity being applied to the player character
         private void Fall(){
@@ -77,7 +78,7 @@ public class player2DController : MonoBehaviour {
         }
 
 
-        void Attack(){
+        void Attack(Collision2D[] hitboxes){
             if(Input.GetKeyDown(GameManager.GM.Attack) && !attacking){
                 currentMove = 0;
                 //do the first move in combo
@@ -278,10 +279,20 @@ public class player2DController : MonoBehaviour {
                     chainable = true;
                     Debug.Log("move can be followed up");
                 }
+
+                if(message.Equals("hitbox")){
+                    //make hitboxes
+                }
+                if(message.Equals("hitboxGone")){
+                    //get rid of hitboxes
+                }
             }
         private void OnCollisionEnter2D(Collision2D other) {
             if(other.transform.CompareTag("battleGround")){
                 jumpCount = maxJumps;
             }
         }
+
+
+
     }
