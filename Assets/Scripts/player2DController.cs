@@ -80,7 +80,6 @@ public class player2DController : MonoBehaviour {
         void Attack(){
             if(Input.GetKeyDown(GameManager.GM.Attack) && !attacking){
                 currentMove = 0;
-                Debug.Log("attacking");
                 //do the first move in combo
                 SetAnimationBools(comboMoveList[currentMove]);
                 attacking = true;
