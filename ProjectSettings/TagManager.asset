@@ -8,6 +8,7 @@ TagManager:
   - Interactable
   - Transitioner
   - Enemy
+  - battleGround
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - Obstacle
   - Transitioner
   - battle
-  - battleGround
+  - 
   - 
   - 
   - 

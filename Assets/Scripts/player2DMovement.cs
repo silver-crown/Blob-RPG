@@ -67,7 +67,7 @@ public class player2DMovement : MonoBehaviour {
         void Attack(){
             if(Input.GetKeyDown(GameManager.GM.Attack)){
                 Debug.Log("pressed the attack button");
-                SetAnimationBools("atk_frontHand");
+                SetAnimationBools("atk_2h_overHand");
                 attacking = true;
                 //motion should stop, cannot resume until animation or finished or until player jumps
             }
@@ -169,10 +169,53 @@ public class player2DMovement : MonoBehaviour {
                         }
                     }
                     break;
+//**************************************************************************************************
+//****************************attack moves**********************************************************
+//**************************************************************************************************
 
                 ///<summary>If the player is doing with a front hand attack</summary>
                 case ("atk_frontHand"):
                     if (!anim.GetBool("atk_frontHand")) {
+                        ///<summary>Get all the animations in the animator</summary>
+                        foreach (AnimatorControllerParameter parameter in anim.parameters) {
+                            ///<summary>If they're a bool, go ahead and do your magic</summary>
+                            if (parameter.type == AnimatorControllerParameterType.Bool) {
+                                ///<summary>If it matches the string provided, set it to true</summary>
+                                if (parameter.name == s) {
+                                    anim.SetBool(parameter.name, true);
+                                }
+                                ///<summary>Else set it to false</summary>
+                                else {
+                                    anim.SetBool(parameter.name, false);
+                                }
+                            }
+                        }
+                    }
+                    break;
+
+                ///<summary>If the player is doing a back hand attack<summary>
+                case ("atk_backHand"):
+                  if (!anim.GetBool("atk_backHand")) {
+                        ///<summary>Get all the animations in the animator</summary>
+                        foreach (AnimatorControllerParameter parameter in anim.parameters) {
+                            ///<summary>If they're a bool, go ahead and do your magic</summary>
+                            if (parameter.type == AnimatorControllerParameterType.Bool) {
+                                ///<summary>If it matches the string provided, set it to true</summary>
+                                if (parameter.name == s) {
+                                    anim.SetBool(parameter.name, true);
+                                }
+                                ///<summary>Else set it to false</summary>
+                                else {
+                                    anim.SetBool(parameter.name, false);
+                                }
+                            }
+                        }
+                    }
+                    break;
+
+                ///<summary>If the player is doing a back hand attack<summary>
+                case ("atk_2h_overHand"):
+                  if (!anim.GetBool("atk_2h_overHand")) {
                         ///<summary>Get all the animations in the animator</summary>
                         foreach (AnimatorControllerParameter parameter in anim.parameters) {
                             ///<summary>If they're a bool, go ahead and do your magic</summary>
@@ -196,6 +239,7 @@ public class player2DMovement : MonoBehaviour {
 
         public void AlertObservers(string message)
             {
+                Debug.Log("alertobservers was called");
                 if (message.Equals("AttackAnimationEnded"))
                 {
                     attacking = false;

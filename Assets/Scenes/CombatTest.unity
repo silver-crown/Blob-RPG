@@ -659,9 +659,9 @@ GameObject:
   - component: {fileID: 1624047092}
   - component: {fileID: 1624047091}
   - component: {fileID: 1624047094}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: platform
-  m_TagString: Untagged
+  m_TagString: battleGround
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
