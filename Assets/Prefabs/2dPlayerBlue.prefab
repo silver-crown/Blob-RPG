@@ -1,5 +1,56 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &237038442245157377
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2682706625706927731}
+  - component: {fileID: 3983680662199418598}
+  m_Layer: 0
+  m_Name: atkBackHand
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2682706625706927731
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 237038442245157377}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -7.2521143, y: -11.573819, z: 43.4595}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1558267483120679859}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3983680662199418598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 237038442245157377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9afd6f493add9248a1378aa95f1f3a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveName: 
+  experience: 0
+  level: 0
+  expToNextLevel: 0
+  damage: 0
+  animationName: atk_backHand
+  isUnlocked: 0
+  attacking: 0
 --- !u!1 &1732062495652770435
 GameObject:
   m_ObjectHideFlags: 0
@@ -68,6 +119,7 @@ GameObject:
   - component: {fileID: 7836751090931014601}
   - component: {fileID: 6386520538196424306}
   - component: {fileID: 3587581791996389304}
+  - component: {fileID: 7501493944781503971}
   m_Layer: 0
   m_Name: atkFrontHand
   m_TagString: Untagged
@@ -121,6 +173,77 @@ CircleCollider2D:
   m_Offset: {x: -0.7271797, y: -0.23454231}
   serializedVersion: 2
   m_Radius: 0.37556607
+--- !u!114 &7501493944781503971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2376798448788774764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a07f2917023824f4db334f0dac50f987, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveName: 
+  experience: 0
+  level: 0
+  expToNextLevel: 0
+  damage: 0
+  animationName: atk_frontHand
+  isUnlocked: 0
+  attacking: 0
+--- !u!1 &4804877755250906692
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2185108582758877071}
+  - component: {fileID: 8631391718085541762}
+  m_Layer: 0
+  m_Name: atk2HOverhead
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2185108582758877071
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4804877755250906692}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -7.2521143, y: -11.573819, z: 43.4595}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1558267483120679859}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8631391718085541762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4804877755250906692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0bf3f2bbe6b5d745a970bfe89b94b1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveName: 
+  experience: 0
+  level: 0
+  expToNextLevel: 0
+  damage: 0
+  animationName: atk_2h_overHand
+  isUnlocked: 0
+  attacking: 0
 --- !u!1 &4891979911338256940
 GameObject:
   m_ObjectHideFlags: 0
@@ -209,6 +332,10 @@ MonoBehaviour:
   maxJumps: 2
   jumpCount: 0
   maxCombo: 3
+  MoveList:
+  - {fileID: 7501493944781503971}
+  - {fileID: 3983680662199418598}
+  - {fileID: 8631391718085541762}
 --- !u!95 &7773764637896558482
 Animator:
   serializedVersion: 3
@@ -328,6 +455,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7836751090931014601}
+  - {fileID: 2682706625706927731}
+  - {fileID: 2185108582758877071}
   m_Father: {fileID: 5837925891710937247}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

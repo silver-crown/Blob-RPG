@@ -19,6 +19,7 @@ public class player2DController : MonoBehaviour {
         [SerializeField] private int jumpCount;
         [SerializeField] private int maxCombo;
         [SerializeField] private Collision2D[] hitboxes;
+        [SerializeField] private List<ComboAttack> MoveList;
         private float lastY;
 
         //list of combo moves
@@ -34,7 +35,7 @@ public class player2DController : MonoBehaviour {
             Move();
             Jump();
             Fall();
-            Attack(hitboxes);
+            Attack();
         }
         //gravity being applied to the player character
         private void Fall(){
@@ -78,12 +79,13 @@ public class player2DController : MonoBehaviour {
         }
 
 
-        void Attack(Collision2D[] hitboxes){
+        void Attack(){
             if(Input.GetKeyDown(GameManager.GM.Attack) && !attacking){
                 currentMove = 0;
                 //do the first move in combo
-                SetAnimationBools(comboMoveList[currentMove]);
+                SetAnimationBools(MoveList[currentMove].animationName);
                 attacking = true;
+                Debug.Log("executing combo move number " + (currentMove+1));
                 //motion should stop, cannot resume until animation is finished or until player jumps
             }
             else if(attacking && Input.GetKeyDown(GameManager.GM.Attack) && !chainable){
@@ -94,174 +96,28 @@ public class player2DController : MonoBehaviour {
             else if(attacking && Input.GetKeyDown(GameManager.GM.Attack) && chainable && (currentMove+1) < maxCombo){
                 Debug.Log("CONTINUING COMBO");
                 //else do the next move in the combo (this move +1 in an array/list of strings)
-                SetAnimationBools(comboMoveList[++currentMove]);
+                SetAnimationBools(MoveList[++currentMove].animationName);
                 Debug.Log("executing combo move number " + (currentMove+1));
             }
         }
 
         void SetAnimationBools(string s) {
-            switch (s) {
-                ///<summary>If the player is walking left</summary>
-                case ("Left"):
-                    if(!anim.GetBool("Left")) {
-                        ///<summary>Get all the animations in the animator</summary>
-                        foreach (AnimatorControllerParameter parameter in anim.parameters) {
-                            ///<summary>If they're a bool, go ahead and do your magic</summary>
-                            if (parameter.type == AnimatorControllerParameterType.Bool) {
-                                ///<summary>If it matches the string provided, set it to true</summary>
-                                if (parameter.name == s) {
-                                    anim.SetBool(parameter.name, true);
-                                }
-                                ///<summary>Else set it to false</summary>
-                                else {
-                                    anim.SetBool(parameter.name, false);
-                                }
-                            }
+            if(!anim.GetBool(s)) {
+                ///<summary>Get all the animations in the animator</summary>
+                foreach (AnimatorControllerParameter parameter in anim.parameters) {
+                    ///<summary>If they're a bool, go ahead and do your magic</summary>
+                    if (parameter.type == AnimatorControllerParameterType.Bool) {
+                        ///<summary>If it matches the string provided, set it to true</summary>
+                        if (parameter.name == s) {
+                            anim.SetBool(parameter.name, true);
+                        }
+                        ///<summary>Else set it to false</summary>
+                        else {
+                            anim.SetBool(parameter.name, false);
                         }
                     }
-                    break;
-                ///<summary>If the player is walking right</summary>
-                case ("Right"):
-                    if (!anim.GetBool("Right")) {
-                        ///<summary>Get all the animations in the animator</summary>
-                        foreach (AnimatorControllerParameter parameter in anim.parameters) {
-                            ///<summary>If they're a bool, go ahead and do your magic</summary>
-                            if (parameter.type == AnimatorControllerParameterType.Bool) {
-                                ///<summary>If it matches the string provided, set it to true</summary>
-                                if (parameter.name == s) {
-                                    anim.SetBool(parameter.name, true);
-                                }
-                                ///<summary>Else set it to false</summary>
-                                else {
-                                    anim.SetBool(parameter.name, false);
-                                }
-                            }
-                        }
-                    }
-                    break;
-                ///<summary>If the player is jumping</summary>
-                case ("Jump"):
-                    if (!anim.GetBool("Jump")) {
-                        ///<summary>Get all the animations in the animator</summary>
-                        foreach (AnimatorControllerParameter parameter in anim.parameters) {
-                            ///<summary>If they're a bool, go ahead and do your magic</summary>
-                            if (parameter.type == AnimatorControllerParameterType.Bool) {
-                                ///<summary>If it matches the string provided, set it to true</summary>
-                                if (parameter.name == s) {
-                                    anim.SetBool(parameter.name, true);
-                                }
-                                ///<summary>Else set it to false</summary>
-                                else {
-                                    anim.SetBool(parameter.name, false);
-                                }
-                            }
-                        }
-                    }
-                    break;
-                    ///<summary>If the player is falling</summary>
-                case ("Fall"):
-                    if (!anim.GetBool("Fall")) {
-                        ///<summary>Get all the animations in the animator</summary>
-                        foreach (AnimatorControllerParameter parameter in anim.parameters) {
-                            ///<summary>If they're a bool, go ahead and do your magic</summary>
-                            if (parameter.type == AnimatorControllerParameterType.Bool) {
-                                ///<summary>If it matches the string provided, set it to true</summary>
-                                if (parameter.name == s) {
-                                    anim.SetBool(parameter.name, true);
-                                }
-                                ///<summary>Else set it to false</summary>
-                                else {
-                                    anim.SetBool(parameter.name, false);
-                                }
-                            }
-                        }
-                    }
-                    break;
-                ///<summary>If the player is idle</summary>
-                case ("Idle"):
-                    if (!anim.GetBool("Idle")) {
-                        ///<summary>Get all the animations in the animator</summary>
-                        foreach (AnimatorControllerParameter parameter in anim.parameters) {
-                            ///<summary>If they're a bool, go ahead and do your magic</summary>
-                            if (parameter.type == AnimatorControllerParameterType.Bool) {
-                                ///<summary>If it matches the string provided, set it to true</summary>
-                                if (parameter.name == s) {
-                                    anim.SetBool(parameter.name, true);
-                                }
-                                ///<summary>Else set it to false</summary>
-                                else {
-                                    anim.SetBool(parameter.name, false);
-                                }
-                            }
-                        }
-                    }
-                    break;
-//**************************************************************************************************
-//****************************attack moves**********************************************************
-//**************************************************************************************************
-
-                ///<summary>If the player is doing with a front hand attack</summary>
-                case ("atk_frontHand"):
-                    if (!anim.GetBool("atk_frontHand")) {
-                        ///<summary>Get all the animations in the animator</summary>
-                        foreach (AnimatorControllerParameter parameter in anim.parameters) {
-                            ///<summary>If they're a bool, go ahead and do your magic</summary>
-                            if (parameter.type == AnimatorControllerParameterType.Bool) {
-                                ///<summary>If it matches the string provided, set it to true</summary>
-                                if (parameter.name == s) {
-                                    anim.SetBool(parameter.name, true);
-                                }
-                                ///<summary>Else set it to false</summary>
-                                else {
-                                    anim.SetBool(parameter.name, false);
-                                }
-                            }
-                        }
-                    }
-                    break;
-
-                ///<summary>If the player is doing a back hand attack<summary>
-                case ("atk_backHand"):
-                  if (!anim.GetBool("atk_backHand")) {
-                        ///<summary>Get all the animations in the animator</summary>
-                        foreach (AnimatorControllerParameter parameter in anim.parameters) {
-                            ///<summary>If they're a bool, go ahead and do your magic</summary>
-                            if (parameter.type == AnimatorControllerParameterType.Bool) {
-                                ///<summary>If it matches the string provided, set it to true</summary>
-                                if (parameter.name == s) {
-                                    anim.SetBool(parameter.name, true);
-                                }
-                                ///<summary>Else set it to false</summary>
-                                else {
-                                    anim.SetBool(parameter.name, false);
-                                }
-                            }
-                        }
-                    }
-                    break;
-
-                ///<summary>If the player is doing a back hand attack<summary>
-                case ("atk_2h_overHand"):
-                  if (!anim.GetBool("atk_2h_overHand")) {
-                        ///<summary>Get all the animations in the animator</summary>
-                        foreach (AnimatorControllerParameter parameter in anim.parameters) {
-                            ///<summary>If they're a bool, go ahead and do your magic</summary>
-                            if (parameter.type == AnimatorControllerParameterType.Bool) {
-                                ///<summary>If it matches the string provided, set it to true</summary>
-                                if (parameter.name == s) {
-                                    anim.SetBool(parameter.name, true);
-                                }
-                                ///<summary>Else set it to false</summary>
-                                else {
-                                    anim.SetBool(parameter.name, false);
-                                }
-                            }
-                        }
-                    }
-                    break;
-
+                }
             }
-
         }
 
         public void AlertObservers(string message)
@@ -281,7 +137,10 @@ public class player2DController : MonoBehaviour {
                 }
 
                 if(message.Equals("hitbox")){
-                    //make hitboxes
+                    //make hitboxes,
+                    Debug.Log("got hitbox message");
+                    MoveList[currentMove].Attack();
+                    
                 }
                 if(message.Equals("hitboxGone")){
                     //get rid of hitboxes
