@@ -21,12 +21,18 @@ public class ComboAttack : MonoBehaviour
         attacking = true;
 
         foreach(Collider2D h in hitboxes){
-            Collider2D[] cols = Physics2D.OverlapCircleAll(h.transform.position, h.bounds.extents.x);
+            Collider2D[] cols = Physics2D.OverlapCircleAll(h.bounds.center, h.bounds.extents.x);
             foreach(Collider2D c in cols){
                 if (c.gameObject.tag == "Enemy")
                     Debug.Log(c.name);
             }
         } 
+    }
+
+    private void OnDrawGizmosSelected() {
+        foreach (Collider2D h in hitboxes){
+            Gizmos.DrawWireSphere(h.bounds.center, h.bounds.extents.x); 
+        }
     }
 
     void LevelUp(){

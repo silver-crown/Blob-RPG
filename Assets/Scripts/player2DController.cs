@@ -10,6 +10,7 @@ public class player2DController : MonoBehaviour {
         private bool comboEnd;
         private bool chainable;
         private int currentMove = 0;
+        private int comboCount = 0;
         public Rigidbody2D rb;
         [SerializeField] Animator anim;
         [SerializeField] private float moveSpeed;

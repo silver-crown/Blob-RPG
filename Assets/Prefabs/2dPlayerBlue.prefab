@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2682706625706927731}
   - component: {fileID: 3983680662199418598}
+  - component: {fileID: 3459585055150355317}
+  - component: {fileID: 4115597380650517577}
   m_Layer: 0
   m_Name: atkBackHand
   m_TagString: Untagged
@@ -25,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 237038442245157377}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.2521143, y: -11.573819, z: 43.4595}
+  m_LocalPosition: {x: 0.797, y: -0.098, z: 43.4595}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1558267483120679859}
@@ -51,6 +53,41 @@ MonoBehaviour:
   animationName: atk_backHand
   isUnlocked: 0
   attacking: 0
+  hitboxes:
+  - {fileID: 3459585055150355317}
+  - {fileID: 4115597380650517577}
+--- !u!58 &3459585055150355317
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 237038442245157377}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.036808968}
+  serializedVersion: 2
+  m_Radius: 0.34662914
+--- !u!58 &4115597380650517577
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 237038442245157377}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.74521196, y: 0.05521345}
+  serializedVersion: 2
+  m_Radius: 0.42333496
 --- !u!1 &1732062495652770435
 GameObject:
   m_ObjectHideFlags: 0
@@ -135,7 +172,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2376798448788774764}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.762, y: 0, z: 0}
+  m_LocalPosition: {x: 0.668, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1558267483120679859}
@@ -193,6 +230,9 @@ MonoBehaviour:
   animationName: atk_frontHand
   isUnlocked: 0
   attacking: 0
+  hitboxes:
+  - {fileID: 6386520538196424306}
+  - {fileID: 3587581791996389304}
 --- !u!1 &4804877755250906692
 GameObject:
   m_ObjectHideFlags: 0
@@ -203,6 +243,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2185108582758877071}
   - component: {fileID: 8631391718085541762}
+  - component: {fileID: 3189694209520836858}
+  - component: {fileID: 2118147526120285658}
   m_Layer: 0
   m_Name: atk2HOverhead
   m_TagString: Untagged
@@ -218,7 +260,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4804877755250906692}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.2521143, y: -11.573819, z: 43.4595}
+  m_LocalPosition: {x: 0.442, y: -0.044, z: 43.4595}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1558267483120679859}
@@ -244,6 +286,41 @@ MonoBehaviour:
   animationName: atk_2h_overHand
   isUnlocked: 0
   attacking: 0
+  hitboxes:
+  - {fileID: 3189694209520836858}
+  - {fileID: 2118147526120285658}
+--- !u!58 &3189694209520836858
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4804877755250906692}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
+--- !u!58 &2118147526120285658
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4804877755250906692}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.19626981, y: 0.49998724}
+  serializedVersion: 2
+  m_Radius: 0.43571168
 --- !u!1 &4891979911338256940
 GameObject:
   m_ObjectHideFlags: 0
