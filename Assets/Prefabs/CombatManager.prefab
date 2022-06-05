@@ -43,3 +43,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52a939690478eaf40890e729b56d80c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Fighting: 0
+  transition: {fileID: 0}
+  blueDmgPopup: {fileID: 712779688472555202, guid: d671579c9c6eff24aa33dfa61bbac3f3,
+    type: 3}
+  backdrop: 0
+  enemies: []

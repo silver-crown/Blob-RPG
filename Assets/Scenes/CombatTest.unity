@@ -400,6 +400,7 @@ GameObject:
   - component: {fileID: 932934100}
   - component: {fileID: 932934102}
   - component: {fileID: 932934103}
+  - component: {fileID: 932934104}
   m_Layer: 10
   m_Name: dummy
   m_TagString: Enemy
@@ -509,6 +510,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 297aab74391c17f418ea5a1b936108c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sprite: {fileID: 932934100}
+  health: 0
+  maxHealth: 0
+  mana: 0
+  defense: 0
+  poise: 0
+--- !u!95 &932934104
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 932934099}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1312569495
 GameObject:
   m_ObjectHideFlags: 0

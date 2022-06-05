@@ -7,6 +7,7 @@ public class CombatManager : MonoBehaviour
     public static CombatManager CM;
     public bool Fighting;
     public Animator transition;
+    [SerializeField] public GameObject blueDmgPopup;
     public enum Backdrops{
         Forest,
         Field,

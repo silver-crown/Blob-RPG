@@ -19,12 +19,18 @@ public class ComboAttack : MonoBehaviour
 
         Debug.Log("entered Attack function");
         attacking = true;
-
+        //check for enemy collision
         foreach(Collider2D h in hitboxes){
             Collider2D[] cols = Physics2D.OverlapCircleAll(h.bounds.center, h.bounds.extents.x);
             foreach(Collider2D c in cols){
-                if (c.gameObject.tag == "Enemy")
+                if (c.TryGetComponent<Enemy>(out Enemy enemy)){
                     Debug.Log(c.name);
+                    //instantiate a popup on the collider's center with the correct damage dealt
+                    GameObject popUp = Instantiate(CombatManager.CM.blueDmgPopup, c.bounds.center, Quaternion.identity) as GameObject;
+                    damagePopup dmgPopup = popUp.GetComponent<damagePopup>();
+                    dmgPopup.setNumber(enemy.Hurt(damage));
+                }
+
             }
         } 
     }

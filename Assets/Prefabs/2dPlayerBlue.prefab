@@ -49,7 +49,7 @@ MonoBehaviour:
   experience: 0
   level: 0
   expToNextLevel: 0
-  damage: 0
+  damage: 2
   animationName: atk_backHand
   isUnlocked: 0
   attacking: 0
@@ -226,7 +226,7 @@ MonoBehaviour:
   experience: 0
   level: 0
   expToNextLevel: 0
-  damage: 0
+  damage: 6
   animationName: atk_frontHand
   isUnlocked: 0
   attacking: 0
@@ -282,7 +282,7 @@ MonoBehaviour:
   experience: 0
   level: 0
   expToNextLevel: 0
-  damage: 0
+  damage: 9
   animationName: atk_2h_overHand
   isUnlocked: 0
   attacking: 0
