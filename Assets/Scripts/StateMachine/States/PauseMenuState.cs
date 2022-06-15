@@ -9,22 +9,22 @@ public class PauseMenuState : State
         PauseMenu = pauseMenu; 
     }
 
-    public override IEnumerator Start() {
-        Debug.Log("Starting PauseMenu state");
-        PauseMenu.gameObject.SetActive(true);
-       for(int i = 0; i <= PauseMenu.transform.childCount - 1; i++) {
-        PauseMenu.transform.GetChild(0).gameObject.SetActive(true);
+        public override IEnumerator Start() {
+            Debug.Log("Starting PauseMenu state");
+            PauseMenu.gameObject.SetActive(true);
+            PauseMenu.transform.GetChild(0).gameObject.SetActive(true);
+            yield return Execute();
         }
-        return Execute();
-    }
-    public override IEnumerator End() {
-        Debug.Log("Ending PauseMenu state");
-        PauseMenu.gameObject.SetActive(false);
-        for (int i = 0; i <= PauseMenu.transform.childCount - 1; i++) {
-        PauseMenu.transform.GetChild(0).gameObject.SetActive(false);
+
+        public override IEnumerator End() {
+            Debug.Log("Ending PauseMenu state");
+            PauseMenu.gameObject.SetActive(false);
+            PauseMenu.transform.GetChild(0).gameObject.SetActive(false);
+            Debug.Log(PauseMenu.transform.GetChild(0).name);
+            GameManager.GM.SetState(new OverworldState());
+            Time.timeScale = 1;
+            yield break;
         }
-        return base.End();
-    }
 
     public override IEnumerator Execute() {
         Debug.Log("Executing PauseMenu state");
@@ -35,8 +35,6 @@ public class PauseMenuState : State
                 yield return new WaitForEndOfFrame();
                 ///<summary>End the current state</summary>
                 yield return End();
-                ///<summary>Set the new state</summary>
-                GameManager.GM.SetState(new OverworldState());
                 yield break;
             }
             ///<summary>Wait for a frame</summary>

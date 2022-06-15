@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 
 public class player2DController : MonoBehaviour {
-
+        [SerializeField] public CombatPauseScript PauseMenu;
         [SerializeField] private BoxCollider2D groundDetector;
         private bool attacking;
         private bool comboEnd;
@@ -21,14 +21,25 @@ public class player2DController : MonoBehaviour {
         [SerializeField] private Collision2D[] hitboxes;
         [SerializeField] private List<ComboAttack> MoveList;
         private float lastY;
-
-        //list of combo moves
-        List<string> comboMoveList = new List<string>
-            { "atk_frontHand","atk_backHand", "atk_2h_overHand"};
+        static public GameObject Player;
 
          private void Start() {
             jumpCount = maxJumps;    
          }
+
+
+        private void Awake() {
+            //If a player doesn't already exist, make this the player
+            if (Player == null) {
+                DontDestroyOnLoad(gameObject);
+                Player = gameObject;
+            }
+            //if there is a manager 
+            else if (Player != this) {
+                Destroy(gameObject);
+            }
+            PauseMenu.transform.SetParent(null);
+    }
 
         private void Update() {
             lastY = transform.position.y;

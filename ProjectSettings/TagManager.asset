@@ -9,6 +9,8 @@ TagManager:
   - Transitioner
   - Enemy
   - battleGround
+  - 2DPlayer
+  - 2DEnemy
   layers:
   - Default
   - TransparentFX

@@ -13,4 +13,8 @@ public abstract class StateMachine : MonoBehaviour
         State = state;
         StartCoroutine(State.Start());
     }
+    public State GetState(){
+        State state = State;
+        return state;
+    }
 }

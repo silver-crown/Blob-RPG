@@ -18,7 +18,7 @@ class DialogueState : State
     }
     public override IEnumerator End() {
         ///<summary>The new state is being set back to player in the previous state, nothing needs to be done here.</summary>
-        return base.End();
+        yield break;
     }
 
     public override IEnumerator Execute() {

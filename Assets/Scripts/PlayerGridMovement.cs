@@ -173,7 +173,7 @@ public class PlayerGridMovement : MonoBehaviour
     /// It makes the player animate properly when walking around
     /// </summary>
     /// <param name="s"></param>
-    void SetAnimationBools(string s) {
+    /*void SetAnimationBools(string s) {
         switch (s) {
             ///<summary>If the player is walking up</summary>
             case ("Walking Up"):
@@ -273,6 +273,25 @@ public class PlayerGridMovement : MonoBehaviour
 
         }
     }
+    */
+     void SetAnimationBools(string s) {
+            if(!anim.GetBool(s)) {
+                ///<summary>Get all the animations in the animator</summary>
+                foreach (AnimatorControllerParameter parameter in anim.parameters) {
+                    ///<summary>If they're a bool, go ahead and do your magic</summary>
+                    if (parameter.type == AnimatorControllerParameterType.Bool) {
+                        ///<summary>If it matches the string provided, set it to true</summary>
+                        if (parameter.name == s) {
+                            anim.SetBool(parameter.name, true);
+                        }
+                        ///<summary>Else set it to false</summary>
+                        else {
+                            anim.SetBool(parameter.name, false);
+                        }
+                    }
+                }
+            }
+        }
     
     /// <summary>
     /// For use whenever the animation should stop for something important like leaving the state

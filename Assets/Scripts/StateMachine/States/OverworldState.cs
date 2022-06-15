@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 /// <summary>
 /// The netural state of the game world, where everything moves around in the overworld
@@ -15,10 +16,22 @@ public partial class OverworldState : State
     /// <returns></returns>
     public override IEnumerator Start() {
         Debug.Log("Starting PlayerWalking state");
-        ///<summary>Iterate through all the components of the player and enable them</summary>
-        Behaviour[] behaviour = PlayerController.Player.GetComponents<Behaviour>();
-        for (int i = 0; i < behaviour.Length; i++) {
-            behaviour[i].enabled = true;
+        ///<summary>Iterate through all the currently loaded entities and enable them</summary>
+        GameObject[] tag_1 = GameObject.FindGameObjectsWithTag("Player");  
+ 
+        GameObject[] tag_2 = GameObject.FindGameObjectsWithTag("Enemy");  
+ 
+        GameObject[] final_array = tag_1.Concat(tag_2).ToArray();
+
+        foreach (var obj in final_array) {
+            Behaviour[] behaviour = obj.GetComponents<Behaviour>();
+                for(int i = 0; i < behaviour.Length; i++) {
+                    behaviour[i].enabled = true;
+                }
+            if (obj.GetComponent<Rigidbody2D>()){
+                obj.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None | RigidbodyConstraints2D.FreezeRotation;
+                obj.GetComponent<Rigidbody2D>().useFullKinematicContacts = true;
+            }
         }
         yield return Execute();
     }
@@ -26,13 +39,24 @@ public partial class OverworldState : State
         ///<summary>stop executing the state</summary>
         Debug.Log("Ending PlayerWalking state");
         PlayerController.Player.GetComponent<PlayerGridMovement>().PauseAnimation();
-        ///<summary>Iterate through all the components of the player and disable them</summary>
-        Behaviour[] behaviour = PlayerController.Player.GetComponents<Behaviour>();
-        for(int i = 0; i < behaviour.Length; i++) {
-            behaviour[i].enabled = false;
+        ///<summary>Iterate through all the currently loaded entities and disable them</summary>
+        GameObject[] tag_1 = GameObject.FindGameObjectsWithTag("Player");  
+ 
+        GameObject[] tag_2 = GameObject.FindGameObjectsWithTag("Enemy");  
+ 
+        GameObject[] final_array = tag_1.Concat(tag_2).ToArray();
+
+        foreach (var obj in final_array) {
+            Behaviour[] behaviour = obj.GetComponents<Behaviour>();
+                for(int i = 0; i < behaviour.Length; i++) {
+                    behaviour[i].enabled = false;
+                }
+            if (obj.GetComponent<Rigidbody2D>()){
+                obj.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition |
+                 RigidbodyConstraints2D.FreezeRotation;
+            }
         }
-        ///<summary>TODO: iterate through all the currently loaded NPCs and disable all their components</summary>
-        return base.End();
+        yield break;
     }
 
     public override IEnumerator Execute() {

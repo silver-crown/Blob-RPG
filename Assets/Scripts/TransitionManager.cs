@@ -94,6 +94,6 @@ public class TransitionManager : MonoBehaviour
         combatTransition.SetTrigger("End");
         yield return new WaitForSeconds(transitionTime);
         Transitioning = false;
-}
+    }
 }
 

@@ -59,6 +59,7 @@ public class GameManager : StateMachine
     #region State Machine
 
     private void Start() {
+        Application.targetFrameRate = Screen.currentResolution.refreshRate;
         SetState(new OverworldState());
     }
     #endregion

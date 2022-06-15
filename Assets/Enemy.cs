@@ -11,12 +11,12 @@ public class Enemy : MonoBehaviour
     [SerializeField] private int defense;
     [SerializeField] private int poise;
     [SerializeField] private bool hurt;
-    float blinkingTimer;
+    float blinkingTimer = 0f;
     private void Update() {
 
         if (hurt){
             blinkingTimer += Time.deltaTime;
-            sprite.color = new Color(0.0f, 0.0f, 1.0f);
+            sprite.color =  Color.clear;
             if(blinkingTimer >= 0.05f){
                 blinkingTimer = 0.0f;
                 hurt = false;

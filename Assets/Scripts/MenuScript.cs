@@ -14,7 +14,7 @@ public class MenuScript : MonoBehaviour
     void Start()
     {
         menuPanel = transform.Find("Panel");
-        menuPanel.gameObject.SetActive(false);
+        //menuPanel.gameObject.SetActive(false);
         waitingForKey = false;
 
         //iterate through each child, set the corresponding buttons to display the appropriate key
