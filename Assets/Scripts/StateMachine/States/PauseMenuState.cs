@@ -13,6 +13,8 @@ public class PauseMenuState : State
             Debug.Log("Starting PauseMenu state");
             PauseMenu.gameObject.SetActive(true);
             PauseMenu.transform.GetChild(0).gameObject.SetActive(true);
+            GameManager.GM.FreezeAllEntities("Player", true);
+            GameManager.GM.FreezeAllEntities("Enemy", true);
             yield return Execute();
         }
 
@@ -21,6 +23,8 @@ public class PauseMenuState : State
             PauseMenu.gameObject.SetActive(false);
             PauseMenu.transform.GetChild(0).gameObject.SetActive(false);
             Debug.Log(PauseMenu.transform.GetChild(0).name);
+            GameManager.GM.FreezeAllEntities("Player", false);
+            GameManager.GM.FreezeAllEntities("Enemy", false);
             GameManager.GM.SetState(new OverworldState());
             Time.timeScale = 1;
             yield break;

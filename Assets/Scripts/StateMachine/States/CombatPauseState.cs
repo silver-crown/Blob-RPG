@@ -11,6 +11,8 @@ using UnityEngine;
         }
         public override IEnumerator Start() {
             Debug.Log("Starting combat pause state");
+            GameManager.GM.FreezeAllEntities("2DPlayer", true);
+            GameManager.GM.FreezeAllEntities("2DEnemy", true);
             PauseMenu.gameObject.SetActive(true);
             for(int i = 0; i < PauseMenu.transform.childCount; i++) {
                 PauseMenu.transform.GetChild(i).gameObject.SetActive(true);
@@ -23,6 +25,8 @@ using UnityEngine;
             for(int i = 0; i < PauseMenu.transform.childCount; i++) {
                 PauseMenu.transform.GetChild(i).gameObject.SetActive(false);
             }
+            GameManager.GM.FreezeAllEntities("2DPlayer", false);
+            GameManager.GM.FreezeAllEntities("2DEnemy", false);
             GameManager.GM.SetState(new CombatState());
             Time.timeScale = 1;
             yield break;

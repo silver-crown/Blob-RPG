@@ -86,6 +86,9 @@ public class player2DController : MonoBehaviour {
                     transform.localScale = new Vector3(1.0f, transform.localScale.y, transform.localScale.z);
                 }
             }
+            if(Input.GetKey(GameManager.GM.Test)){
+                //test stuff here
+            }
 
         }
 

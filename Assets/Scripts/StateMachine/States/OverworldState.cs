@@ -16,46 +16,13 @@ public partial class OverworldState : State
     /// <returns></returns>
     public override IEnumerator Start() {
         Debug.Log("Starting PlayerWalking state");
-        ///<summary>Iterate through all the currently loaded entities and enable them</summary>
-        GameObject[] tag_1 = GameObject.FindGameObjectsWithTag("Player");  
- 
-        GameObject[] tag_2 = GameObject.FindGameObjectsWithTag("Enemy");  
- 
-        GameObject[] final_array = tag_1.Concat(tag_2).ToArray();
-
-        foreach (var obj in final_array) {
-            Behaviour[] behaviour = obj.GetComponents<Behaviour>();
-                for(int i = 0; i < behaviour.Length; i++) {
-                    behaviour[i].enabled = true;
-                }
-            if (obj.GetComponent<Rigidbody2D>()){
-                obj.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None | RigidbodyConstraints2D.FreezeRotation;
-                obj.GetComponent<Rigidbody2D>().useFullKinematicContacts = true;
-            }
-        }
+        PlayerController.Player.GetComponent<Rigidbody2D>().useFullKinematicContacts = true;
         yield return Execute();
     }
     public override IEnumerator End() {
         ///<summary>stop executing the state</summary>
         Debug.Log("Ending PlayerWalking state");
         PlayerController.Player.GetComponent<PlayerGridMovement>().PauseAnimation();
-        ///<summary>Iterate through all the currently loaded entities and disable them</summary>
-        GameObject[] tag_1 = GameObject.FindGameObjectsWithTag("Player");  
- 
-        GameObject[] tag_2 = GameObject.FindGameObjectsWithTag("Enemy");  
- 
-        GameObject[] final_array = tag_1.Concat(tag_2).ToArray();
-
-        foreach (var obj in final_array) {
-            Behaviour[] behaviour = obj.GetComponents<Behaviour>();
-                for(int i = 0; i < behaviour.Length; i++) {
-                    behaviour[i].enabled = false;
-                }
-            if (obj.GetComponent<Rigidbody2D>()){
-                obj.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition |
-                 RigidbodyConstraints2D.FreezeRotation;
-            }
-        }
         yield break;
     }
 

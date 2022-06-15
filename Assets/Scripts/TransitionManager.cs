@@ -41,6 +41,9 @@ public class TransitionManager : MonoBehaviour
     /// <param name="scene"></param>
     /// <returns></returns>
     public  IEnumerator LoadLevel(string scene) {
+        GameManager.GM.FreezeAllEntities("Player", true);
+        GameManager.GM.FreezeAllEntities("Enemy", true);
+        transition.gameObject.SetActive(true);
         transition.ResetTrigger("End");
         transition.SetTrigger("Start");
         Transitioning = true;
@@ -59,7 +62,9 @@ public class TransitionManager : MonoBehaviour
         transition.SetTrigger("End");
         yield return new WaitForSeconds(transitionTime);
         Transitioning = false;
-        // SceneManager.sceneLoaded += OnSceneLoaded;
+        transition.gameObject.SetActive(false);
+        GameManager.GM.FreezeAllEntities("Player", false);
+        GameManager.GM.FreezeAllEntities("Enemy", false);
     }
     /// <summary>
     /// Once the scene has been loaded find the spot the player is supposed to go to and send him there.
@@ -76,24 +81,35 @@ public class TransitionManager : MonoBehaviour
                 PlayerController.Player.GetComponent<PlayerGridMovement>().movePoint.transform.position = PlayerController.Player.transform.position;
             }
         }
-        transition.ResetTrigger("Start");
-        transition.SetTrigger("End");
-        Transitioning = false;
     }
 
     //transition into battle and enter combat state
     public IEnumerator TransitionIntoCombat(){
         //fade into combat state
+        Debug.Log("transitioning into combat");
+        GameManager.GM.FreezeAllEntities("Player", true);
+        GameManager.GM.FreezeAllEntities("Enemy", true);
+        combatTransition.gameObject.SetActive(true);
         combatTransition.ResetTrigger("End");
         combatTransition.SetTrigger("Start");
         Transitioning = true;
         yield return new WaitForSeconds(transitionTime);
         //load combat scene
         SceneManager.LoadScene("CombatTest", LoadSceneMode.Additive);
+        //needs to wait a small amount, because otherwise the freeze happens before the scene is properly loaded
+         yield return new WaitForSeconds(0.001f);
+        GameManager.GM.FreezeAllEntities("2DPlayer", true);
+        GameManager.GM.FreezeAllEntities("2DEnemy", true);
         combatTransition.ResetTrigger("Start");
         combatTransition.SetTrigger("End");
         yield return new WaitForSeconds(transitionTime);
+        combatTransition.gameObject.SetActive(false);
         Transitioning = false;
+        //transition is done, players and enemies can move now
+        GameManager.GM.FreezeAllEntities("2DPlayer", false);
+        GameManager.GM.FreezeAllEntities("2DEnemy", false);
+        //?????????????
     }
+
 }
 
