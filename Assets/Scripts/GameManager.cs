@@ -13,6 +13,7 @@ public class GameManager : StateMachine
     public KeyCode OverworldLeft { get; set; }
     public KeyCode OverworldRight { get; set; }
 
+    //Player1 battle keys
     public KeyCode BattleRight { get; set; }
     public KeyCode BattleLeft { get; set; }
     public KeyCode Attack { get; set; }
@@ -22,6 +23,16 @@ public class GameManager : StateMachine
     public KeyCode Jump { get; set; }
     public KeyCode Test { get; set; }
     
+    //Player2 battle keys
+    public KeyCode BattleRight2p { get; set; }
+    public KeyCode BattleLeft2p { get; set; }
+    public KeyCode Attack2p { get; set; }
+    public KeyCode SubAttack2p { get; set; }
+    public KeyCode CycleLeft2p { get; set; }
+    public KeyCode CycleRight2p { get; set; }
+    public KeyCode Jump2p { get; set; }
+    public KeyCode Test { get; set; }
+
     public KeyCode Pause { get; set; }
     public KeyCode Interact { get; set; }
     public KeyCode Sprint { get; set; }

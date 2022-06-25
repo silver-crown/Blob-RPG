@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using System.Linq;
 
 public class player2DController : MonoBehaviour {
         [SerializeField] public CombatPauseScript PauseMenu;
@@ -20,6 +21,21 @@ public class player2DController : MonoBehaviour {
         [SerializeField] private int maxCombo;
         [SerializeField] private Collision2D[] hitboxes;
         [SerializeField] private List<ComboAttack> MoveList;
+
+        //set as player1 keycodes if hero is set to player1 etc.
+        private KeyCode jumpKey;
+        private KeyCode leftKey;
+        private KeyCode rightKey;
+        private KeyCode attackKey;
+
+        public enum Hero
+        {
+            Player1,
+            Player2,
+            AI
+        };
+        [SerializeField] public Hero hero;
+        
         private float lastY;
         static public GameObject Player;
 
@@ -35,9 +51,9 @@ public class player2DController : MonoBehaviour {
                 Player = gameObject;
             }
             //if there is a manager 
-            else if (Player != this) {
+           /* else if (Player != this) {
                 Destroy(gameObject);
-            }
+            }*/
             PauseMenu.transform.SetParent(null);
     }
 
@@ -47,6 +63,8 @@ public class player2DController : MonoBehaviour {
             Jump();
             Fall();
             Attack();
+            ChangePlayer();
+            
         }
         //gravity being applied to the player character
         private void Fall(){
@@ -56,7 +74,8 @@ public class player2DController : MonoBehaviour {
         }
         //Jump force being applied to the player character
         private void Jump(){
-            if(Input.GetKeyDown(GameManager.GM.Jump) && jumpCount > 0){
+            //CM.Jump(hero);
+            if(Input.GetKeyDown(jumpKey) && jumpCount > 0){
                 rb.velocity = new Vector2(0.0f, jumpForce);
                 jumpCount --;
                 SetAnimationBools("Jump");
@@ -67,11 +86,11 @@ public class player2DController : MonoBehaviour {
         }
         //movement of the player character, should only apply when knockback and such is null
         private void Move(){
-            if(rb.velocity.y == 0  && !Input.GetKey(GameManager.GM.BattleLeft) && !Input.GetKey(GameManager.GM.BattleRight) && !attacking){
+            if(rb.velocity.y == 0  && !Input.GetKey(leftKey) && !Input.GetKey(rightKey) && !attacking){
                 SetAnimationBools("Idle");
             }
             //Move to the left
-            if(Input.GetKey(GameManager.GM.BattleLeft) && !attacking){
+            if(Input.GetKey(leftKey) && !attacking){
                 this.transform.position -= new Vector3(moveSpeed, 0.0f, 0.0f);
                     if(rb.velocity.y == 0){
                         SetAnimationBools("Left");
@@ -79,7 +98,7 @@ public class player2DController : MonoBehaviour {
                     }
             }
             //Move to the right
-            if(Input.GetKey(GameManager.GM.BattleRight) && !attacking){
+            if(Input.GetKey(rightKey) && !attacking){
                 this.transform.position += new Vector3(moveSpeed, 0.0f, 0.0f);
                 if(rb.velocity.y == 0){
                 SetAnimationBools("Right");
@@ -94,7 +113,7 @@ public class player2DController : MonoBehaviour {
 
 
         void Attack(){
-            if(Input.GetKeyDown(GameManager.GM.Attack) && !attacking){
+            if(Input.GetKeyDown(attackKey) && !attacking){
                 currentMove = 0;
                 //do the first move in combo
                 SetAnimationBools(MoveList[currentMove].animationName);
@@ -102,12 +121,12 @@ public class player2DController : MonoBehaviour {
                 Debug.Log("executing combo move number " + (currentMove+1));
                 //motion should stop, cannot resume until animation is finished or until player jumps
             }
-            else if(attacking && Input.GetKeyDown(GameManager.GM.Attack) && !chainable){
+            else if(attacking && Input.GetKeyDown(attackKey) && !chainable){
                 comboEnd = true;
                 Debug.Log("COMBO IS OVER, PLAYER PRESSED THE KEY TOO SOON");
                 currentMove = 0;
             }
-            else if(attacking && Input.GetKeyDown(GameManager.GM.Attack) && chainable && (currentMove+1) < maxCombo){
+            else if(attacking && Input.GetKeyDown(attackKey) && chainable && (currentMove+1) < maxCombo){
                 Debug.Log("CONTINUING COMBO");
                 //else do the next move in the combo (this move +1 in an array/list of strings)
                 SetAnimationBools(MoveList[++currentMove].animationName);
@@ -165,7 +184,25 @@ public class player2DController : MonoBehaviour {
                 jumpCount = maxJumps;
             }
         }
-
+    
+        void ChangePlayer(){
+            if(hero == Hero.Player1){
+                jumpKey = GameManager.GM.Jump;
+                leftKey = GameManager.GM.BattleLeft;
+                rightKey = GameManager.GM.BattleRight;
+                attackKey = GameManager.GM.Attack;
+            } else if (hero == Hero.Player2){
+                jumpKey = GameManager.GM.Jump2p;
+                leftKey = GameManager.GM.BattleLeft2p;
+                rightKey = GameManager.GM.BattleRight2p;
+                attackKey = GameManager.GM.Attack2p;
+            } else
+                jumpKey = KeyCode.None;
+                leftKey = KeyCode.None;
+                rightKey = KeyCode.None;
+                attackKey = KeyCode.None;
+                //set control to AI
+        }
 
 
     }

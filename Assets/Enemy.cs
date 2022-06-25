@@ -11,7 +11,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private int defense;
     [SerializeField] private int poise;
     [SerializeField] private bool hurt;
-    float blinkingTimer = 0f;
+    float blinkingTimer = 0.05f;
     private void Update() {
 
         if (hurt){

@@ -22,6 +22,10 @@ public class CombatManager : MonoBehaviour
     }
     public Backdrops backdrop;
     public Entity[] enemies;
+    public player2DController[] characterList;
+    static public GameObject Player;
+    static public GameObject Player2;
+    
     private void Awake() {
         //If a manager doesn't already exist, make this the manager
         if (CM == null) {
@@ -33,4 +37,5 @@ public class CombatManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
 }
