@@ -31,11 +31,14 @@ public class GameManager : StateMachine
     public KeyCode CycleLeft2p { get; set; }
     public KeyCode CycleRight2p { get; set; }
     public KeyCode Jump2p { get; set; }
-    public KeyCode Test { get; set; }
 
     public KeyCode Pause { get; set; }
     public KeyCode Interact { get; set; }
     public KeyCode Sprint { get; set; }
+    //all the available characters
+    public GameObject[] characterList;
+    //current party
+    public GameObject[] partyChars;
 
     private void Awake() {
        //If a manager doesn't already exist, make this the manager
@@ -105,6 +108,13 @@ public class GameManager : StateMachine
             }
         }
     
+    }
+    #endregion
+
+    #region partymembers
+    //assign character to slot in party
+    void SetPartyMember(GameObject character, int slot){
+        partyChars[slot] = character;
     }
     #endregion
 }

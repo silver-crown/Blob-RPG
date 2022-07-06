@@ -7,6 +7,8 @@ using System.Linq;
 public class player2DController : MonoBehaviour {
         [SerializeField] public CombatPauseScript PauseMenu;
         [SerializeField] private BoxCollider2D groundDetector;
+        static public GameObject Player;
+        private float lastY;
         private bool attacking;
         private bool comboEnd;
         private bool chainable;
@@ -22,22 +24,14 @@ public class player2DController : MonoBehaviour {
         [SerializeField] private Collision2D[] hitboxes;
         [SerializeField] private List<ComboAttack> MoveList;
 
-        //set as player1 keycodes if hero is set to player1 etc.
+        //set as player1 keycodes if player is in control
         private KeyCode jumpKey;
         private KeyCode leftKey;
         private KeyCode rightKey;
         private KeyCode attackKey;
+        private KeyCode cycleRight;
 
-        public enum Hero
-        {
-            Player1,
-            Player2,
-            AI
-        };
-        [SerializeField] public Hero hero;
-        
-        private float lastY;
-        static public GameObject Player;
+        [SerializeField] public bool playerChar;
 
          private void Start() {
             jumpCount = maxJumps;    
@@ -46,12 +40,11 @@ public class player2DController : MonoBehaviour {
 
         private void Awake() {
             //If a player doesn't already exist, make this the player
-            if (Player == null) {
-                DontDestroyOnLoad(gameObject);
-                Player = gameObject;
-            }
+            DontDestroyOnLoad(gameObject);
+            Player = gameObject;
+
             //if there is a manager 
-           /* else if (Player != this) {
+            /*else if (Player != this) {
                 Destroy(gameObject);
             }*/
             PauseMenu.transform.SetParent(null);
@@ -59,12 +52,11 @@ public class player2DController : MonoBehaviour {
 
         private void Update() {
             lastY = transform.position.y;
+            ChangePlayer();
             Move();
             Jump();
             Fall();
             Attack();
-            ChangePlayer();
-            
         }
         //gravity being applied to the player character
         private void Fall(){
@@ -186,22 +178,24 @@ public class player2DController : MonoBehaviour {
         }
     
         void ChangePlayer(){
-            if(hero == Hero.Player1){
+            if(Input.GetKeyDown(cycleRight) && playerChar){
+                Debug.Log("pressed the cycle key");
+                Debug.Log(gameObject.name + playerChar);
+                StartCoroutine(CombatManager.CM.CycleCharacters());
+            }
+            if(playerChar){
                 jumpKey = GameManager.GM.Jump;
                 leftKey = GameManager.GM.BattleLeft;
                 rightKey = GameManager.GM.BattleRight;
                 attackKey = GameManager.GM.Attack;
-            } else if (hero == Hero.Player2){
-                jumpKey = GameManager.GM.Jump2p;
-                leftKey = GameManager.GM.BattleLeft2p;
-                rightKey = GameManager.GM.BattleRight2p;
-                attackKey = GameManager.GM.Attack2p;
-            } else
+                cycleRight = GameManager.GM.CycleRight;
+            } else if (!playerChar){
                 jumpKey = KeyCode.None;
                 leftKey = KeyCode.None;
                 rightKey = KeyCode.None;
                 attackKey = KeyCode.None;
-                //set control to AI
+                cycleRight = KeyCode.None;  
+            } 
         }
 
 
