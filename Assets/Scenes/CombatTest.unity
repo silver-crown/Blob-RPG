@@ -151,7 +151,7 @@ GameObject:
   - component: {fileID: 413035519}
   - component: {fileID: 413035518}
   - component: {fileID: 413035521}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: boundary walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -265,7 +265,7 @@ PrefabInstance:
     - target: {fileID: 2376798448788774764, guid: 05e675b13edba7242a4704742fd553b8,
         type: 3}
       propertyPath: m_Layer
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2472406758712680235, guid: 05e675b13edba7242a4704742fd553b8,
         type: 3}
@@ -460,7 +460,7 @@ GameObject:
   - component: {fileID: 932934102}
   - component: {fileID: 932934103}
   - component: {fileID: 932934104}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: dummy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -674,7 +674,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1312569497}
   - component: {fileID: 1312569496}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: backdrop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -752,6 +752,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1727977389164068222, guid: 2ad489ccc5d6be54e9539e642c5f7136,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2085632333437683043, guid: 2ad489ccc5d6be54e9539e642c5f7136,
         type: 3}
       propertyPath: m_Enabled
@@ -769,9 +774,34 @@ PrefabInstance:
       objectReference: {fileID: 1426421743}
     - target: {fileID: 2414318399322904730, guid: 2ad489ccc5d6be54e9539e642c5f7136,
         type: 3}
+      propertyPath: gravity
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2414318399322904730, guid: 2ad489ccc5d6be54e9539e642c5f7136,
+        type: 3}
+      propertyPath: maxCombo
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2414318399322904730, guid: 2ad489ccc5d6be54e9539e642c5f7136,
+        type: 3}
+      propertyPath: maxJumps
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2414318399322904730, guid: 2ad489ccc5d6be54e9539e642c5f7136,
+        type: 3}
       propertyPath: PauseMenu
       value: 
       objectReference: {fileID: 300549369}
+    - target: {fileID: 2414318399322904730, guid: 2ad489ccc5d6be54e9539e642c5f7136,
+        type: 3}
+      propertyPath: jumpCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2414318399322904730, guid: 2ad489ccc5d6be54e9539e642c5f7136,
+        type: 3}
+      propertyPath: jumpForce
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2414318399322904730, guid: 2ad489ccc5d6be54e9539e642c5f7136,
         type: 3}
       propertyPath: moveSpeed
@@ -782,6 +812,16 @@ PrefabInstance:
       propertyPath: groundDetector
       value: 
       objectReference: {fileID: 756659297}
+    - target: {fileID: 2778099923433212631, guid: 2ad489ccc5d6be54e9539e642c5f7136,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4628014509338734265, guid: 2ad489ccc5d6be54e9539e642c5f7136,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6002942643308518782, guid: 2ad489ccc5d6be54e9539e642c5f7136,
         type: 3}
       propertyPath: m_Name
@@ -801,6 +841,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: 2DPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 6468641926836507645, guid: 2ad489ccc5d6be54e9539e642c5f7136,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6804594773609547237, guid: 2ad489ccc5d6be54e9539e642c5f7136,
         type: 3}
@@ -856,6 +901,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7264089251389325019, guid: 2ad489ccc5d6be54e9539e642c5f7136,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8310948188257159063, guid: 2ad489ccc5d6be54e9539e642c5f7136,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ad489ccc5d6be54e9539e642c5f7136, type: 3}
@@ -979,7 +1034,7 @@ GameObject:
   - component: {fileID: 1624047092}
   - component: {fileID: 1624047091}
   - component: {fileID: 1624047094}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: platform
   m_TagString: battleGround
   m_Icon: {fileID: 0}
@@ -1115,7 +1170,7 @@ GameObject:
   - component: {fileID: 1912963487}
   - component: {fileID: 1912963486}
   - component: {fileID: 1912963489}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -1161,7 +1216,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 1536
+    m_Bits: 3584
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0

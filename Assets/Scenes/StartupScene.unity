@@ -138,6 +138,11 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 7438736722686000706, guid: d8fe12aa6c2b68146bc46159a2b5ed4b,
+        type: 3}
+      propertyPath: partyChars.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7438736722686000707, guid: d8fe12aa6c2b68146bc46159a2b5ed4b,
         type: 3}
       propertyPath: m_RootOrder

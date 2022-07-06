@@ -47,11 +47,16 @@ public class CombatManager : MonoBehaviour
                 //if there's no one next in line, get the one first in line
                 if(i == GameManager.GM.partyChars.Length-1){
                     GameManager.GM.partyChars[0].GetComponent<player2DController>().playerChar = true;
-                     yield return new WaitForEndOfFrame();
+                    GameManager.GM.partyChars[0].GetComponent<SpriteRenderer>().color = Color.clear;
+                     yield return new WaitForSeconds(0.01f);
+                    GameManager.GM.partyChars[0].GetComponent<SpriteRenderer>().color = Color.white;
+
                 //else just change the one next in line
                 } else{
                     GameManager.GM.partyChars[i+1].GetComponent<player2DController>().playerChar = true;
-                    yield return new WaitForEndOfFrame();
+                    GameManager.GM.partyChars[i+1].GetComponent<SpriteRenderer>().color = Color.clear;
+                    yield return new WaitForSeconds(0.01f);
+                    GameManager.GM.partyChars[i+1].GetComponent<SpriteRenderer>().color = Color.white;
                 }
                 //set self to AI
                 GameManager.GM.partyChars[i].GetComponent<player2DController>().playerChar = false;
