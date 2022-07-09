@@ -2,23 +2,59 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 public class MenuScript : MonoBehaviour
 {
+
+    //the different menu screens
+    public GameObject pauseMenu, bagMenu, equipmentMenu, statusMenu, 
+                        journalMenu, saveLoadMenu, systemMenu, controlSetupMenu;
+    //the different buttons for the main pause screen
+    public GameObject bagButton, equipmentButton, statusButton, journalButton,
+                        saveLoadButton, systemButton;     
+    //The different buttons for the system menu
+    public GameObject controlsButton, soundButton, quitGameButton;
+    //the icon buttons for the party members
+    public GameObject party1, party2, party3, party4;
+
+    private GameObject currentMenu;
+
+    //the button the menu should return to when pressing the back button
+    Dictionary<GameObject, GameObject> returnMenuButtonPair = new Dictionary<GameObject, GameObject>();
+    //the button the menu should go to when entering a new menu
+    Dictionary<GameObject, GameObject> menuButtonPair = new Dictionary<GameObject, GameObject>();
+    //the menus that the UI should fall back to when backspace is pressed
+    Dictionary<GameObject, GameObject> backToPreviousMenu = new Dictionary<GameObject, GameObject>();
+
     Transform menuPanel;
     Event keyEvent;
     Text buttonText;
     KeyCode newKey;
 
     bool waitingForKey;
+    void Awake(){
+      /*  menuButtonPair.Add(bagMenu, bagButton);
+        menuButtonPair.Add(equipmentMenu, equipmentButton);
+        menuButtonPair.Add(statusMenu, statusButton);
+        menuButtonPair.Add(journalMenu, journalButton);
+        menuButtonPair.Add(saveLoadMenu, saveLoadButton);*/
 
+        menuButtonPair.Add(systemMenu,controlsButton);
+        returnMenuButtonPair.Add(systemMenu, systemButton);
+        returnMenuButtonPair.Add(controlSetupMenu, controlsButton);
+        backToPreviousMenu.Add(controlSetupMenu, systemMenu);
+        backToPreviousMenu.Add(systemMenu, pauseMenu);
+
+    }
     void Start()
     {
-        menuPanel = transform.Find("Panel");
+       // menuPanel = transform.Find("Panel");
         //menuPanel.gameObject.SetActive(false);
         waitingForKey = false;
 
         //iterate through each child, set the corresponding buttons to display the appropriate key
-        SetupMenuButtonNames();
+        //SetupMenuButtonNames();
+        menuInit();
     }
 
     void Update(){
@@ -27,8 +63,37 @@ public class MenuScript : MonoBehaviour
         } else if(Input.GetKeyDown(GameManager.GM.Pause)){
             menuPanel.gameObject.SetActive(false);
         }*/
+        onMenuExit();
+        Debug.Log(currentMenu);
     }
 
+    public void menuInit(){
+        //clear selected
+        EventSystem.current.SetSelectedGameObject(null);
+        //select new object
+        EventSystem.current.SetSelectedGameObject(bagButton);
+        currentMenu = pauseMenu;
+    }
+    public void onMenu(GameObject mnu){
+        mnu.SetActive(true);
+        currentMenu = mnu;
+        //clear selected
+        EventSystem.current.SetSelectedGameObject(null);
+        //set current menu to mnu
+        EventSystem.current.SetSelectedGameObject(menuButtonPair[mnu]);
+    }
+
+    public void onMenuExit(){
+        if(Input.GetKeyDown(KeyCode.Backspace)){
+            currentMenu.SetActive(false);
+            ///clear selected
+            EventSystem.current.SetSelectedGameObject(null);
+            //select new object
+            EventSystem.current.SetSelectedGameObject(returnMenuButtonPair[currentMenu]);
+            currentMenu = backToPreviousMenu[currentMenu];
+            //set the current menu to the one being exited to, allowing for nested menus
+        }
+    }
     private void OnGUI() {
         keyEvent = Event.current;
 

@@ -15,6 +15,7 @@ public class PauseMenuState : State
             PauseMenu.transform.GetChild(0).gameObject.SetActive(true);
             GameManager.GM.FreezeAllEntities("Player", true);
             GameManager.GM.FreezeAllEntities("Enemy", true);
+            Time.timeScale = 0;
             yield return Execute();
         }
 
