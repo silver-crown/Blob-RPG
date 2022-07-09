@@ -17,6 +17,7 @@ using UnityEngine;
             for(int i = 0; i < PauseMenu.transform.childCount; i++) {
                 PauseMenu.transform.GetChild(i).gameObject.SetActive(true);
             }
+            yield return new WaitForEndOfFrame();
             yield return Execute();
         }
         public override IEnumerator End() {
@@ -27,8 +28,9 @@ using UnityEngine;
             }
             GameManager.GM.FreezeAllEntities("2DPlayer", false);
             GameManager.GM.FreezeAllEntities("2DEnemy", false);
-            GameManager.GM.SetState(new CombatState());
             Time.timeScale = 1;
+            yield return new WaitForEndOfFrame();
+            GameManager.GM.SetState(new CombatState());
             yield break;
         }
 

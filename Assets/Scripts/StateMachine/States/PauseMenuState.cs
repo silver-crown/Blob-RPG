@@ -26,8 +26,9 @@ public class PauseMenuState : State
             Debug.Log(PauseMenu.transform.GetChild(0).name);
             GameManager.GM.FreezeAllEntities("Player", false);
             GameManager.GM.FreezeAllEntities("Enemy", false);
-            GameManager.GM.SetState(new OverworldState());
             Time.timeScale = 1;
+            yield return new WaitForEndOfFrame();
+            GameManager.GM.SetState(new OverworldState());
             yield break;
         }
 

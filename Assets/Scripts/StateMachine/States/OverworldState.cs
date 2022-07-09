@@ -28,7 +28,7 @@ public partial class OverworldState : State
 
     public override IEnumerator Execute() {
         Debug.Log("Executing PlayerWalking state");
-        ///<summary>This loop runs every frame until the test key is pressed</summary>
+        ///<summary>This loop runs every frame until the key is pressed</summary>
         while (true) {
             ///<summary>Transitioning to the pause state via pause key</summary>
             if (Input.GetKeyDown(GameManager.GM.Pause)) {
