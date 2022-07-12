@@ -19,6 +19,10 @@ public class MenuScript : MonoBehaviour
 
     private GameObject currentMenu;
 
+    [SerializeField] private GameObject arrow;
+
+    private bool exitedPauseMenu = false;
+
     //the button the menu should return to when pressing the back button
     Dictionary<GameObject, GameObject> returnMenuButtonPair = new Dictionary<GameObject, GameObject>();
     //the button the menu should go to when entering a new menu
@@ -64,7 +68,7 @@ public class MenuScript : MonoBehaviour
             menuPanel.gameObject.SetActive(false);
         }*/
         onMenuExit();
-        Debug.Log(currentMenu);
+        SelectedArrow();
     }
 
     public void menuInit(){
@@ -85,15 +89,45 @@ public class MenuScript : MonoBehaviour
 
     public void onMenuExit(){
         if(Input.GetKeyDown(KeyCode.Backspace)){
-            currentMenu.SetActive(false);
-            ///clear selected
-            EventSystem.current.SetSelectedGameObject(null);
-            //select new object
-            EventSystem.current.SetSelectedGameObject(returnMenuButtonPair[currentMenu]);
-            currentMenu = backToPreviousMenu[currentMenu];
+           
+            GameObject g;
+            //is there a menu underneath this one?
+            if(returnMenuButtonPair.TryGetValue(currentMenu, out g)){
+                currentMenu.SetActive(false);
+                ///clear selected
+                EventSystem.current.SetSelectedGameObject(null);
+                //select new object
+                EventSystem.current.SetSelectedGameObject(returnMenuButtonPair[currentMenu]);
             //set the current menu to the one being exited to, allowing for nested menus
+                currentMenu = backToPreviousMenu[currentMenu];
+            }
+            else{
+                Debug.Log("exited the main menu");
+                ResetPauseMenuScreen();
+                exitedPauseMenu = true;
+            }
         }
     }
+    public void ResetPauseMenuScreen(){
+        systemMenu.SetActive(false); 
+        controlSetupMenu.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(bagButton);
+    }
+
+    public bool ExitedPauseMenu(){
+        bool e = exitedPauseMenu;
+        exitedPauseMenu = false;
+        return e;
+    }
+
+    //put an arrow next to the object currently selected by the EventSystem
+    private void SelectedArrow(){
+        Debug.Log(EventSystem.current.currentSelectedGameObject);
+        arrow.gameObject.transform.position = new Vector3 (EventSystem.current.currentSelectedGameObject.transform.position.x, 
+                                                        EventSystem.current.currentSelectedGameObject.transform.position.y);
+    }
+
     private void OnGUI() {
         keyEvent = Event.current;
 
