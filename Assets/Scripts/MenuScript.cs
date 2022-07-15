@@ -16,7 +16,7 @@ public class MenuScript : MonoBehaviour
     public GameObject controlsButton, soundButton, quitGameButton;
 
     //the different tab buttons for the control setup menu
-    public GameObject tabTestButton;
+    public GameObject tabTestButton, tabTestButton2, tabTestButton3;
     //the icon buttons for the party members
     public GameObject party1, party2, party3, party4;
 
