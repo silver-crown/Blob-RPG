@@ -121,6 +121,18 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &758043488 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1991119983599816573, guid: 6eca5a2977e71a74798137eceb6feaef,
+    type: 3}
+  m_PrefabInstance: {fileID: 868231784}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d385543462be2594f9bcf9f549d302b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &868231784
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -183,6 +195,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1840126184447179294, guid: 6eca5a2977e71a74798137eceb6feaef,
+        type: 3}
+      propertyPath: enemySpawnPointsScript
+      value: 
+      objectReference: {fileID: 758043488}
+    - target: {fileID: 1840126184447179294, guid: 6eca5a2977e71a74798137eceb6feaef,
+        type: 3}
+      propertyPath: spawnPoints.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1840126184447179294, guid: 6eca5a2977e71a74798137eceb6feaef,
+        type: 3}
+      propertyPath: spawnPoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 3530667302756370601, guid: cc3186f6bce9a9141b7cd71435c8a1cd,
+        type: 3}
     - target: {fileID: 4652786813036475350, guid: 6eca5a2977e71a74798137eceb6feaef,
         type: 3}
       propertyPath: m_Name
@@ -3492,6 +3520,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8623631919177411252, guid: 1065278da51130c4c9a03dfac278ee48,
+        type: 3}
+      propertyPath: spPositions
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8623631919177411252, guid: 1065278da51130c4c9a03dfac278ee48,
         type: 3}
       propertyPath: enemyList.Array.size

@@ -8,6 +8,7 @@ public class CombatManager : MonoBehaviour
     public bool Fighting;
     public Animator transition;
     [SerializeField] public GameObject blueDmgPopup;
+    [SerializeField] public combatEnemySpawnPoints enemySpawnPointsScript;
     public enum Backdrops{
         Forest,
         Field,
@@ -21,8 +22,17 @@ public class CombatManager : MonoBehaviour
         Town
     }
     public Backdrops backdrop;
+
+    public enum spawnPointPositions{
+        threeInARow,
+        twoOnTheGroundOneInTheAir,
+        Boss
+    }
+    public spawnPointPositions spPositions;
+
     public List<Enemy> enemies = new List<Enemy>();
     List<int> usedUpSpaces = new List<int>();
+
 
     public List<GameObject> spawnPoints = new List<GameObject>();
 
@@ -102,8 +112,8 @@ public class CombatManager : MonoBehaviour
     public void AddToEnemyList(Enemy e){
         enemies.Add(e);
     }
-    //place enemies around the arena
-    void PlaceEnemies(){
+    //place enemies around the arena (possibly bugged)
+    public void PlaceEnemies(){
         //number of spawn points in the arena
         int nmbrOfSpawnPoints = spawnPoints.Count;
         //find the spawn points for enemies, and place the enemies on the points randomly
@@ -118,8 +128,6 @@ public class CombatManager : MonoBehaviour
                 do{
                     i = Random.Range(0, nmbrOfSpawnPoints);
                 } while(usedUpSpaces.Contains(i));
-                Debug.Log("i =" + i);
-                Debug.Log("used up spaces =" + usedUpSpaces.Count);
                 //take a random entry from the spCoords list
                 Instantiate(enemy, spCoords[i], Quaternion.identity);
                 //spawn point is used up
@@ -140,5 +148,26 @@ public class CombatManager : MonoBehaviour
     void EmptyEnemyList(){
         enemies.Clear();
         enemies.TrimExcess();
+    }
+
+    public void setUpSpawnPoints(){       
+        
+        //search for all the objects with the correct tag
+        //(((((might need some black magic for determining which spawnpoint set to use
+        ///
+        /// Maybe use the type and number of enemies to determine the spawn point type?))))))
+
+        spPositions = spawnPointPositions.threeInARow;
+
+        switch (spPositions){
+            case(spawnPointPositions.threeInARow):
+                //fill in list with the child object of the spawn points prefab
+                foreach (Transform c in enemySpawnPointsScript.threeInARow.GetComponentsInChildren<Transform>()){
+                    spawnPoints.Add(c.gameObject);
+                }
+                break;
+            default:
+                break;
+        }
     }
 }

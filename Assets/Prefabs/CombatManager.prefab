@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1484115663542165975}
   - component: {fileID: 1840126184447179294}
+  - component: {fileID: 1991119983599816573}
   m_Layer: 0
   m_Name: CombatManager
   m_TagString: Untagged
@@ -47,5 +48,22 @@ MonoBehaviour:
   transition: {fileID: 0}
   blueDmgPopup: {fileID: 712779688472555202, guid: d671579c9c6eff24aa33dfa61bbac3f3,
     type: 3}
+  enemySpawnPointsScript: {fileID: 0}
   backdrop: 0
+  spPositions: 0
   enemies: []
+  spawnPoints: []
+--- !u!114 &1991119983599816573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4652786813036475350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d385543462be2594f9bcf9f549d302b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  threeInARow: {fileID: 3530667302756370601, guid: cc3186f6bce9a9141b7cd71435c8a1cd,
+    type: 3}
