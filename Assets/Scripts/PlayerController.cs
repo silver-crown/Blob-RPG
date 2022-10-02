@@ -30,6 +30,9 @@ public class PlayerController : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D other) {
         if(other.gameObject.CompareTag("Enemy")){
+
+            //combat manager should take data from other
+            CombatManager.CM.enemies.AddRange(other.gameObject.GetComponent<Entity>().enemyList);
             //transition into enemy combat
             TransitionManager.TM.transitionType = TransitionManager.TransitionType.Enemy;
             StartCoroutine(TransitionManager.TM.TransitionIntoCombat());

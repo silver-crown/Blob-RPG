@@ -11,6 +11,11 @@ TagManager:
   - battleGround
   - 2DPlayer
   - 2DEnemy
+  - 2DEnemySpawnPoint
+  - 2DEnemyAirSpawnPoint
+  - 2DEnemyBossSpawnPoint
+  - 2DPlayer1SpawnPoint
+  - 2DPlayer2SpawnPoint
   layers:
   - Default
   - TransparentFX

@@ -56,13 +56,13 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\CameraClamp.cs" />
-     <Compile Include="Assets\Enemy.cs" />
      <Compile Include="Assets\Scripts\CombatManager.cs" />
      <Compile Include="Assets\Scripts\CombatPauseScript.cs" />
      <Compile Include="Assets\Scripts\CorutineUpdater.cs" />
      <Compile Include="Assets\Scripts\Dialogue.cs" />
      <Compile Include="Assets\Scripts\DialogueManager.cs" />
      <Compile Include="Assets\Scripts\DialogueTrigger.cs" />
+     <Compile Include="Assets\Scripts\Enemy.cs" />
      <Compile Include="Assets\Scripts\Entity.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\IUpdater.cs" />
@@ -94,9 +94,9 @@
      <Compile Include="Assets\Scripts\attack moves\BlueFrontSlash.cs" />
      <Compile Include="Assets\Scripts\attack moves\ComboAttack.cs" />
      <Compile Include="Assets\Scripts\controlSetupScript.cs" />
+     <Compile Include="Assets\Scripts\controlsMenuScript.cs" />
+     <Compile Include="Assets\Scripts\damagePopup.cs" />
      <Compile Include="Assets\Scripts\player2DController.cs" />
-     <Compile Include="Assets\controlsMenuScript.cs" />
-     <Compile Include="Assets\damagePopup.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />

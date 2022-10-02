@@ -21,7 +21,10 @@ public class CombatManager : MonoBehaviour
         Town
     }
     public Backdrops backdrop;
-    public Entity[] enemies;
+    public List<Enemy> enemies = new List<Enemy>();
+
+    public List<GameObject> spawnPoints = new List<GameObject>();
+
     //the party
     static public GameObject Player;
     
@@ -34,6 +37,22 @@ public class CombatManager : MonoBehaviour
         //if there is a manager 
         else if (CM != this) {
             Destroy(gameObject);
+        }
+    }
+    //
+
+    private void Update(){
+
+        if(Input.GetKeyDown(KeyCode.H)){
+            PlaceEnemies();
+        }
+        if(Fighting && AllEnemiesAreDead()){
+            Debug.Log("all enemies are dead");
+            Fighting = false;
+            EmptyEnemyList();
+            //enter victory state
+            //***********************
+            //show a message, exit combat and return to overworld
         }
     }
     public IEnumerator CycleCharacters(){
@@ -65,4 +84,58 @@ public class CombatManager : MonoBehaviour
         }
     }
 
+    //Returns true if all the enemies have no health
+    bool AllEnemiesAreDead(){
+        foreach (Enemy enemy in enemies){
+            if (enemy.getHP() > 0){
+                return false;
+            }
+        }
+        return true;
+    }
+    //set the background for the battle
+    void SetBackground(Backdrops bd){
+        backdrop = bd;
+    }
+    //add enemies to the enemy list (for example by coming into contact with an enemy)
+    public void AddToEnemyList(Enemy e){
+        enemies.Add(e);
+    }
+    //place enemies around the arena
+    void PlaceEnemies(){
+        //number of spawn points in the arena
+        int nmbrOfSpawnPoints = spawnPoints.Count;
+        List<int> usedUpSpaces = new List<int>();
+        //find the spawn points for enemies, and place the enemies on the points randomly
+        //make list of coordinates
+        List<Vector3> spCoords = new List<Vector3>();
+        foreach(GameObject sp in spawnPoints){
+            spCoords.Add(sp.transform.position);
+        }
+        foreach(Enemy enemy in enemies){
+            int i;
+            do{
+            i = Random.Range(0, nmbrOfSpawnPoints);
+            } while(usedUpSpaces.Contains(i));
+            Debug.Log("i =" + i);
+            
+            //take a random entry from the spCoords list
+            Instantiate(enemy, spCoords[i], Quaternion.identity);
+            //spawn point is used up
+            usedUpSpaces.Add(i);
+        }
+        
+    }
+    //add player characters to the list of players (possibly not needed, can just grab them from the current party)
+    void AddToPlayerList(){
+
+    }
+    //place players around the arena
+    void PlacePlayers(){
+
+    }
+    void EmptyEnemyList(){
+        enemies.Clear();
+        enemies.TrimExcess();
+    }
 }

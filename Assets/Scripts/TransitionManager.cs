@@ -94,6 +94,8 @@ public class TransitionManager : MonoBehaviour
         combatTransition.SetTrigger("Start");
         Transitioning = true;
         yield return new WaitForSeconds(transitionTime);
+        //combat manager should here set everything from background to enemy list and player list before anything else happens
+        
         //load combat scene
         SceneManager.LoadScene("CombatTest", LoadSceneMode.Additive);
         //needs to wait a small amount, because otherwise the freeze happens before the scene is properly loaded

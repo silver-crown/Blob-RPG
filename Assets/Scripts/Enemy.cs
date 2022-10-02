@@ -32,4 +32,8 @@ public class Enemy : MonoBehaviour
         health -= (damageDealt);
         return damageDealt;
     }
+
+    public int getHP(){
+        return health;
+    }
 }

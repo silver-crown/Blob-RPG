@@ -4,9 +4,11 @@ using UnityEngine;
 public class Entity : MonoBehaviour    
 {
     public string entityName;
-    public int health;
-    public int maxHealth;
-    public int magic;
-    public int maxMagic;
+
+    //List of enemies to be spread around the battle arena
+    public List<Enemy> enemyList = new List<Enemy>();
+
+    //this class needs to give data to the combat scene
+    //this is done by having the combat manager take the enemyList as input
 
 }

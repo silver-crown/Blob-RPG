@@ -140,7 +140,7 @@ public class MenuScript : MonoBehaviour
 
     //put an arrow next to the object currently selected by the EventSystem
     private void SelectedArrow(){
-        Debug.Log(EventSystem.current.currentSelectedGameObject);
+        //Debug.Log(EventSystem.current.currentSelectedGameObject);
         currentlySelectedItem = EventSystem.current.currentSelectedGameObject;
         Transform var = currentlySelectedItem.transform;
         arrow.gameObject.transform.position = new Vector3 (var.position.x + var.GetComponent<RectTransform>().sizeDelta.x /2, 
