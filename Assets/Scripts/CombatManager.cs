@@ -22,6 +22,7 @@ public class CombatManager : MonoBehaviour
     }
     public Backdrops backdrop;
     public List<Enemy> enemies = new List<Enemy>();
+    List<int> usedUpSpaces = new List<int>();
 
     public List<GameObject> spawnPoints = new List<GameObject>();
 
@@ -105,7 +106,6 @@ public class CombatManager : MonoBehaviour
     void PlaceEnemies(){
         //number of spawn points in the arena
         int nmbrOfSpawnPoints = spawnPoints.Count;
-        List<int> usedUpSpaces = new List<int>();
         //find the spawn points for enemies, and place the enemies on the points randomly
         //make list of coordinates
         List<Vector3> spCoords = new List<Vector3>();
@@ -113,16 +113,19 @@ public class CombatManager : MonoBehaviour
             spCoords.Add(sp.transform.position);
         }
         foreach(Enemy enemy in enemies){
-            int i;
-            do{
-            i = Random.Range(0, nmbrOfSpawnPoints);
-            } while(usedUpSpaces.Contains(i));
-            Debug.Log("i =" + i);
+            int i = 0;
+            if(usedUpSpaces.Count != nmbrOfSpawnPoints){
+                do{
+                    i = Random.Range(0, nmbrOfSpawnPoints);
+                } while(usedUpSpaces.Contains(i));
+                Debug.Log("i =" + i);
+                Debug.Log("used up spaces =" + usedUpSpaces.Count);
+                //take a random entry from the spCoords list
+                Instantiate(enemy, spCoords[i], Quaternion.identity);
+                //spawn point is used up
+                usedUpSpaces.Add(i);
+            }
             
-            //take a random entry from the spCoords list
-            Instantiate(enemy, spCoords[i], Quaternion.identity);
-            //spawn point is used up
-            usedUpSpaces.Add(i);
         }
         
     }
