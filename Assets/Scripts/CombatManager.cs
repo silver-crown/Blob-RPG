@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CombatManager : MonoBehaviour
 {
@@ -30,7 +31,11 @@ public class CombatManager : MonoBehaviour
     }
     public spawnPointPositions spPositions;
 
+    //The enemies taken from the overworld object
     public List<Enemy> enemies = new List<Enemy>();
+
+    //The actual enemies being instantiated
+    public List<Enemy> enem = new List<Enemy>();
     List<int> usedUpSpaces = new List<int>();
 
 
@@ -58,14 +63,15 @@ public class CombatManager : MonoBehaviour
             PlaceEnemies();
         }
         if(Fighting && AllEnemiesAreDead()){
-            Debug.Log("all enemies are dead");
             Fighting = false;
             EmptyEnemyList();
+            EndBattle();
             //enter victory state
             //***********************
             //show a message, exit combat and return to overworld
         }
     }
+
     public IEnumerator CycleCharacters(){
         Debug.Log(GameManager.GM.partyChars[0]);
         Debug.Log(GameManager.GM.partyChars[1]);
@@ -97,11 +103,12 @@ public class CombatManager : MonoBehaviour
 
     //Returns true if all the enemies have no health
     bool AllEnemiesAreDead(){
-        foreach (Enemy enemy in enemies){
+        foreach (Enemy enemy in enem){
             if (enemy.getHP() > 0){
                 return false;
             }
         }
+        Debug.Log("all enemies are dead");
         return true;
     }
     //set the background for the battle
@@ -128,8 +135,10 @@ public class CombatManager : MonoBehaviour
                 do{
                     i = Random.Range(0, nmbrOfSpawnPoints);
                 } while(usedUpSpaces.Contains(i));
-                //take a random entry from the spCoords list
-                Instantiate(enemy, spCoords[i], Quaternion.identity);
+                //take a random entry from the spCoords list and instantiate an enemy there
+                Enemy k = (Enemy)Instantiate(enemy, spCoords[i], Quaternion.identity);
+                //add to list of instantiated enemies 
+                enem.Add(k);
                 //spawn point is used up
                 usedUpSpaces.Add(i);
             }
@@ -169,5 +178,14 @@ public class CombatManager : MonoBehaviour
             default:
                 break;
         }
+    }
+
+    public void StartBattle(){
+        Fighting = true;
+    }
+    void EndBattle(){
+        Debug.Log("battle ended");
+        //method should exit/destroy combat scene and return to overworld
+        SceneManager.UnloadScene("CombatTest");
     }
 }

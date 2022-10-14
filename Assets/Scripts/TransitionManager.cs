@@ -109,6 +109,7 @@ public class TransitionManager : MonoBehaviour
         //transition is done, players and enemies can move now
         GameManager.GM.FreezeAllEntities("2DPlayer", false);
         GameManager.GM.FreezeAllEntities("2DEnemy", false);
+        CombatManager.CM.StartBattle();
         //?????????????
     }
 
