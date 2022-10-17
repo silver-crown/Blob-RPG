@@ -23,6 +23,9 @@ public class CameraClamp : MonoBehaviour
         foreach(GameObject p in CombatManager.CM.playerChars){
             if (p.GetComponent<player2DController>().playerChar){
                 targetToFollow = p.transform;
+                return;
+            } else{
+                targetToFollow = CombatManager.CM.playerChars[0].transform;
             }
         }
 
