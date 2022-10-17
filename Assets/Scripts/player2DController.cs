@@ -8,6 +8,8 @@ public class player2DController : MonoBehaviour {
         [SerializeField] public CombatPauseScript PauseMenu;
         [SerializeField] private BoxCollider2D groundDetector;
         static public GameObject Player;
+
+        [SerializeField] private int health;
         private float lastY;
         private bool attacking;
         private bool comboEnd;
@@ -196,6 +198,10 @@ public class player2DController : MonoBehaviour {
                 attackKey = KeyCode.None;
                 cycleRight = KeyCode.None;  
             } 
+        }
+
+        public int GetHP(){
+            return health;
         }
 
 

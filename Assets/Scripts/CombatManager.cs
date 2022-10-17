@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class CombatManager : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class CombatManager : MonoBehaviour
     public Animator transition;
     [SerializeField] public GameObject blueDmgPopup;
     [SerializeField] public combatEnemySpawnPoints enemySpawnPointsScript;
+
+    [SerializeField] public TextMeshPro p1HP;
     public enum Backdrops{
         Forest,
         Field,
@@ -73,8 +76,6 @@ public class CombatManager : MonoBehaviour
     }
 
     public IEnumerator CycleCharacters(){
-        Debug.Log(GameManager.GM.partyChars[0]);
-        Debug.Log(GameManager.GM.partyChars[1]);
         //get who's next in line and set them to be the player character, set self to be AI
         for( int i = 0; i <= GameManager.GM.partyChars.Length-1; i++){
             Debug.Log(i);

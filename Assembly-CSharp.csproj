@@ -97,6 +97,7 @@
      <Compile Include="Assets\Scripts\controlsMenuScript.cs" />
      <Compile Include="Assets\Scripts\damagePopup.cs" />
      <Compile Include="Assets\Scripts\player2DController.cs" />
+     <Compile Include="Assets\battleHUD.cs" />
      <Compile Include="Assets\combatEnemySpawnPoints.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
