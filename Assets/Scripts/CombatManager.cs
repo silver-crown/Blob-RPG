@@ -8,9 +8,11 @@ public class CombatManager : MonoBehaviour
 {
     public static CombatManager CM;
     public bool Fighting;
+    public bool fightIsOver;
     public Animator transition;
     [SerializeField] public GameObject blueDmgPopup;
     [SerializeField] public combatEnemySpawnPoints enemySpawnPointsScript;
+    [SerializeField] public PlayerSPPositions playerSpawnPointsScript;
 
     [SerializeField] public TextMeshPro p1HP;
 
@@ -35,17 +37,33 @@ public class CombatManager : MonoBehaviour
         twoOnTheGroundOneInTheAir,
         Boss
     }
+
+    public enum PlayerSpawnPointPositions{
+        rowOnLeftSide
+    }
+    //enemy spawn points
     public spawnPointPositions spPositions;
 
+    public PlayerSpawnPointPositions pspPositions;
+
+
+    //Player spawn points
+    public PlayerSPPositions pPositions;
+
     //The enemies taken from the overworld object
-    public List<Enemy> enemies = new List<Enemy>();
+    public List<GameObject> enemies = new List<GameObject>();
 
     //The actual enemies being instantiated
     public List<Enemy> enem = new List<Enemy>();
+
+    //The player characters being instantiated
+    public List<GameObject> playerChars = new List<GameObject>();
     List<int> usedUpSpaces = new List<int>();
 
 
-    public List<GameObject> spawnPoints = new List<GameObject>();
+    public List<GameObject> enemySpawnPoints = new List<GameObject>();
+
+    public List<GameObject> playerSpawnPoints = new List<GameObject>();
 
     //the party
     static public GameObject Player;
@@ -80,26 +98,26 @@ public class CombatManager : MonoBehaviour
 
     public IEnumerator CycleCharacters(){
         //get who's next in line and set them to be the player character, set self to be AI
-        for( int i = 0; i <= GameManager.GM.partyChars.Length-1; i++){
+        for( int i = 0; i <= playerChars.Count-1; i++){
             Debug.Log(i);
             //if the character is the player character
-            if(GameManager.GM.partyChars[i].GetComponent<player2DController>().playerChar == true){
+            if(playerChars[i].GetComponent<player2DController>().playerChar == true){
                 //if there's no one next in line, get the one first in line
-                if(i == GameManager.GM.partyChars.Length-1){
-                    GameManager.GM.partyChars[0].GetComponent<player2DController>().playerChar = true;
-                    GameManager.GM.partyChars[0].GetComponent<SpriteRenderer>().color = Color.clear;
+                if(i == playerChars.Count-1){
+                    playerChars[0].GetComponent<player2DController>().playerChar = true;
+                    playerChars[0].GetComponent<SpriteRenderer>().color = Color.clear;
                      yield return new WaitForSeconds(0.01f);
-                    GameManager.GM.partyChars[0].GetComponent<SpriteRenderer>().color = Color.white;
+                    playerChars[0].GetComponent<SpriteRenderer>().color = Color.white;
 
                 //else just change the one next in line
                 } else{
-                    GameManager.GM.partyChars[i+1].GetComponent<player2DController>().playerChar = true;
-                    GameManager.GM.partyChars[i+1].GetComponent<SpriteRenderer>().color = Color.clear;
+                    playerChars[i+1].GetComponent<player2DController>().playerChar = true;
+                    playerChars[i+1].GetComponent<SpriteRenderer>().color = Color.clear;
                     yield return new WaitForSeconds(0.01f);
-                    GameManager.GM.partyChars[i+1].GetComponent<SpriteRenderer>().color = Color.white;
+                    playerChars[i+1].GetComponent<SpriteRenderer>().color = Color.white;
                 }
                 //set self to AI
-                GameManager.GM.partyChars[i].GetComponent<player2DController>().playerChar = false;
+                playerChars[i].GetComponent<player2DController>().playerChar = false;
                 yield break;
             } 
         }
@@ -119,28 +137,26 @@ public class CombatManager : MonoBehaviour
     void SetBackground(Backdrops bd){
         backdrop = bd;
     }
-    //add enemies to the enemy list (for example by coming into contact with an enemy)
-    public void AddToEnemyList(Enemy e){
-        enemies.Add(e);
-    }
     //place enemies around the arena (possibly bugged)
     public void PlaceEnemies(){
         //number of spawn points in the arena
-        int nmbrOfSpawnPoints = spawnPoints.Count;
+        int nmbrOfSpawnPoints = enemySpawnPoints.Count;
         //find the spawn points for enemies, and place the enemies on the points randomly
         //make list of coordinates
         List<Vector3> spCoords = new List<Vector3>();
-        foreach(GameObject sp in spawnPoints){
+        foreach(GameObject sp in enemySpawnPoints){
             spCoords.Add(sp.transform.position);
         }
-        foreach(Enemy enemy in enemies){
+        foreach(GameObject enemy in enemies){
             int i = 0;
             if(usedUpSpaces.Count != nmbrOfSpawnPoints){
                 do{
                     i = Random.Range(0, nmbrOfSpawnPoints);
                 } while(usedUpSpaces.Contains(i));
                 //take a random entry from the spCoords list and instantiate an enemy there
-                Enemy k = (Enemy)Instantiate(enemy, spCoords[i], Quaternion.identity);
+                GameObject j = (GameObject)Instantiate(enemy, spCoords[i], Quaternion.identity);
+                Enemy k = j.GetComponent<Enemy>();
+                k.gameObject.SetActive(true);
                 //add to list of instantiated enemies 
                 enem.Add(k);
                 //spawn point is used up
@@ -155,15 +171,42 @@ public class CombatManager : MonoBehaviour
 
     }
     //place players around the arena
-    void PlacePlayers(){
+    public void PlacePlayers(){
+        //find the spawn points for players, and place them there consecutively
+        List<Vector3> spCoords = new List<Vector3>();
+        
+        foreach(GameObject sp in playerSpawnPoints){
+            spCoords.Add(sp.transform.position);
+        }
+        int i = 0;
+        foreach(GameObject partyMember in GameManager.GM.partyChars){
+            Debug.Log("party member no:" + i+1);
+            GameObject k = (GameObject)Instantiate(partyMember, spCoords[i], Quaternion.identity);
+            i++;
 
+            //add to list of instantiated enemies 
+            playerChars.Add(k);
+        }
     }
     void EmptyEnemyList(){
+        foreach(Enemy i in enem){
+            Destroy(i.gameObject);
+        }
+
         enemies.Clear();
         enemies.TrimExcess();
+        enem.Clear();
+        enem.TrimExcess();
+
     }
 
-    public void setUpSpawnPoints(){       
+    void SleepPlayers(){
+        foreach(GameObject p in GameManager.GM.partyChars){
+            p.SetActive(false);
+        }
+    }
+
+    public void setUpEnemySpawnPoints(){       
         
         //search for all the objects with the correct tag
         //(((((might need some black magic for determining which spawnpoint set to use
@@ -175,8 +218,33 @@ public class CombatManager : MonoBehaviour
         switch (spPositions){
             case(spawnPointPositions.threeInARow):
                 //fill in list with the child object of the spawn points prefab
+                int i = 0;
                 foreach (Transform c in enemySpawnPointsScript.threeInARow.GetComponentsInChildren<Transform>()){
-                    spawnPoints.Add(c.gameObject);
+                    if(i != 0){
+                        enemySpawnPoints.Add(c.gameObject);
+                    }
+                    i++;
+                }
+                break;
+            default:
+                break;
+        }
+    }
+
+    //set up the player spawn points used for the battle
+    public void setUpPlayerSpawnPoints(){
+        
+        pspPositions = PlayerSpawnPointPositions.rowOnLeftSide;
+
+        switch (pspPositions){
+            case(PlayerSpawnPointPositions.rowOnLeftSide):
+                //fill in list with the child object of the spawn points prefab
+                int i = 0;
+                foreach (Transform c in playerSpawnPointsScript.rowOnLeftSide.GetComponentsInChildren<Transform>()){
+                    if(i != 0){
+                        playerSpawnPoints.Add(c.gameObject);
+                    }
+                    i++;
                 }
                 break;
             default:
@@ -186,14 +254,19 @@ public class CombatManager : MonoBehaviour
 
     public void StartBattle(){
         Fighting = true;
+        //set first in slot to be the initialplayer character
+        playerChars[0].GetComponent<player2DController>().playerChar = true;
     }
     void EndBattle(){
         Debug.Log("battle ended");
         //method should exit/destroy combat scene and return to overworld
         SceneManager.UnloadScene("CombatTest");
+        //enemies and player entities need to be disabled upon exit
+        
         //disable the overworld guy
         overworldEnemy.SetActive(false);
         GameManager.GM.FreezeAllEntities("Player", false);
         GameManager.GM.FreezeAllEntities("Enemy", false);
+        fightIsOver = true;
     }
 }

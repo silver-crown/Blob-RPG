@@ -34,8 +34,10 @@ public class PlayerController : MonoBehaviour
             //combat manager should take data from other
             CombatManager.CM.overworldEnemy = other.gameObject;
             CombatManager.CM.enemies.AddRange(other.gameObject.GetComponent<Entity>().enemyList);
-            CombatManager.CM.setUpSpawnPoints();
+            CombatManager.CM.setUpEnemySpawnPoints();
             CombatManager.CM.PlaceEnemies();
+            CombatManager.CM.setUpPlayerSpawnPoints();
+            CombatManager.CM.PlacePlayers();
             //transition into enemy combat
             TransitionManager.TM.transitionType = TransitionManager.TransitionType.Enemy;
             StartCoroutine(TransitionManager.TM.TransitionIntoCombat());

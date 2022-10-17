@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2743755599779430041}
   - component: {fileID: 7490567980078305477}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: groundDetection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -66,7 +66,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6889057546549210011}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: Hitboxes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,7 +102,7 @@ GameObject:
   - component: {fileID: 5354427252880922657}
   - component: {fileID: 3807642668800810352}
   - component: {fileID: 6842834185894336704}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: atkBackHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -191,7 +191,7 @@ GameObject:
   - component: {fileID: 2414318399322904730}
   - component: {fileID: 5179117395388630903}
   - component: {fileID: 7630935866132635405}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: 2dPlayerYellow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -276,18 +276,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 469be2a2e0a5e5240a5428175a4706b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PauseMenu: {fileID: 0}
+  PauseMenu: {fileID: 5961739691124276458, guid: d9aa0177f283f334a8eeaee2f6ccd5b6,
+    type: 3}
   groundDetector: {fileID: 0}
-  rb: {fileID: 0}
-  anim: {fileID: 0}
-  moveSpeed: 0.12
-  gravity: 0
-  jumpForce: 0
-  maxJumps: 0
+  health: 32
+  rb: {fileID: 5179117395388630903}
+  anim: {fileID: 7630935866132635405}
+  moveSpeed: 0.06
+  gravity: 1
+  jumpForce: 5
+  maxJumps: 2
   jumpCount: 0
   maxCombo: 0
   MoveList: []
-  hero: 1
+  playerChar: 0
 --- !u!50 &5179117395388630903
 Rigidbody2D:
   serializedVersion: 4
@@ -337,7 +339,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6240215375440663657}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: colliders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -372,7 +374,7 @@ GameObject:
   - component: {fileID: 7267190773211985959}
   - component: {fileID: 4487465800362059265}
   - component: {fileID: 1826317669721521138}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: atk2HOverhead
   m_TagString: Untagged
   m_Icon: {fileID: 0}

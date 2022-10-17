@@ -31,6 +31,12 @@ public class CombatState : State
                 GameManager.GM.SetState(new CombatPauseState(player2DController.Player.GetComponent<player2DController>().PauseMenu));
                 yield break;
             }
+            //if the player is no longer fighting, exit state
+            if(CombatManager.CM.fightIsOver){
+                GameManager.GM.SetState(new OverworldState());
+                CombatManager.CM.fightIsOver = false;
+            }
+             
             ///<summary>Wait for a frame</summary>
             yield return true;
         }

@@ -13,8 +13,18 @@ public class CameraClamp : MonoBehaviour
 
     void Update()
     {
+        FollowPlayerCharacter();
         transform.position = new Vector3(Mathf.Clamp(targetToFollow.position.x, min_X, max_X),
                                         Mathf.Clamp(targetToFollow.position.y, min_Y, max_Y),
                                         transform.position.z);
+    }
+
+    void FollowPlayerCharacter(){
+        foreach(GameObject p in CombatManager.CM.playerChars){
+            if (p.GetComponent<player2DController>().playerChar){
+                targetToFollow = p.transform;
+            }
+        }
+
     }
 }

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1840126184447179294}
   - component: {fileID: 1991119983599816573}
   - component: {fileID: 6073465707640415650}
+  - component: {fileID: 8800678724621834312}
   m_Layer: 0
   m_Name: CombatManager
   m_TagString: Untagged
@@ -27,7 +28,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4652786813036475350}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -7.5383377}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -51,16 +52,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Fighting: 0
+  fightIsOver: 0
   transition: {fileID: 0}
   blueDmgPopup: {fileID: 712779688472555202, guid: d671579c9c6eff24aa33dfa61bbac3f3,
     type: 3}
   enemySpawnPointsScript: {fileID: 1991119983599816573}
+  playerSpawnPointsScript: {fileID: 8800678724621834312}
   p1HP: {fileID: 0}
+  overworldEnemy: {fileID: 0}
   backdrop: 0
   spPositions: 0
+  pspPositions: 0
+  pPositions: {fileID: 0}
   enemies: []
   enem: []
-  spawnPoints: []
+  playerChars: []
+  enemySpawnPoints: []
+  playerSpawnPoints: []
 --- !u!114 &1991119983599816573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83,3 +91,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4652786813036475350}
   m_CullTransparentMesh: 0
+--- !u!114 &8800678724621834312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4652786813036475350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b35b243d360f82b4f8e389e75d181d5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rowOnLeftSide: {fileID: 3874179230551237226, guid: c8842fb41f3ee924685920d9526eb128,
+    type: 3}

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3983680662199418598}
   - component: {fileID: 3459585055150355317}
   - component: {fileID: 4115597380650517577}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: atkBackHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,7 +98,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5587039278871892490}
   - component: {fileID: 7898105522683936445}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: groundDetection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -157,7 +157,7 @@ GameObject:
   - component: {fileID: 6386520538196424306}
   - component: {fileID: 3587581791996389304}
   - component: {fileID: 7501493944781503971}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: atkFrontHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -245,7 +245,7 @@ GameObject:
   - component: {fileID: 8631391718085541762}
   - component: {fileID: 3189694209520836858}
   - component: {fileID: 2118147526120285658}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: atk2HOverhead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -330,7 +330,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5837925891710937247}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: colliders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -366,7 +366,7 @@ GameObject:
   - component: {fileID: 7773764637896558482}
   - component: {fileID: 6693110740545853243}
   - component: {fileID: 5610883771283643077}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: 2dPlayerBlue
   m_TagString: 2DPlayer
   m_Icon: {fileID: 0}
@@ -381,7 +381,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5818423809717055531}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.9021146, y: 8.503819, z: -43.4595}
+  m_LocalPosition: {x: 1.9021146, y: 8.503819, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5837925891710937247}
@@ -403,11 +403,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PauseMenu: {fileID: 372541507670425198}
   groundDetector: {fileID: 0}
+  health: 48
   rb: {fileID: 5610883771283643077}
   anim: {fileID: 7773764637896558482}
-  moveSpeed: 4
-  gravity: 2
-  jumpForce: 15
+  moveSpeed: 0.06
+  gravity: 1
+  jumpForce: 5
   maxJumps: 2
   jumpCount: 0
   maxCombo: 3
@@ -415,7 +416,7 @@ MonoBehaviour:
   - {fileID: 8631391718085541762}
   - {fileID: 3983680662199418598}
   - {fileID: 7501493944781503971}
-  hero: 0
+  playerChar: 0
 --- !u!95 &7773764637896558482
 Animator:
   serializedVersion: 3
@@ -471,8 +472,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1148037871
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 3919898093074388059, guid: 465053bd636c9954cbcfc74b54f019be,
     type: 3}
@@ -506,7 +507,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!1 &7089897948493220871
 GameObject:
   m_ObjectHideFlags: 0
@@ -516,7 +517,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1558267483120679859}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Hitboxes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -551,6 +552,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: combat pausemenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 1310598119646651328, guid: d9aa0177f283f334a8eeaee2f6ccd5b6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1697346015698516393, guid: d9aa0177f283f334a8eeaee2f6ccd5b6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2959124359076028805, guid: d9aa0177f283f334a8eeaee2f6ccd5b6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 5101687753075695075, guid: d9aa0177f283f334a8eeaee2f6ccd5b6,
         type: 3}

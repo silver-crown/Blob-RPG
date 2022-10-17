@@ -12,7 +12,7 @@ public class battleHUD : MonoBehaviour
     }
     void DisplayPlayerHealth(){
         int i = 0;
-        foreach(GameObject partyMem in GameManager.GM.partyChars){
+        foreach(GameObject partyMem in CombatManager.CM.playerChars){
         playerHealths[i].GetComponent<TextMeshProUGUI>().SetText(partyMem.GetComponent<player2DController>().GetHP().ToString());
         i++;
         }

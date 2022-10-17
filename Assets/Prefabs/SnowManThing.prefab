@@ -145,5 +145,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   entityName: 
   enemyList:
-  - {fileID: 5544384008439442511, guid: 1b931f1587f18d24da328913ce0d2166, type: 3}
-  - {fileID: 2768067924665351116, guid: da51f54198d700c4cbdc90c549a9724d, type: 3}
+  - {fileID: 5544384008439442507, guid: 1b931f1587f18d24da328913ce0d2166, type: 3}
+  - {fileID: 4899999750152620005, guid: da51f54198d700c4cbdc90c549a9724d, type: 3}

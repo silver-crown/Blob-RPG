@@ -39,7 +39,7 @@ public class GameManager : StateMachine
     //all the available characters
     public GameObject[] characterList;
     //current party
-    public GameObject[] partyChars;
+    public List<GameObject> partyChars = new List<GameObject>();
 
     private void Awake() {
        //If a manager doesn't already exist, make this the manager
