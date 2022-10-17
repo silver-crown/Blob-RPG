@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
         if(other.gameObject.CompareTag("Enemy")){
 
             //combat manager should take data from other
+            CombatManager.CM.overworldEnemy = other.gameObject;
             CombatManager.CM.enemies.AddRange(other.gameObject.GetComponent<Entity>().enemyList);
             CombatManager.CM.setUpSpawnPoints();
             CombatManager.CM.PlaceEnemies();

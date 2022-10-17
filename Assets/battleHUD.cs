@@ -8,11 +8,19 @@ public class battleHUD : MonoBehaviour
     
     void Update()
     {
+        DisplayPlayerHealth();
+    }
+    void DisplayPlayerHealth(){
         int i = 0;
         foreach(GameObject partyMem in GameManager.GM.partyChars){
         playerHealths[i].GetComponent<TextMeshProUGUI>().SetText(partyMem.GetComponent<player2DController>().GetHP().ToString());
         i++;
         }
+    }
 
+    void DisplayCharPortraits(){
+        //Display the correct portrait for the characters next to the health
     }
 }
+
+

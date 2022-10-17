@@ -13,6 +13,9 @@ public class CombatManager : MonoBehaviour
     [SerializeField] public combatEnemySpawnPoints enemySpawnPointsScript;
 
     [SerializeField] public TextMeshPro p1HP;
+
+    //the overworld avatar the player interracted with before the fight
+    public GameObject overworldEnemy;
     public enum Backdrops{
         Forest,
         Field,
@@ -188,5 +191,9 @@ public class CombatManager : MonoBehaviour
         Debug.Log("battle ended");
         //method should exit/destroy combat scene and return to overworld
         SceneManager.UnloadScene("CombatTest");
+        //disable the overworld guy
+        overworldEnemy.SetActive(false);
+        GameManager.GM.FreezeAllEntities("Player", false);
+        GameManager.GM.FreezeAllEntities("Enemy", false);
     }
 }
