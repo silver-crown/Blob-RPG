@@ -97,6 +97,11 @@ public class TransitionManager : MonoBehaviour
         //combat manager should here set everything from background to enemy list and player list before anything else happens
         //load combat scene
         SceneManager.LoadScene("CombatTest", LoadSceneMode.Additive);
+        CombatManager.CM.setUpEnemySpawnPoints();
+        CombatManager.CM.PlaceEnemies();
+        CombatManager.CM.setUpPlayerSpawnPoints();
+        CombatManager.CM.PlacePlayers();
+        
         //needs to wait a small amount, because otherwise the freeze happens before the scene is properly loaded
          yield return new WaitForSeconds(0.001f);
         GameManager.GM.FreezeAllEntities("2DPlayer", true);

@@ -42,8 +42,8 @@ public class player2DController : MonoBehaviour {
 
         private void Awake() {
             //If a player doesn't already exist, make this the player
-            DontDestroyOnLoad(gameObject);
-            Player = gameObject;
+            //DontDestroyOnLoad(gameObject);
+            //Player = gameObject;
 
             //if there is a manager 
             /*else if (Player != this) {

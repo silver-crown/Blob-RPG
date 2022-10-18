@@ -89,6 +89,7 @@ public class CombatManager : MonoBehaviour
         if(Fighting && AllEnemiesAreDead()){
             Fighting = false;
             EmptyEnemyList();
+            EmptyPlayerList();
             EndBattle();
             //enter victory state
             //***********************
@@ -157,6 +158,7 @@ public class CombatManager : MonoBehaviour
                 GameObject j = (GameObject)Instantiate(enemy, spCoords[i], Quaternion.identity);
                 Enemy k = j.GetComponent<Enemy>();
                 k.gameObject.SetActive(true);
+                j.GetComponent<Enemy>().enabled =  !j.GetComponent<Enemy>().enabled;
                 //add to list of instantiated enemies 
                 enem.Add(k);
                 //spawn point is used up
@@ -198,6 +200,14 @@ public class CombatManager : MonoBehaviour
         enem.Clear();
         enem.TrimExcess();
 
+    }
+
+    void EmptyPlayerList(){
+        foreach(GameObject p in playerChars){
+            Destroy(p);
+        }
+        playerChars.Clear();
+        playerChars.TrimExcess();
     }
 
     void SleepPlayers(){
@@ -265,6 +275,7 @@ public class CombatManager : MonoBehaviour
         
         //disable the overworld guy
         overworldEnemy.SetActive(false);
+
         GameManager.GM.FreezeAllEntities("Player", false);
         GameManager.GM.FreezeAllEntities("Enemy", false);
         fightIsOver = true;
