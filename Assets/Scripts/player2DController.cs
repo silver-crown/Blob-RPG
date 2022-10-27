@@ -33,7 +33,11 @@ public class player2DController : MonoBehaviour {
         private KeyCode attackKey;
         private KeyCode cycleRight;
 
+
         [SerializeField] public bool playerChar;
+
+
+        [SerializeField] private int experiencePoints;
 
          private void Start() {
             jumpCount = maxJumps;    
@@ -204,5 +208,7 @@ public class player2DController : MonoBehaviour {
             return health;
         }
 
-
+        public void GainEXP(int exp){
+            experiencePoints += exp;
+        }
     }

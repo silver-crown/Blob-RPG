@@ -11,8 +11,14 @@ public class Enemy : MonoBehaviour
     [SerializeField] private int defense;
     [SerializeField] private int poise;
     [SerializeField] private bool hurt;
+    [SerializeField] private int EXPValue;
+    private bool dead;
     float blinkingTimer = 0.05f;
     private void Update() {
+        //check if the entity has more HP left
+        if(getHP() <= 0){
+            dead = true;
+        }
 
         if (hurt){
             blinkingTimer += Time.deltaTime;
@@ -22,6 +28,10 @@ public class Enemy : MonoBehaviour
                 hurt = false;
                 sprite.color = Color.white;
             }
+        }
+        //if it's dead do dead stuff
+        if(dead){
+            ImDead();
         }
 }
 
@@ -33,7 +43,19 @@ public class Enemy : MonoBehaviour
         return damageDealt;
     }
 
+    private void ImDead(){
+        //give player the exp and disable enemy ****add death animation later****
+
+        this.gameObject.SetActive(false);
+    }
+
+
+
     public int getHP(){
         return health;
+    }
+
+    public int getEXP(){
+        return EXPValue;
     }
 }

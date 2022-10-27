@@ -181,7 +181,7 @@ public class CombatManager : MonoBehaviour
             spCoords.Add(sp.transform.position);
         }
         int i = 0;
-        foreach(GameObject partyMember in GameManager.GM.partyChars){
+        foreach(GameObject partyMember in PartyManager.PM.partyCharacters){
             Debug.Log("party member no:" + i+1);
             GameObject k = (GameObject)Instantiate(partyMember, spCoords[i], Quaternion.identity);
             i++;
@@ -192,6 +192,8 @@ public class CombatManager : MonoBehaviour
     }
     void EmptyEnemyList(){
         foreach(Enemy i in enem){
+            //players should each get the full exp amount from the enemies they beat, the rest will get 1/4 of that
+            //playerChars[0].GetComponent<player2DController>().GainEXP(i.getEXP());
             Destroy(i.gameObject);
         }
 
