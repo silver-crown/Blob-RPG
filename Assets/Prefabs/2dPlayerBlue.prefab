@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9afd6f493add9248a1378aa95f1f3a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attacker: {fileID: 5818423809717055531}
   moveName: 
   experience: 0
   level: 0
@@ -222,6 +223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a07f2917023824f4db334f0dac50f987, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attacker: {fileID: 5818423809717055531}
   moveName: 
   experience: 0
   level: 0
@@ -278,6 +280,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0bf3f2bbe6b5d745a970bfe89b94b1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attacker: {fileID: 5818423809717055531}
   moveName: 
   experience: 0
   level: 0
@@ -404,6 +407,8 @@ MonoBehaviour:
   PauseMenu: {fileID: 372541507670425198}
   groundDetector: {fileID: 0}
   health: 48
+  lvl: 0
+  exp: 0
   rb: {fileID: 5610883771283643077}
   anim: {fileID: 7773764637896558482}
   moveSpeed: 0.06
@@ -416,7 +421,9 @@ MonoBehaviour:
   - {fileID: 8631391718085541762}
   - {fileID: 3983680662199418598}
   - {fileID: 7501493944781503971}
+  myChar: {fileID: 0}
   playerChar: 0
+  experiencePoints: 0
 --- !u!95 &7773764637896558482
 Animator:
   serializedVersion: 3

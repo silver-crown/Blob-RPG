@@ -30,16 +30,18 @@ public class Enemy : MonoBehaviour
             }
         }
         //if it's dead do dead stuff
-        if(dead){
-            ImDead();
-        }
 }
 
-    public int Hurt(int damage){ 
+    public int Hurt(int damage, GameObject attacker){ 
         hurt = true;
         int damageDealt = damage - defense;
         Debug.Log("ENEMY WAS HURT");
         health -= (damageDealt);
+        if(dead){
+            Debug.Log("attacker is " + attacker);
+            attacker.GetComponent<player2DController>().IncreaseEXP(getEXP());
+            ImDead();
+        }
         return damageDealt;
     }
 
@@ -57,5 +59,9 @@ public class Enemy : MonoBehaviour
 
     public int getEXP(){
         return EXPValue;
+    }
+
+    public bool amIDead(){
+        return dead;
     }
 }

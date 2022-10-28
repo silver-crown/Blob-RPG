@@ -1301,10 +1301,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: PartyManager
       objectReference: {fileID: 0}
+    - target: {fileID: 3183510111648596844, guid: a016a9b9ab4189e42ba2ee2dc417c7e8,
+        type: 3}
+      propertyPath: level
+      value: 64
+      objectReference: {fileID: 0}
     - target: {fileID: 3676011743465489329, guid: a016a9b9ab4189e42ba2ee2dc417c7e8,
         type: 3}
       propertyPath: partyCharacters.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3676011743465489329, guid: a016a9b9ab4189e42ba2ee2dc417c7e8,
         type: 3}

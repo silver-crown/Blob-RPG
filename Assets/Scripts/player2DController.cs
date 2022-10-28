@@ -10,6 +10,9 @@ public class player2DController : MonoBehaviour {
         static public GameObject Player;
 
         [SerializeField] private int health;
+
+        public int lvl;
+        public int exp;
         private float lastY;
         private bool attacking;
         private bool comboEnd;
@@ -26,6 +29,8 @@ public class player2DController : MonoBehaviour {
         [SerializeField] private Collision2D[] hitboxes;
         [SerializeField] private List<ComboAttack> MoveList;
 
+        [SerializeField] private partyChar myChar;
+
         //set as player1 keycodes if player is in control
         private KeyCode jumpKey;
         private KeyCode leftKey;
@@ -40,7 +45,7 @@ public class player2DController : MonoBehaviour {
         [SerializeField] private int experiencePoints;
 
          private void Start() {
-            jumpCount = maxJumps;    
+            jumpCount = maxJumps;
          }
 
 
@@ -210,5 +215,15 @@ public class player2DController : MonoBehaviour {
 
         public void GainEXP(int exp){
             experiencePoints += exp;
+        }
+
+        public void SetUpCharStats(partyChar p){
+            myChar = p;
+            lvl = myChar.level;
+            exp = myChar.experiencePoints;
+        }
+
+        public void IncreaseEXP(int exp){
+            myChar.experiencePoints += exp;
         }
     }

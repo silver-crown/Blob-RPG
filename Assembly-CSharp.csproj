@@ -56,6 +56,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\CameraClamp.cs" />
+     <Compile Include="Assets\PartyManager.cs" />
      <Compile Include="Assets\PlayerSPPositions.cs" />
      <Compile Include="Assets\Scripts\CombatManager.cs" />
      <Compile Include="Assets\Scripts\CombatPauseScript.cs" />
@@ -101,7 +102,6 @@
      <Compile Include="Assets\Scripts\player2DController.cs" />
      <Compile Include="Assets\battleHUD.cs" />
      <Compile Include="Assets\combatEnemySpawnPoints.cs" />
-     <Compile Include="Assets\partyManager.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />

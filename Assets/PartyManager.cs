@@ -25,7 +25,12 @@ public class PartyManager : MonoBehaviour
     }
 
     public void AddPlayerToActiveParty(partyChar p){
+        SetUpCharStats(p);
         partyCharacters.Add(p.character);
+    }
+
+    public void SetUpCharStats(partyChar p){
+        p.character.GetComponent<player2DController>().SetUpCharStats(p);
     }
 
 }

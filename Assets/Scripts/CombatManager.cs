@@ -271,6 +271,13 @@ public class CombatManager : MonoBehaviour
     }
     void EndBattle(){
         Debug.Log("battle ended");
+
+
+        //should transition into white fade and enter result screen
+
+        
+
+
         //method should exit/destroy combat scene and return to overworld
         SceneManager.UnloadScene("CombatTest");
         //enemies and player entities need to be disabled upon exit

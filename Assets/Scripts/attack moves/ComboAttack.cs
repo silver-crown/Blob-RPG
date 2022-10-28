@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ComboAttack : MonoBehaviour
 {
+    [SerializeField] private GameObject attacker;
     [SerializeField] private string moveName;
     [SerializeField] private int experience; 
     [SerializeField] private int level;
@@ -28,7 +29,8 @@ public class ComboAttack : MonoBehaviour
                     //instantiate a popup on the collider's center with the correct damage dealt
                     GameObject popUp = Instantiate(CombatManager.CM.blueDmgPopup, c.bounds.center, Quaternion.identity) as GameObject;
                     damagePopup dmgPopup = popUp.GetComponent<damagePopup>();
-                    dmgPopup.setNumber(enemy.Hurt(damage));
+                    dmgPopup.setNumber(enemy.Hurt(damage, attacker));
+                    //should wait a frame
                 }
 
             }

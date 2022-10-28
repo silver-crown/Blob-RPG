@@ -15,6 +15,8 @@ public class TransitionManager : MonoBehaviour
     public Animator combatTransition;
     //transition animator for boss fights
     public Animator bossTransition;
+
+    public Animator whiteFadeTransition;
     public float transitionTime = 1.0f;
     private GameObject[] doors;
     public bool Transitioning;
@@ -118,5 +120,11 @@ public class TransitionManager : MonoBehaviour
         //?????????????
     }
 
+    public IEnumerator TransitionIntoResultScreen(){
+
+    }
+    public IEnumerator TransitionIntoOverworldFromBattle(){
+        return;
+    } 
 }
 

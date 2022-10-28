@@ -129,6 +129,7 @@ MonoBehaviour:
   defense: 0
   poise: 0
   hurt: 0
+  EXPValue: 73
 --- !u!95 &5544384008439442496
 Animator:
   serializedVersion: 3
