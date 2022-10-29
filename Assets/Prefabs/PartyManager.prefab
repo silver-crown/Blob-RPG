@@ -49,6 +49,7 @@ MonoBehaviour:
   - {fileID: 3183510111648596844}
   - {fileID: 6780631397435043006}
   partyCharacters: []
+  addingEXPToChars: 0
 --- !u!1 &1456291699256209400
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,8 +95,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: {fileID: 6002942643308518782, guid: 2ad489ccc5d6be54e9539e642c5f7136,
     type: 3}
-  name: Yellow
+  pName: Yellow
   experiencePoints: 0
+  expToBeGained: 0
   level: 0
 --- !u!1 &3612348416914031710
 GameObject:
@@ -142,6 +144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: {fileID: 5818423809717055531, guid: 05e675b13edba7242a4704742fd553b8,
     type: 3}
-  name: Blue
+  pName: Blue
   experiencePoints: 0
+  expToBeGained: 0
   level: 0

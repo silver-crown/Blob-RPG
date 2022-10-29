@@ -5,7 +5,7 @@ using UnityEngine;
 public class partyChar : MonoBehaviour
 {
     public GameObject character;
-    public string name;
+    public string pName;
     public int experiencePoints;
     public int expToBeGained;
     public int level;

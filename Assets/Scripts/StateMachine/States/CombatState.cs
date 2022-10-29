@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.SceneManagement;
 public class CombatState : State
 {
      public CombatState() : base() {
@@ -28,11 +29,13 @@ public class CombatState : State
                 ///<summary>End the current state</summary>
                 ///<summary>Iterate through all the currently loaded entities and disable them</summary>
                 Time.timeScale = 0;
-                GameManager.GM.SetState(new CombatPauseState(player2DController.Player.GetComponent<player2DController>().PauseMenu));
+                GameManager.GM.SetState(new CombatPauseState(CombatManager.CM.PauseMenu));
                 yield break;
             }
             //if the player is no longer fighting, exit state
             if(CombatManager.CM.fightIsOver){
+                Debug.Log("returning to overworld state");
+                SceneManager.UnloadScene("ResultScreen");
                 GameManager.GM.SetState(new OverworldState());
                 CombatManager.CM.fightIsOver = false;
             }

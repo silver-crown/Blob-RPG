@@ -24,6 +24,7 @@ public class PartyManager : MonoBehaviour
             Destroy(gameObject);
         }
         AddPlayerToActiveParty(playerCharacters[0]);
+         AddPlayerToActiveParty(playerCharacters[1]);
     }
     void Update(){
         if(addingEXPToChars){

@@ -122,7 +122,7 @@ public class TransitionManager : MonoBehaviour
     }
 
    public IEnumerator TransitionIntoResultScreen(){
-        Debug.Log("transitioning into result screen");
+        Debug.Log("TRANSITIONING INTO RESULT SCREEN");
         whiteFadeTransition.gameObject.SetActive(true);
         whiteFadeTransition.ResetTrigger("End");
         whiteFadeTransition.SetTrigger("Start");
@@ -130,9 +130,20 @@ public class TransitionManager : MonoBehaviour
         yield return new WaitForSeconds(transitionTime);
         PartyManager.PM.addingEXPToChars = true;
         SceneManager.UnloadScene("CombatTest");
+        SceneManager.LoadScene("ResultScreen", LoadSceneMode.Additive);
         CombatManager.CM.EmptyPlayerList();
+        yield return 0;
     }
     public IEnumerator TransitionIntoOverworldFromBattle(){
+        whiteFadeTransition.gameObject.SetActive(true);
+        whiteFadeTransition.ResetTrigger("Start");
+        whiteFadeTransition.SetTrigger("End");
+        Transitioning = true;
+        yield return new WaitForSeconds(transitionTime);
+        GameManager.GM.FreezeAllEntities("Player", false);
+        GameManager.GM.FreezeAllEntities("Enemy", false);
+        CombatManager.CM.fightIsOver = true;
+        whiteFadeTransition.gameObject.SetActive(false);
         yield return 0;
     }
 }

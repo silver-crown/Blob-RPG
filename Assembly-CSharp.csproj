@@ -56,6 +56,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\CameraClamp.cs" />
+     <Compile Include="Assets\CombatResultScreen.cs" />
      <Compile Include="Assets\PartyManager.cs" />
      <Compile Include="Assets\PlayerSPPositions.cs" />
      <Compile Include="Assets\Scripts\CombatManager.cs" />

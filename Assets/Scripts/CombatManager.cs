@@ -6,6 +6,7 @@ using TMPro;
 
 public class CombatManager : MonoBehaviour
 {
+    [SerializeField] public CombatPauseScript PauseMenu;
     public static CombatManager CM;
     public bool Fighting;
     public bool fightIsOver;
@@ -283,9 +284,5 @@ public class CombatManager : MonoBehaviour
         
         //disable the overworld guy
         overworldEnemy.SetActive(false);
-        
-        GameManager.GM.FreezeAllEntities("Player", false);
-        GameManager.GM.FreezeAllEntities("Enemy", false);
-        fightIsOver = true;
     }
 }

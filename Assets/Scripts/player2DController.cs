@@ -5,9 +5,7 @@ using UnityEngine.UI;
 using System.Linq;
 
 public class player2DController : MonoBehaviour {
-        [SerializeField] public CombatPauseScript PauseMenu;
         [SerializeField] private BoxCollider2D groundDetector;
-        static public GameObject Player;
 
         [SerializeField] private int health;
 
@@ -28,7 +26,7 @@ public class player2DController : MonoBehaviour {
         [SerializeField] private Collision2D[] hitboxes;
         [SerializeField] private List<ComboAttack> MoveList;
 
-        [SerializeField] private partyChar myChar;
+        [SerializeField] public partyChar myChar;
 
         //set as player1 keycodes if player is in control
         private KeyCode jumpKey;
@@ -51,13 +49,6 @@ public class player2DController : MonoBehaviour {
         private void Awake() {
             //If a player doesn't already exist, make this the player
             //DontDestroyOnLoad(gameObject);
-            //Player = gameObject;
-
-            //if there is a manager 
-            /*else if (Player != this) {
-                Destroy(gameObject);
-            }*/
-            PauseMenu.transform.SetParent(null);
     }
 
         private void Update() {
