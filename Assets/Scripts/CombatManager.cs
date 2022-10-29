@@ -89,7 +89,7 @@ public class CombatManager : MonoBehaviour
         if(Fighting && AllEnemiesAreDead()){
             Fighting = false;
             EmptyEnemyList();
-            EmptyPlayerList();
+            //EmptyPlayerList();
             EndBattle();
             //enter victory state
             //***********************
@@ -204,7 +204,7 @@ public class CombatManager : MonoBehaviour
 
     }
 
-    void EmptyPlayerList(){
+    public void EmptyPlayerList(){
         foreach(GameObject p in playerChars){
             Destroy(p);
         }
@@ -272,19 +272,18 @@ public class CombatManager : MonoBehaviour
     void EndBattle(){
         Debug.Log("battle ended");
 
+        //method should exit/destroy combat scene and return to overworld
+        //enemies and player entities need to be disabled upon exit
 
         //should transition into white fade and enter result screen
+        //transition into result screen
+        TransitionManager.TM.transitionType = TransitionManager.TransitionType.WhiteFade;
+        StartCoroutine(TransitionManager.TM.TransitionIntoResultScreen());
 
-        
-
-
-        //method should exit/destroy combat scene and return to overworld
-        SceneManager.UnloadScene("CombatTest");
-        //enemies and player entities need to be disabled upon exit
         
         //disable the overworld guy
         overworldEnemy.SetActive(false);
-
+        
         GameManager.GM.FreezeAllEntities("Player", false);
         GameManager.GM.FreezeAllEntities("Enemy", false);
         fightIsOver = true;

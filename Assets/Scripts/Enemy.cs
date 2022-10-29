@@ -38,8 +38,7 @@ public class Enemy : MonoBehaviour
         Debug.Log("ENEMY WAS HURT");
         health -= (damageDealt);
         if(dead){
-            Debug.Log("attacker is " + attacker);
-            attacker.GetComponent<player2DController>().IncreaseEXP(getEXP());
+            attacker.GetComponent<player2DController>().IncreaseTempEXP(getEXP());
             ImDead();
         }
         return damageDealt;

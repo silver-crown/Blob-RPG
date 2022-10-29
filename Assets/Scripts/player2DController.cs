@@ -12,7 +12,6 @@ public class player2DController : MonoBehaviour {
         [SerializeField] private int health;
 
         public int lvl;
-        public int exp;
         private float lastY;
         private bool attacking;
         private bool comboEnd;
@@ -213,17 +212,13 @@ public class player2DController : MonoBehaviour {
             return health;
         }
 
-        public void GainEXP(int exp){
-            experiencePoints += exp;
-        }
-
         public void SetUpCharStats(partyChar p){
             myChar = p;
             lvl = myChar.level;
-            exp = myChar.experiencePoints;
         }
 
-        public void IncreaseEXP(int exp){
-            myChar.experiencePoints += exp;
+        public void IncreaseTempEXP(int xp){
+            //at the end of battle, myChar.experiencePoints should add expToBeGained to itself
+            myChar.IncreaseTempEXP(xp);
         }
     }

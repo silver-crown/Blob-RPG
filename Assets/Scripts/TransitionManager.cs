@@ -23,7 +23,8 @@ public class TransitionManager : MonoBehaviour
     public enum TransitionType{
         Normal,
         Enemy,
-        Boss
+        Boss,
+        WhiteFade
     }
     public TransitionType transitionType;
     private void Awake() {
@@ -120,11 +121,19 @@ public class TransitionManager : MonoBehaviour
         //?????????????
     }
 
-    public IEnumerator TransitionIntoResultScreen(){
-
+   public IEnumerator TransitionIntoResultScreen(){
+        Debug.Log("transitioning into result screen");
+        whiteFadeTransition.gameObject.SetActive(true);
+        whiteFadeTransition.ResetTrigger("End");
+        whiteFadeTransition.SetTrigger("Start");
+        Transitioning = true;
+        yield return new WaitForSeconds(transitionTime);
+        PartyManager.PM.addingEXPToChars = true;
+        SceneManager.UnloadScene("CombatTest");
+        CombatManager.CM.EmptyPlayerList();
     }
     public IEnumerator TransitionIntoOverworldFromBattle(){
-        return;
-    } 
+        yield return 0;
+    }
 }
 
