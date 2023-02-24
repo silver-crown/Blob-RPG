@@ -99,6 +99,8 @@
      <Compile Include="Assets\Scripts\controlSetupScript.cs" />
      <Compile Include="Assets\Scripts\controlsMenuScript.cs" />
      <Compile Include="Assets\Scripts\damagePopup.cs" />
+     <Compile Include="Assets\Scripts\enemy AI\Personalities\TestPersonality.cs" />
+     <Compile Include="Assets\Scripts\enemy AI\Prototype01.cs" />
      <Compile Include="Assets\Scripts\partyChar.cs" />
      <Compile Include="Assets\Scripts\player2DController.cs" />
      <Compile Include="Assets\battleHUD.cs" />

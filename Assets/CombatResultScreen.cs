@@ -28,9 +28,10 @@ public class CombatResultScreen : MonoBehaviour
             int k = p.GetComponent<player2DController>().myChar.expToBeGained;
             playerNames[i].GetComponent<TextMeshProUGUI>().SetText(p.GetComponent<player2DController>().myChar.pName.ToString());
             playerEXP[i].GetComponent<TextMeshProUGUI>().SetText(p.GetComponent<player2DController>().myChar.experiencePoints.ToString());
-            playerTempEXP[i].GetComponent<TextMeshProUGUI>().SetText(k.ToString());
             //if the exp is done counting down, pressing a button should send the player back to the overworld
+                playerTempEXP[i].GetComponent<TextMeshProUGUI>().SetText(k.ToString()); 
             if(k <= 0){    
+                playerTempEXP[i].GetComponent<TextMeshProUGUI>().SetText(""); 
                 finishedDistributing++;    
             } 
             i++;

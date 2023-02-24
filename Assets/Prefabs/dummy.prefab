@@ -11,8 +11,10 @@ GameObject:
   - component: {fileID: 5544384008439442509}
   - component: {fileID: 5544384008439442508}
   - component: {fileID: 5544384008439442510}
+  - component: {fileID: 2718565511848157288}
   - component: {fileID: 5544384008439442511}
   - component: {fileID: 5544384008439442496}
+  - component: {fileID: 6799342587160236464}
   m_Layer: 11
   m_Name: dummy
   m_TagString: 2DEnemy
@@ -110,6 +112,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &2718565511848157288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5544384008439442507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a2ff24b6098eb140b015f82442ff97b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &5544384008439442511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,3 +163,15 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6799342587160236464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5544384008439442507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bb4b3f94b669e041a5bdd45d9a12a90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
