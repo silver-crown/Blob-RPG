@@ -96,8 +96,9 @@ public class Prototype01 : MonoBehaviour
         
         for(int i = 0; i < categoryArraySize; i++){
             if(categoriesArray[i].name == c){
+
                 //put the newly created utility into the uArray of c
-                int j = ++categoriesArray[i].numOfUtilities;
+                int j = categoriesArray[i].numOfUtilities++;
                 categoriesArray[i].uArray[j] = u;
                 break;
             }
@@ -113,8 +114,9 @@ public class Prototype01 : MonoBehaviour
         //if there's no categories at all yet, make one
         if(categoryArraySize == 0){
             categoriesArray[categoryArraySize] = new UtilityCategory(c);
-            //place the new utility in the array
+            //initialize the category's utility array
             categoriesArray[categoryArraySize].uArray = new Utility[maxSize];
+            //place the new utility in the array
             categoriesArray[categoryArraySize].uArray[categoriesArray[categoryArraySize++].numOfUtilities++] = u;
         }
     }
@@ -139,17 +141,24 @@ public class Prototype01 : MonoBehaviour
     }
 
     //Give utility value to action or category (will be used during runtime)
-    void AssignUtilityValue(Utility u, int x){
-        u.weight = CalculateWeight(x, maxValue, k);
+    public void AssignUtilityValue(string n, int x){
+        for(int i = 0; i < categoryArraySize; i++){
+            for(int j = 0; j < categoriesArray[i].uArray.Length; j++){
+                if (categoriesArray[i].uArray[j].name == n){
+                    categoriesArray[i].uArray[j].weight = CalculateWeight(x, maxValue, k);
+                    Debug.Log("utility weight:" + categoriesArray[i].uArray[j].weight);
+                }
+            }
+        }
     }
     //Give utility category value (will be used during runtime)
     public void AssignCategoryValue(string n, int x){
         for(int i = 0; i < categoryArraySize; i++){
             if(categoriesArray[i].name == n){
                 categoriesArray[i].weight = CalculateWeight(x, maxValue, k);
-                Debug.Log("name: " + categoriesArray[i].name);
-                Debug.Log("weight: " + (categoriesArray[i].weight));
-                Debug.Log(categoriesArray[i].uArray[0]);
+                Debug.Log("category name: " + categoriesArray[i].name);
+                Debug.Log("category weight: " + (categoriesArray[i].weight));
+                Debug.Log(categoriesArray[i].uArray[1].name);
             break;
             }
         }
