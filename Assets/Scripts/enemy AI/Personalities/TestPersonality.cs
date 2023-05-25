@@ -1,25 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class TestPersonality : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start(){
-        GetComponent<Prototype01>().MakeTestUtility("shit in pants", "toileting");
-        GetComponent<Prototype01>().MakeTestUtility("go to the toilet", "toileting");
-        GetComponent<Prototype01>().MakeTestUtility("shit in the woods", "toileting");
+        GetComponent<Prototype01>().MakeTestUtility("utility1", "category1");
+        GetComponent<Prototype01>().MakeTestUtility("utility2", "category2");
+        GetComponent<Prototype01>().MakeTestUtility("utility3", "category3");
 
     }
     void Update(){
         //calculate utility for toileting pants
-        GetComponent<Prototype01>().AssignCategoryValue("toileting", 354);
-        GetComponent<Prototype01>().AssignUtilityValue("shit in pants", 98);
+        GetComponent<Prototype01>().AssignCategoryValue("category1", 354);
+        GetComponent<Prototype01>().AssignUtilityValue("utility1", 98);
         DistanceFromPlayer();
     }
 
     #region Utility factors
     void DistanceFromPlayer(){
+        int maxValue = 20;
         //a calculation should happen here    
         //find the closest player character
         player2DController[] Playerchars = (player2DController[]) GameObject.FindObjectsOfType(typeof(player2DController)); ;
@@ -43,11 +45,21 @@ public class TestPersonality : MonoBehaviour
         //find the distance between the closest player character and me
         distanceToClosestPlayer = Vector3.Distance(this.transform.position, closestPlayer.transform.position);
         Debug.Log("distance to player:" + distanceToClosestPlayer);
-        //X is a normalized value that increases and decreases when the player is close (player's distance from me)
-        //float distance = Vector3.Distance(this.transform.position, )
+        //X is a normalized value that decreases when the player is close (player's distance from me)
+        double x = ((double)distanceToClosestPlayer / (double)maxValue);
+        Debug.Log(x);
         //GetComponent<Prototype01>().AssignUtilityValue("moveCloser", value X);
     }
     void IAmLowOnHealth(){
+        float dangerThreshold = 0.1f;
+        //is my health 10% or lower
+        if(GetComponent<Enemy>().getHP() <= GetComponent<Enemy>().getMaxHP() * dangerThreshold){
+            //calculation magic voodo mumbo jumbo
+            //return a normalized value
+        }
+    }
+
+    void InRangeForMeleeAttack(){
 
     }
 

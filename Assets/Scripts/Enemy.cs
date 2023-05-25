@@ -55,6 +55,10 @@ public class Enemy : MonoBehaviour
     public int getHP(){
         return health;
     }
+    public int getMaxHP()
+    {
+        return maxHealth;
+    }
 
     public int getEXP(){
         return EXPValue;
