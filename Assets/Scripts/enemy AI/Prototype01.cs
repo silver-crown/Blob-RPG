@@ -108,7 +108,6 @@ public class Prototype01 : MonoBehaviour
 
         //check if a category with the name c exists in the categoriesArray array
         //if it does exist, add the newly created utility to the category's uAray array 
-
         //if it doesn't, create the category with the name c, then put the newly created utility to the category's uAray array 
 
         for (int i = 0; i <= categoryArraySize; i++){
@@ -189,7 +188,7 @@ public class Prototype01 : MonoBehaviour
     void DisplayUtilities(bool display){
         Debug.Log("displaying entity utility values");
         Debug.Log("second category name: " + categoriesArray[1].name);
-        Debug.Log("third category name: " + categoriesArray[2].name);
+        Debug.Log("second category number of utilities: " + categoriesArray[1].numOfUtilities);
         debugMenu.DisplayUtilityDebugValues(display, categoriesArray, categoryArraySize);
         //display a window with all the entity's utilities  divided into categories, displaying their names and weights when a button is pressed
        //int i = 0;

@@ -37,7 +37,8 @@ public class EnemyCUtilityDBMenu : MonoBehaviour
         for(int i = 0; i < numOfCategories; i++){
             Debug.Log("number of categories: " + numOfCategories);
                 finalUtilityString += (utilityCategories[i].name + "   " + utilityCategories[i].weight + "\n");
-                for(int j = 0; j <= utilityCategories[i].numOfUtilities; j++){
+                //numOfUtilities is blank, so we go only up to the penultimate number
+                for(int j = 0; j <= utilityCategories[i].numOfUtilities-1; j++){
                 //format the utility value
                     string s = $"{utilityCategories[i].uArray[j].weight}";
                     finalUtilityString += (utilityCategories[i].uArray[j].name + "  " + s + "\n");
