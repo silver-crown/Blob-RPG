@@ -7,21 +7,23 @@ public class TestPersonality : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start(){
-        GetComponent<Prototype01>().MakeTestUtility("utility1", "category1");
-        GetComponent<Prototype01>().MakeTestUtility("utility2", "category2");
-        GetComponent<Prototype01>().MakeTestUtility("utility3", "category3");
-
+        GetComponent<Prototype01>().MakeTestUtility("moveCloser", "normalBehavior");
+        GetComponent<Prototype01>().MakeTestUtility("meleeAttack", "normalBehavior");
+        GetComponent<Prototype01>().MakeTestUtility("runAway", "normalBehavior");
+        GetComponent<Prototype01>().MakeTestUtility("heal", "normalBehavior");
+        GetComponent<Prototype01>().MakeTestUtility("foobar", "notSoNormalBehavior");
+        GetComponent<Prototype01>().MakeTestUtility("snafu", "test category 3");
     }
     void Update(){
         //calculate utility for toileting pants
-        GetComponent<Prototype01>().AssignCategoryValue("category1", 354);
-        GetComponent<Prototype01>().AssignUtilityValue("utility1", 98);
+        GetComponent<Prototype01>().AssignCategoryValue("normalBehavior", 42);
+        //GetComponent<Prototype01>().AssignCategoryValue("notSoNormalBehavior", 100);
         DistanceFromPlayer();
     }
 
     #region Utility factors
     void DistanceFromPlayer(){
-        int maxValue = 20;
+        int maxValue = 100;
         //a calculation should happen here    
         //find the closest player character
         player2DController[] Playerchars = (player2DController[]) GameObject.FindObjectsOfType(typeof(player2DController)); ;
@@ -44,11 +46,11 @@ public class TestPersonality : MonoBehaviour
         }
         //find the distance between the closest player character and me
         distanceToClosestPlayer = Vector3.Distance(this.transform.position, closestPlayer.transform.position);
-        Debug.Log("distance to player:" + distanceToClosestPlayer);
+        //Debug.Log("distance to player:" + distanceToClosestPlayer);
         //X is a normalized value that decreases when the player is close (player's distance from me)
         double x = ((double)distanceToClosestPlayer / (double)maxValue);
-        Debug.Log(x);
-        //GetComponent<Prototype01>().AssignUtilityValue("moveCloser", value X);
+        Debug.Log("x value = " + x);
+        GetComponent<Prototype01>().AssignUtilityValue("moveCloser", x);
     }
     void IAmLowOnHealth(){
         float dangerThreshold = 0.1f;

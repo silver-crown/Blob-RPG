@@ -36,6 +36,9 @@ public class GameManager : StateMachine
     public KeyCode Interact { get; set; }
     public KeyCode Sprint { get; set; }
     public KeyCode Back { get; set; }
+
+    public KeyCode DBugKey { get; set; }
+
     //all the available characters
     public GameObject[] characterList;
     //current party
@@ -72,6 +75,9 @@ public class GameManager : StateMachine
         Interact = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("InteractKey", "E"));
         Sprint = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("SprintKey", "LeftShift"));
         Back  = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("backKey", "Backspace"));
+
+        //Debug Controls
+        DBugKey = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("debugKey", "F1"));
     }
     #endregion
 
