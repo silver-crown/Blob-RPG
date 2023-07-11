@@ -3,10 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+
+//This script should be attached to an entity, dictating what actions it prefers to make overall
+//The idea is that there is a neutral personality, a cowardly personality, brave personality and so on...
+//These will be attached to the entities at random during encounters, making each encounter unique.
 public class TestPersonality : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start(){
+        //make some dummy utilities to test the debug menu
         GetComponent<Prototype01>().MakeTestUtility("moveCloser", "normalBehavior");
         GetComponent<Prototype01>().MakeTestUtility("meleeAttack", "normalBehavior");
         GetComponent<Prototype01>().MakeTestUtility("runAway", "normalBehavior");
@@ -23,8 +28,7 @@ public class TestPersonality : MonoBehaviour
 
     #region Utility factors
     void DistanceFromPlayer(){
-        int maxValue = 100;
-        //a calculation should happen here    
+        int maxValue = 100;   
         //find the closest player character
         player2DController[] Playerchars = (player2DController[]) GameObject.FindObjectsOfType(typeof(player2DController)); ;
         player2DController closestPlayer = null;
@@ -52,6 +56,7 @@ public class TestPersonality : MonoBehaviour
         Debug.Log("x value = " + x);
         GetComponent<Prototype01>().AssignUtilityValue("moveCloser", x);
     }
+
     void IAmLowOnHealth(){
         float dangerThreshold = 0.1f;
         //is my health 10% or lower

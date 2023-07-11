@@ -6,6 +6,12 @@ using System;
 
 //This script should be attached to a enemy entity with a separate controller script that dictates it's actions
 //it's primary function is to calculate the utility value of each action, evaluate these, and finally tell the entity what action to perform 
+
+//********************************************************
+//This script utilizes arrays instead of linked lists for Utility management, this is due to lists having faster insertion/deletion, times but arrays -
+//- having faster access times. The idea is that because there will be no actual insertions during runtime, but a large amount accessing and -
+//- calculations on utility factors, an array solution should promote a faster decision making process for the entities during runtime.
+//********************************************************
 public class Prototype01 : MonoBehaviour
 {
     [SerializeField] private EnemyCUtilityDBMenu debugMenu;
@@ -60,11 +66,12 @@ public class Prototype01 : MonoBehaviour
         DisplayUtilities(displayingDBMenu);
     }
 
-    //perform utility action (will be used during runtime) using a weight-based random on the best remaining utilities after proper elimination has been performed
+    //perform utility action (will be used during runtime) using a weight-based random on the best -
+    // - remaining utilities after proper elimination of useless utilities has been performed
     void PerformAction(){
 
    }
-    #region Math Bullshit
+    #region Math
     //calculate the utility of the action or action category (will be used during runtime) uses a quadratic curve
     double CalculateWeight(double input, double max, float k){
         //a normalization equation, large value of k will have very little impact for low values of x
@@ -94,18 +101,19 @@ public class Prototype01 : MonoBehaviour
     //find the best utility, eliminate the ones that are much much worse, and return the ones that are left
     List<Utility> BestRemainingUtilities(){
         //eliminate the options with a weight of 0
-        //find the best utility, eliminate the ones that are much much worse, and return the ones that are left
+
 
         //DO NOT makes a new list for this, that's a costly operation to perform
-        //tagging the "best" utilities seems to be the best option
+        //tagging the "best" utilities seems to be a good option for this
         return null;
     }
 
     //create a utility action and put it into the category's list of utilities, also creates a category if one does not exist (won't be used during runtime)
+    //bit of a messy logic, can probably clean this using delegates or lambdas 
+
     void CreateUtility(string n, string c){
         Utility u = new Utility(n);
         bool categoryExists = false;
-
         //check if a category with the name c exists in the categoriesArray array
         //if it does exist, add the newly created utility to the category's uAray array 
         //if it doesn't, create the category with the name c, then put the newly created utility to the category's uAray array 
@@ -157,18 +165,12 @@ public class Prototype01 : MonoBehaviour
 
     //Give utility value to action or category (will be used during runtime)
     public void AssignUtilityValue(string n, double x){
-        bool utilityExists = false;
         for(int i = 0; i < categoryArraySize; i++){
             for(int j = 0; j < categoriesArray[i].uArray.Length; j++){
                 if (categoriesArray[i].uArray[j].name == n){
-                    utilityExists = true;
                     categoriesArray[i].uArray[j].weight = CalculateWeight(x, maxValue, k);
                 }
             }
-        }
-        if (!utilityExists)
-        {
-            Debug.Log("Utility with the name " + n + " does not exist!");
         }
     }
     //Give utility category value (will be used during runtime)
@@ -185,12 +187,11 @@ public class Prototype01 : MonoBehaviour
     }
 
     //Debug function, should not be utilized during real play 
+    //displays a window with all the entity's utilities  divided into categories, displaying their names and weights when a button is pressed
     void DisplayUtilities(bool display){
         Debug.Log("displaying entity utility values");
         Debug.Log("second category name: " + categoriesArray[1].name);
         Debug.Log("second category number of utilities: " + categoriesArray[1].numOfUtilities);
         debugMenu.DisplayUtilityDebugValues(display, categoriesArray, categoryArraySize);
-        //display a window with all the entity's utilities  divided into categories, displaying their names and weights when a button is pressed
-       //int i = 0;
     }
 }

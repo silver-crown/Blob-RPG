@@ -45,6 +45,7 @@ public class PartyManager : MonoBehaviour
         p.character.GetComponent<player2DController>().SetUpCharStats(p);
     }
 
+    //*****bugged function, fix in the future.
     public void AddTempEXPToCharacters(){
         foreach (partyChar p in playerCharacters){
             //display exp and the exp to be gained
