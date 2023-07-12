@@ -20,14 +20,14 @@ public class TestPersonality : MonoBehaviour
         GetComponent<Prototype01>().MakeTestUtility("snafu", "test category 3");
     }
     void Update(){
-        //calculate utility for toileting pants
         GetComponent<Prototype01>().AssignCategoryValue("normalBehavior", 42);
         //GetComponent<Prototype01>().AssignCategoryValue("notSoNormalBehavior", 100);
-        DistanceFromPlayer();
+        Tuple<float, player2DController> i = DistanceFromPlayer();
+        InRangeForMeleeAttack();
     }
 
     #region Utility factors
-    void DistanceFromPlayer(){
+    Tuple<float, player2DController> DistanceFromPlayer(){
         int maxValue = 100;   
         //find the closest player character
         player2DController[] Playerchars = (player2DController[]) GameObject.FindObjectsOfType(typeof(player2DController)); ;
@@ -52,9 +52,11 @@ public class TestPersonality : MonoBehaviour
         distanceToClosestPlayer = Vector3.Distance(this.transform.position, closestPlayer.transform.position);
         //Debug.Log("distance to player:" + distanceToClosestPlayer);
         //X is a normalized value that decreases when the player is close (player's distance from me)
-        double x = ((double)distanceToClosestPlayer / (double)maxValue);
-        Debug.Log("x value = " + x);
-        GetComponent<Prototype01>().AssignUtilityValue("moveCloser", x);
+        float x = ((float)distanceToClosestPlayer / (float)maxValue);
+        //Debug.Log("x value = " + x);
+        GetComponent<Prototype01>().AssignUtilityValue("moveCloser", "normalBehavior", x);
+        //returns the distance and the player
+        return  Tuple.Create((float)distanceToClosestPlayer, closestPlayer);
     }
 
     void IAmLowOnHealth(){
@@ -67,20 +69,35 @@ public class TestPersonality : MonoBehaviour
     }
 
     void InRangeForMeleeAttack(){
-
+        int maxValue = 100;
+        float attackValue = 0;
+        Tuple<float, player2DController> i = DistanceFromPlayer();
+        //find the distance between the closest player character and me
+        if(i.Item1 <= 1){
+            attackValue = 4;
+        }   
+        //float x = ((float)distanceToClosestPlayer / (float)maxValue);
+        GetComponent<Prototype01>().AssignUtilityValue("meleeAttack", "normalBehavior", (float)attackValue / (float)maxValue);
     }
 
     #endregion
 
     #region Utility actions
-   // double GetCloserToPlayer(){
-        //needs the distance from the player, it should also see if it's in danger aka has low healthies
-        //it should normalize the values obtained from the data to a number between 0 and 100
+    //the only thing this method should do is get closer to the player, the calculations themselves are done in the factor functions
+    public void GetCloserToPlayer(){
+        int maxValue = 100;
+        Vector3 myPos = this.transform.position;
+        float testMoveSpeed = 0.02f;
+        //grab the player from the utility function 
+        Tuple<float, player2DController> i = DistanceFromPlayer();
+        if (i.Item2.transform.position.x < myPos.x - 0.6){
+            this.transform.position -= new Vector3(testMoveSpeed, 0.0f, 0.0f);
+        }
+        else{
+            this.transform.position += new Vector3(testMoveSpeed, 0.0f, 0.0f);
+        }
 
-        //i = ((double)distancefromplayer + IAmLowOnHealth /(double)max)*100;
-        //it should then normalize THIS value to a number between 0 and 1, and return this value for the final decision on which utility action to perform
-        // return Math.Pow(((double)i/(double)max),k);
-   // }
+    }
     void AttackPlayer(){
 
     }

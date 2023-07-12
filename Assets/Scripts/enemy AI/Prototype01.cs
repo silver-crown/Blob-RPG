@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using System.Runtime.CompilerServices;
+using System.Linq;
 
 
 //This script should be attached to a enemy entity with a separate controller script that dictates it's actions
@@ -22,22 +24,31 @@ public class Prototype01 : MonoBehaviour
     
     public struct Utility{
         public string name;
-        public double weight;
+        public float weight;
         //if a utility is in the pool of best possible utilities, best should be true
         public bool isBest;
         public Utility(string n) : this(){
             name = n;
         }
+        public void SetWeight(float i) {
+            weight = i; 
+        }
     }
 
     public struct UtilityCategory{
         public Utility[] uArray;
+        //the utilities belonging to the category
+        public Dictionary<string, Utility> utilityDict;
         public string name;
-        public double weight;
+        public float weight;
         public bool isBest;
         public int numOfUtilities;
         public UtilityCategory(string n) : this(){
             name = n;
+            utilityDict = new Dictionary<string, Utility>();
+        }
+        public void SetWeight(float i) {
+            weight = i;
         }
     }
     //Utility utility = new Utility();
@@ -48,13 +59,18 @@ public class Prototype01 : MonoBehaviour
     int maxSize = 100;
     private int numOfCategories = 0;
     public UtilityCategory[] categoriesArray { get; set;}
-   
+
+    //All the utility categories
+    public Dictionary<string, UtilityCategory> utilityCategoriesDict;
+
     void Awake(){
         debugKey = GameManager.GM.DBugKey;
         categoriesArray = new UtilityCategory[maxSize];
         for(int i = 0; i < categoriesArray.Length; i++){
             categoriesArray[i].uArray = new Utility[maxSize];
         }
+        utilityCategoriesDict = new Dictionary<string, UtilityCategory>();
+
     }
 
     void Update()
@@ -64,18 +80,21 @@ public class Prototype01 : MonoBehaviour
             displayingDBMenu = !displayingDBMenu;
         }
         DisplayUtilities(displayingDBMenu);
+        PerformAction();
     }
 
     //perform utility action (will be used during runtime) using a weight-based random on the best -
     // - remaining utilities after proper elimination of useless utilities has been performed
     void PerformAction(){
 
-   }
+
+        GetComponent<TestPersonality>().GetCloserToPlayer();
+    }
     #region Math
     //calculate the utility of the action or action category (will be used during runtime) uses a quadratic curve
-    double CalculateWeight(double input, double max, float k){
+    float CalculateWeight(float input, float max, float k){
         //a normalization equation, large value of k will have very little impact for low values of x
-        return Math.Pow(((double)input/(double)max),k);
+        return (float)Math.Pow(input / max, k);
     }
     #endregion
 
@@ -99,6 +118,12 @@ public class Prototype01 : MonoBehaviour
     }
     
     //find the best utility, eliminate the ones that are much much worse, and return the ones that are left
+    /*
+    ***********************
+    The idea here is that you don't want to perform the best possible utilities every time, as it will come
+    across as robotic, instead roll a dice on the top utilities 
+    ***********************
+    */
     List<Utility> BestRemainingUtilities(){
         //eliminate the options with a weight of 0
 
@@ -113,34 +138,22 @@ public class Prototype01 : MonoBehaviour
 
     void CreateUtility(string n, string c){
         Utility u = new Utility(n);
-        bool categoryExists = false;
         //check if a category with the name c exists in the categoriesArray array
         //if it does exist, add the newly created utility to the category's uAray array 
         //if it doesn't, create the category with the name c, then put the newly created utility to the category's uAray array 
 
-        for (int i = 0; i <= categoryArraySize; i++){
-            //if there's a category with the name, add the utility to the category
-            if (categoriesArray[i].name == c){
-                categoryExists = true;
+        //There is a category with this name
+        if (utilityCategoriesDict.ContainsKey(c)){
+            //The category does not contain this utility
+            if (!utilityCategoriesDict[c].utilityDict.ContainsKey(n)){
+                //Add it to the category's dictionary
+                utilityCategoriesDict[c].utilityDict.Add(n, u);
             }
-            if (categoryExists){
-                //put the newly created utility into the uArray of c
-                int j = categoriesArray[i].numOfUtilities++;
-                categoriesArray[i].uArray[j] = u;
-            }
-            //if there's no category with the name, create it, and add the utility to the category
-            else {
-                //put a new category in the next empty slot
-                if(i == numOfCategories){
-                    categoriesArray[categoryArraySize] = new UtilityCategory(c);
-                    //initialize the category's utility array
-                    categoriesArray[categoryArraySize].uArray = new Utility[maxSize];
-                    //place the new utility in the array
-                    categoriesArray[categoryArraySize].uArray[categoriesArray[categoryArraySize++].numOfUtilities++] = u;
-                    numOfCategories++;
-                    break;
-                }
-            }
+        }
+        //else there's no category, make one and insert the newly made utility
+        else {
+            utilityCategoriesDict.Add(c, new UtilityCategory(c));
+            utilityCategoriesDict[c].utilityDict.Add(n, u);
         }
     }
 
@@ -164,22 +177,26 @@ public class Prototype01 : MonoBehaviour
     }
 
     //Give utility value to action or category (will be used during runtime)
-    public void AssignUtilityValue(string n, double x){
-        for(int i = 0; i < categoryArraySize; i++){
-            for(int j = 0; j < categoriesArray[i].uArray.Length; j++){
-                if (categoriesArray[i].uArray[j].name == n){
-                    categoriesArray[i].uArray[j].weight = CalculateWeight(x, maxValue, k);
-                }
-            }
+    public void AssignUtilityValue(string n, string c, float x){
+        if (utilityCategoriesDict[c].utilityDict.ContainsKey(n)) {
+            var i = utilityCategoriesDict[c].utilityDict[n];
+            i.weight = CalculateWeight(x, maxValue, k);
+            utilityCategoriesDict[c].utilityDict[n] = i;
         }
+        else {
+            Debug.Log(utilityCategoriesDict[c].name + " does not contain utility " + n);
+        }
+
     }
     //Give utility category value (will be used during runtime)
     public void AssignCategoryValue(string n, int x){
-        for(int i = 0; i < categoryArraySize; i++){
-            if(categoriesArray[i].name == n){
-                categoriesArray[i].weight = CalculateWeight(x, maxValue, k);
-            break;
-            }
+        if (utilityCategoriesDict.ContainsKey(n)) {
+            var i = utilityCategoriesDict[n];
+            i.weight = CalculateWeight(x, maxValue, k);
+            utilityCategoriesDict[n] = i;
+        }
+        else {
+            Debug.Log("category " + n + " does not exist");
         }
     }
     public void MakeTestUtility(string n, string c){
@@ -189,9 +206,9 @@ public class Prototype01 : MonoBehaviour
     //Debug function, should not be utilized during real play 
     //displays a window with all the entity's utilities  divided into categories, displaying their names and weights when a button is pressed
     void DisplayUtilities(bool display){
-        Debug.Log("displaying entity utility values");
+      /*  Debug.Log("displaying entity utility values");
         Debug.Log("second category name: " + categoriesArray[1].name);
-        Debug.Log("second category number of utilities: " + categoriesArray[1].numOfUtilities);
-        debugMenu.DisplayUtilityDebugValues(display, categoriesArray, categoryArraySize);
+        Debug.Log("second category number of utilities: " + categoriesArray[1].numOfUtilities);*/
+        debugMenu.DisplayUtilityDebugValues(display, utilityCategoriesDict);
     }
 }

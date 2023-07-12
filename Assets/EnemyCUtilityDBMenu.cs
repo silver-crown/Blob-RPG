@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using static Prototype01;
+
 public class EnemyCUtilityDBMenu : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI categoryName;
     [SerializeField] GameObject menu;
     //private string[] displayedUtilityCategories;
 
-    public void DisplayUtilityDebugValues(bool display, Prototype01.UtilityCategory[] utilityCategories, int numOfCategories){
+    public void DisplayUtilityDebugValues(bool display, Dictionary<string, UtilityCategory> utilityCategorydict){
         string finalUtilityString = null;
         menu.SetActive(display);
 
@@ -33,23 +35,12 @@ public class EnemyCUtilityDBMenu : MonoBehaviour
         //every utility category that's going to be displayed 
 
         //the final string that'll be displayed on screen
-
-        for(int i = 0; i < numOfCategories; i++){
-            Debug.Log("number of categories: " + numOfCategories);
-                finalUtilityString += (utilityCategories[i].name + "   " + utilityCategories[i].weight + "\n");
-                //numOfUtilities is blank, so we go only up to the penultimate number
-                for(int j = 0; j <= utilityCategories[i].numOfUtilities-1; j++){
-                //format the utility value
-                    string s = $"{utilityCategories[i].uArray[j].weight}";
-                    finalUtilityString += (utilityCategories[i].uArray[j].name + "  " + s + "\n");
-                }
-            
-            //display each of the utility name and values for 
+        foreach(KeyValuePair<string, UtilityCategory> i in utilityCategorydict) {
+            finalUtilityString += (i.Key + "  " + i.Value + "\n");
+            foreach(KeyValuePair<string, Utility> j in i.Value.utilityDict) {
+                finalUtilityString += j.Key + "  " + j.Value.weight + "\n";
+            }
         }
-        //combine the strings
-       /* for(int i = 0; i < displayedUtilityCategories.Length; i++) {
-           // finalUtilityString += displayedUtilityCategories[i];
-        }*/
         categoryName.GetComponent<TextMeshProUGUI>().SetText(finalUtilityString);
     }
 }
