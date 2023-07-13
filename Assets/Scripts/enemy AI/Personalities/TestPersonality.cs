@@ -13,9 +13,9 @@ public class TestPersonality : MonoBehaviour
     void Start(){
         //make some dummy utilities to test the debug menu
         GetComponent<Prototype01>().MakeTestUtility("moveCloser", "normalBehavior", GetCloserToPlayer);
-       // GetComponent<Prototype01>().MakeTestUtility("meleeAttack", "normalBehavior");
-       // GetComponent<Prototype01>().MakeTestUtility("runAway", "normalBehavior");
-       // GetComponent<Prototype01>().MakeTestUtility("heal", "normalBehavior");
+        GetComponent<Prototype01>().MakeTestUtility("meleeAttack", "normalBehavior", AttackPlayer);
+        GetComponent<Prototype01>().MakeTestUtility("runAway", "normalBehavior", RunAwayFromPlayer);
+        //GetComponent<Prototype01>().MakeTestUtility("heal", "normalBehavior");
        // GetComponent<Prototype01>().MakeTestUtility("foobar", "notSoNormalBehavior");
        //GetComponent<Prototype01>().MakeTestUtility("snafu", "test category 3");
     }
@@ -85,7 +85,6 @@ public class TestPersonality : MonoBehaviour
     #region Utility actions
     //the only thing this method should do is get closer to the player, the calculations themselves are done in the factor functions
     public void GetCloserToPlayer(){
-        int maxValue = 100;
         Vector3 myPos = this.transform.position;
         float testMoveSpeed = 0.02f;
         //grab the player from the utility function 

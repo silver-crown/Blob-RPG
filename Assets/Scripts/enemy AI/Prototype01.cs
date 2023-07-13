@@ -25,13 +25,11 @@ public class Prototype01 : MonoBehaviour
     public struct Utility{
         public string name;
         public float weight;
-        //if a utility is in the pool of best possible utilities, best should be true
         //*****************************
-        // void MyAction
+        // void UtilityAction
         //Should point to an associated utility action decided in the constructor
-        //will then perform this action when MyAction is called
-        //contents of myAction should be as follows:
-        //
+        //will then perform this action when UtilityAction is called
+        //******************************
         public delegate void MyAction();
         MyAction myAction;
         public void UtilityAction(){
@@ -50,13 +48,10 @@ public class Prototype01 : MonoBehaviour
     }
 
     public struct UtilityCategory{
-        public Utility[] uArray;
         //the utilities belonging to the category
         public Dictionary<string, Utility> utilityDict;
         public string name;
         public float weight;
-        public bool isBest;
-        public int numOfUtilities;
         public UtilityCategory(string n) : this(){ name = n;
             utilityDict = new Dictionary<string, Utility>();
         }
@@ -64,24 +59,12 @@ public class Prototype01 : MonoBehaviour
             weight = i;
         }
     }
-    //Utility utility = new Utility();
-    //UtilityCategory utilityCategory = new UtilityCategory();
-
-    //Array of the AI's utilities and their categories
-    public int categoryArraySize;
-    int maxSize = 100;
-    private int numOfCategories = 0;
-    public UtilityCategory[] categoriesArray { get; set;}
 
     //All the utility categories
     public Dictionary<string, UtilityCategory> utilityCategoriesDict;
 
     void Awake(){
         debugKey = GameManager.GM.DBugKey;
-        categoriesArray = new UtilityCategory[maxSize];
-        for(int i = 0; i < categoriesArray.Length; i++){
-            categoriesArray[i].uArray = new Utility[maxSize];
-        }
         utilityCategoriesDict = new Dictionary<string, UtilityCategory>();
 
     }
@@ -99,8 +82,10 @@ public class Prototype01 : MonoBehaviour
     //perform utility action (will be used during runtime) using a weight-based random on the best -
     // - remaining utilities after proper elimination of useless utilities has been performed
     void PerformAction() {
-        //Dictionary<string, Utility> bestUtilities = BestRemainingUtilities(BestRemainingCategory());
-        utilityCategoriesDict["normalBehavior"].utilityDict["moveCloser"].MyAction();
+        Dictionary<string, Utility> bestUtilities = BestRemainingUtilities(BestRemainingCategory());
+        //utilityCategoriesDict["normalBehavior"].utilityDict["moveCloser"].UtilityAction();
+        var BestUtilityAction = BestRemainingUtilities(BestRemainingCategory()).Aggregate((x, y) => x.Value.weight > y.Value.weight ? x : y).Value;
+        BestUtilityAction.UtilityAction();
         //*********************************
         //use the Utilities weight to make a roll on which action will be performed
         //example: 
@@ -118,25 +103,6 @@ public class Prototype01 : MonoBehaviour
     }
     #endregion
 
-    //find the category with the highest weight, tags it as the best one and returns it (linear search)
-    UtilityCategory CategoryWithHighestWeight(){
-        //simply tags the best category
-        if(categoriesArray.Length > 1){
-            for (int i = 1; i < categoriesArray.Length; i++){
-                if(categoriesArray[i].weight > categoriesArray[i-1].weight){
-                    categoriesArray[i].isBest = true; 
-                    categoriesArray[i-1].isBest = false;
-                }
-            }
-            foreach (UtilityCategory category in categoriesArray){
-                if(category.isBest == true){
-                    return category;
-                }
-            }
-        }
-        return categoriesArray[0];
-    }
-    
     //find the best utility, eliminate the ones that are much much worse, and return the ones that are left
     /*
     ***********************
@@ -215,7 +181,7 @@ public class Prototype01 : MonoBehaviour
             var i = utilityCategoriesDict[n];
             i.weight = CalculateWeight(x, maxValue, k);
             utilityCategoriesDict[n] = i;
-            Debug.Log(utilityCategoriesDict[n].weight);
+            //Debug.Log(utilityCategoriesDict[n].weight);
         }
         else {
             Debug.Log("category " + n + " does not exist");
@@ -228,9 +194,6 @@ public class Prototype01 : MonoBehaviour
     //Debug function, should not be utilized during real play 
     //displays a window with all the entity's utilities  divided into categories, displaying their names and weights when a button is pressed
     void DisplayUtilities(bool display){
-      /*  Debug.Log("displaying entity utility values");
-        Debug.Log("second category name: " + categoriesArray[1].name);
-        Debug.Log("second category number of utilities: " + categoriesArray[1].numOfUtilities);*/
         debugMenu.DisplayUtilityDebugValues(display, utilityCategoriesDict);
     }
 }
