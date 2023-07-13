@@ -26,9 +26,23 @@ public class Prototype01 : MonoBehaviour
         public string name;
         public float weight;
         //if a utility is in the pool of best possible utilities, best should be true
-        public bool isBest;
-        public Utility(string n) : this(){
+        //*****************************
+        // void MyAction
+        //Should point to an associated utility action decided in the constructor
+        //will then perform this action when MyAction is called
+        //contents of myAction should be as follows:
+        //
+        public delegate void UtilityAction();
+        UtilityAction utilityAction;
+        public void MyAction(){
+            utilityAction();
+        }
+        //
+        //****************************
+        public Utility(string n, Action myAction) {
+            utilityAction = new UtilityAction(myAction);
             name = n;
+            weight = 0.0f;
         }
         public void SetWeight(float i) {
             weight = i; 
@@ -43,8 +57,7 @@ public class Prototype01 : MonoBehaviour
         public float weight;
         public bool isBest;
         public int numOfUtilities;
-        public UtilityCategory(string n) : this(){
-            name = n;
+        public UtilityCategory(string n) : this(){ name = n;
             utilityDict = new Dictionary<string, Utility>();
         }
         public void SetWeight(float i) {
@@ -85,10 +98,17 @@ public class Prototype01 : MonoBehaviour
 
     //perform utility action (will be used during runtime) using a weight-based random on the best -
     // - remaining utilities after proper elimination of useless utilities has been performed
-    void PerformAction(){
-
-
-        GetComponent<TestPersonality>().GetCloserToPlayer();
+    void PerformAction() {
+        //Dictionary<string, Utility> bestUtilities = BestRemainingUtilities(BestRemainingCategory());
+        utilityCategoriesDict["normalBehavior"].utilityDict["moveCloser"].MyAction();
+        //*********************************
+        //use the Utilities weight to make a roll on which action will be performed
+        //example: 
+        // A utility with a weight of 0.3 has a 30% chance to happen
+        // a utility with a weight of 1 has a 100% chance of happening
+        //Note: if i want all the best utilities sum up to 1 then i have to do some serious black magic here
+        //other option: do a random roll on all the bests (don't bother summing up to 1 (it could be really hard to do and not sure if it really serves a purpose))
+        //**********************************
     }
     #region Math
     //calculate the utility of the action or action category (will be used during runtime) uses a quadratic curve
@@ -124,20 +144,40 @@ public class Prototype01 : MonoBehaviour
     across as robotic, instead roll a dice on the top utilities 
     ***********************
     */
-    List<Utility> BestRemainingUtilities(){
-        //eliminate the options with a weight of 0
+    Dictionary<string, Utility> BestRemainingUtilities(UtilityCategory category){
+        int numOfUtilitiesToKeep = 3;
+        float cutOff = 0.2f;
+        var bestUtilities = new Dictionary<string, Utility>();
+        //utility values should be normalized to a 1 point decimal between 0 and 1
+        //keep the best one and the two next best ones if they are in the 20% range (0.2 or higher)
+        var orderedUtilies = category.utilityDict.OrderByDescending(x => x.Value.weight).ToList();
+        for(int i = 0; i < numOfUtilitiesToKeep; i++) {
+            if(i > 0 && orderedUtilies[i].Value.weight > cutOff) {
+                bestUtilities.Add(orderedUtilies[i].Key,orderedUtilies[i].Value);
+            }
+            else {
+                bestUtilities.Add(orderedUtilies[i].Key, orderedUtilies[i].Value);
+            }
+        }
+        return bestUtilities;
+    }
 
-
-        //DO NOT makes a new list for this, that's a costly operation to perform
-        //tagging the "best" utilities seems to be a good option for this
-        return null;
+    //Find the utility category with the highest utility score
+    UtilityCategory BestRemainingCategory() {
+        var best = new UtilityCategory();
+        foreach(UtilityCategory category in utilityCategoriesDict.Values) {
+            if(category.weight >  best.weight) {
+                best = category;
+            }
+        }
+        return best;
     }
 
     //create a utility action and put it into the category's list of utilities, also creates a category if one does not exist (won't be used during runtime)
     //bit of a messy logic, can probably clean this using delegates or lambdas 
 
-    void CreateUtility(string n, string c){
-        Utility u = new Utility(n);
+    void CreateUtility(string n, string c, Action a){
+        Utility u = new Utility(n, a);
         //check if a category with the name c exists in the categoriesArray array
         //if it does exist, add the newly created utility to the category's uAray array 
         //if it doesn't, create the category with the name c, then put the newly created utility to the category's uAray array 
@@ -155,25 +195,6 @@ public class Prototype01 : MonoBehaviour
             utilityCategoriesDict.Add(c, new UtilityCategory(c));
             utilityCategoriesDict[c].utilityDict.Add(n, u);
         }
-    }
-
-    Utility GetUtility(string n){
-        for(int i = 0; i < categoryArraySize; i++){
-            for(int j = 0; j < categoriesArray[i].numOfUtilities; i++){
-                    if (categoriesArray[i].uArray[j].name == n){
-                        return categoriesArray[i].uArray[j];
-                }
-            }
-        }
-        return categoriesArray[0].uArray[0];
-    }
-    UtilityCategory GetCategory(string n){
-        for(int i = 0; i < categoryArraySize; i++){
-            if(categoriesArray[i].name == n){
-                return categoriesArray[i];
-            }
-        }
-        return categoriesArray[0];
     }
 
     //Give utility value to action or category (will be used during runtime)
@@ -194,13 +215,14 @@ public class Prototype01 : MonoBehaviour
             var i = utilityCategoriesDict[n];
             i.weight = CalculateWeight(x, maxValue, k);
             utilityCategoriesDict[n] = i;
+            Debug.Log(utilityCategoriesDict[n].weight);
         }
         else {
             Debug.Log("category " + n + " does not exist");
         }
     }
-    public void MakeTestUtility(string n, string c){
-        CreateUtility(n, c);
+    public void MakeTestUtility(string n, string c, Action a){
+        CreateUtility(n, c, a);
     }
 
     //Debug function, should not be utilized during real play 

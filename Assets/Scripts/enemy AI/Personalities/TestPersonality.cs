@@ -12,12 +12,12 @@ public class TestPersonality : MonoBehaviour
     // Start is called before the first frame update
     void Start(){
         //make some dummy utilities to test the debug menu
-        GetComponent<Prototype01>().MakeTestUtility("moveCloser", "normalBehavior");
-        GetComponent<Prototype01>().MakeTestUtility("meleeAttack", "normalBehavior");
-        GetComponent<Prototype01>().MakeTestUtility("runAway", "normalBehavior");
-        GetComponent<Prototype01>().MakeTestUtility("heal", "normalBehavior");
-        GetComponent<Prototype01>().MakeTestUtility("foobar", "notSoNormalBehavior");
-        GetComponent<Prototype01>().MakeTestUtility("snafu", "test category 3");
+        GetComponent<Prototype01>().MakeTestUtility("moveCloser", "normalBehavior", GetCloserToPlayer);
+       // GetComponent<Prototype01>().MakeTestUtility("meleeAttack", "normalBehavior");
+       // GetComponent<Prototype01>().MakeTestUtility("runAway", "normalBehavior");
+       // GetComponent<Prototype01>().MakeTestUtility("heal", "normalBehavior");
+       // GetComponent<Prototype01>().MakeTestUtility("foobar", "notSoNormalBehavior");
+       //GetComponent<Prototype01>().MakeTestUtility("snafu", "test category 3");
     }
     void Update(){
         GetComponent<Prototype01>().AssignCategoryValue("normalBehavior", 42);
@@ -99,10 +99,10 @@ public class TestPersonality : MonoBehaviour
 
     }
     void AttackPlayer(){
-
+        Debug.Log("PERFORMING ATTACK");
     }
     void RunAwayFromPlayer(){
-
+        Debug.Log("RUNNING AWAY");
     }
     #endregion
 }
