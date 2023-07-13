@@ -32,15 +32,15 @@ public class Prototype01 : MonoBehaviour
         //will then perform this action when MyAction is called
         //contents of myAction should be as follows:
         //
-        public delegate void UtilityAction();
-        UtilityAction utilityAction;
-        public void MyAction(){
-            utilityAction();
+        public delegate void MyAction();
+        MyAction myAction;
+        public void UtilityAction(){
+            myAction();
         }
         //
         //****************************
-        public Utility(string n, Action myAction) {
-            utilityAction = new UtilityAction(myAction);
+        public Utility(string n, Action a) {
+            myAction = new MyAction(a);
             name = n;
             weight = 0.0f;
         }
