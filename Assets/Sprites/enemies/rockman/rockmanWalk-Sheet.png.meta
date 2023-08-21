@@ -1,0 +1,488 @@
+fileFormatVersion: 2
+guid: 8180b3df14a105b4dbd1de9ac2090ad3
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1439522058315175611
+    second: rockmanWalk-Sheet_0
+  - first:
+      213: 117101085654124895
+    second: rockmanWalk-Sheet_1
+  - first:
+      213: 2264162204884790764
+    second: rockmanWalk-Sheet_2
+  - first:
+      213: 6848602383684780247
+    second: rockmanWalk-Sheet_3
+  - first:
+      213: 4527951319163177794
+    second: rockmanWalk-Sheet_4
+  - first:
+      213: 9152536636240620714
+    second: rockmanWalk-Sheet_5
+  - first:
+      213: -5788010685376795869
+    second: rockmanWalk-Sheet_6
+  - first:
+      213: 3985197955239034100
+    second: rockmanWalk-Sheet_7
+  - first:
+      213: -5760485279574382212
+    second: rockmanWalk-Sheet_8
+  - first:
+      213: -4356877659810889547
+    second: rockmanWalk-Sheet_9
+  - first:
+      213: 2257116500096133280
+    second: rockmanWalk-Sheet_10
+  - first:
+      213: 4059644044602691772
+    second: rockmanWalk-Sheet_11
+  - first:
+      213: 1555939894023826298
+    second: rockmanWalk-Sheet_12
+  - first:
+      213: -7919479220983152736
+    second: rockmanWalk-Sheet_13
+  - first:
+      213: -6376252999120294066
+    second: rockmanWalk-Sheet_14
+  - first:
+      213: -7250601470878601976
+    second: rockmanWalk-Sheet_15
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: rockmanWalk-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 15
+        width: 49
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 549e8cb905ac50ce0800000000000000
+      internalID: -1439522058315175611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rockmanWalk-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 10
+        width: 52
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f590a3521d600a100800000000000000
+      internalID: 117101085654124895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rockmanWalk-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 9
+        width: 49
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cede500878beb6f10800000000000000
+      internalID: 2264162204884790764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rockmanWalk-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 641
+        y: 7
+        width: 48
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d0cc6f159f1b0f50800000000000000
+      internalID: 6848602383684780247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rockmanWalk-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 834
+        y: 10
+        width: 39
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24b8bf21cb386de30800000000000000
+      internalID: 4527951319163177794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rockmanWalk-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 1021
+        y: 9
+        width: 46
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aaceed41497540f70800000000000000
+      internalID: 9152536636240620714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rockmanWalk-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 1211
+        y: 10
+        width: 48
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32b63f5a2fadcafa0800000000000000
+      internalID: -5788010685376795869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rockmanWalk-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 1403
+        y: 10
+        width: 49
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fcb2a10d644e4730800000000000000
+      internalID: 3985197955239034100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rockmanWalk-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 1593
+        y: 13
+        width: 49
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c792a199825ae00b0800000000000000
+      internalID: -5760485279574382212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rockmanWalk-Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 1781
+        y: 12
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b003252ad24983c0800000000000000
+      internalID: -4356877659810889547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rockmanWalk-Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 1970
+        y: 16
+        width: 49
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a827e48f73e25f10800000000000000
+      internalID: 2257116500096133280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rockmanWalk-Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 2161
+        y: 13
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb0d219efb0c65830800000000000000
+      internalID: 4059644044602691772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rockmanWalk-Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 2359
+        y: 13
+        width: 38
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7b2623071fc79510800000000000000
+      internalID: 1555939894023826298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rockmanWalk-Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 2546
+        y: 10
+        width: 44
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0af36339b9b581290800000000000000
+      internalID: -7919479220983152736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rockmanWalk-Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 2731
+        y: 12
+        width: 49
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4f6a6d1eaff287a0800000000000000
+      internalID: -6376252999120294066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rockmanWalk-Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 2921
+        y: 15
+        width: 48
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80d2b58a060b06b90800000000000000
+      internalID: -7250601470878601976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -82,8 +82,6 @@ public class Prototype01 : MonoBehaviour
     //perform utility action (will be used during runtime) using a weight-based random on the best -
     // - remaining utilities after proper elimination of useless utilities has been performed
     void PerformAction() {
-        Dictionary<string, Utility> bestUtilities = BestRemainingUtilities(BestRemainingCategory());
-        //utilityCategoriesDict["normalBehavior"].utilityDict["moveCloser"].UtilityAction();
         var BestUtilityAction = BestRemainingUtilities(BestRemainingCategory()).Aggregate((x, y) => x.Value.weight > y.Value.weight ? x : y).Value;
         BestUtilityAction.UtilityAction();
         //*********************************

@@ -99,6 +99,16 @@ public class TestPersonality : MonoBehaviour
     }
     void AttackPlayer(){
         Debug.Log("PERFORMING ATTACK");
+
+        //debug log: starting attack animation
+        //1, 2, 3
+        //attack/spawn hitbox (???)
+        /*
+        if personality is unique to creature, all attack specifics need to happen here
+        ************
+        if personality is not unique to creature (can be applied to bat as well as a goblin) then all attack specifics will need to happen on the creature prefab 
+
+         */
     }
     void RunAwayFromPlayer(){
         Debug.Log("RUNNING AWAY");
