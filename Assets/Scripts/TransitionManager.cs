@@ -17,6 +17,7 @@ public class TransitionManager : MonoBehaviour
     public Animator bossTransition;
 
     public Animator whiteFadeTransition;
+    public Animator whiteFadeTransition2;
     public float transitionTime = 1.0f;
     private GameObject[] doors;
     public bool Transitioning;
@@ -123,29 +124,38 @@ public class TransitionManager : MonoBehaviour
 
    public IEnumerator TransitionIntoResultScreen(){
         Debug.Log("TRANSITIONING INTO RESULT SCREEN");
+        CombatManager.CM.fightIsOver = true;
         whiteFadeTransition.gameObject.SetActive(true);
         whiteFadeTransition.ResetTrigger("End");
         whiteFadeTransition.SetTrigger("Start");
         Transitioning = true;
         yield return new WaitForSeconds(transitionTime);
-        PartyManager.PM.addingEXPToChars = true;
         SceneManager.UnloadScene("CombatTest");
         SceneManager.LoadScene("ResultScreen", LoadSceneMode.Additive);
+        yield return new WaitForSeconds(transitionTime);
+        Transitioning = false;
+        PartyManager.PM.addingEXPToChars = true;
         CombatManager.CM.EmptyPlayerList();
-        yield return 0;
+        yield break;
     }
     public IEnumerator TransitionIntoOverworldFromBattle(){
-        SceneManager.UnloadScene("ResultScreen");
-        whiteFadeTransition.gameObject.SetActive(true);
-        whiteFadeTransition.ResetTrigger("Start");
-        whiteFadeTransition.SetTrigger("End");
+        PartyManager.PM.addingEXPToChars = false;
         Transitioning = true;
+        transition.gameObject.SetActive(true);
+        transition.ResetTrigger("Start");
+        transition.SetTrigger("Start");
         yield return new WaitForSeconds(transitionTime);
-        GameManager.GM.FreezeAllEntities("Player", false);
-        GameManager.GM.FreezeAllEntities("Enemy", false);
-        CombatManager.CM.fightIsOver = true;
         whiteFadeTransition.gameObject.SetActive(false);
-        yield return 0;
+        transition.ResetTrigger("Start");
+        transition.SetTrigger("End");
+        Debug.Log("returning to overworld state");
+        SceneManager.UnloadScene("ResultScreen");
+        Transitioning = false;
+        GameManager.GM.SetState(new OverworldState());
+        GameManager.GM.FreezeAllEntities("Enemy", false);
+        GameManager.GM.FreezeAllEntities("Player", false);
+        transition.gameObject.SetActive(false);
+        CombatManager.CM.fightIsOver = false;
+        yield break;
     }
 }
-

@@ -68,11 +68,11 @@ TagManager:
   - name: BattlePlatform
     uniqueID: 3561476269
     locked: 0
-  - name: 2DPlayers
-    uniqueID: 1028290983
-    locked: 0
   - name: BattleEntities
     uniqueID: 1148037871
+    locked: 0
+  - name: 2DPlayers
+    uniqueID: 1028290983
     locked: 0
   - name: BattleUI
     uniqueID: 1045737223

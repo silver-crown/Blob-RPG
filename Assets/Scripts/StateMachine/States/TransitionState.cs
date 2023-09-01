@@ -8,7 +8,7 @@ public class TransitionState : State
     }
 
     public override IEnumerator Start() {
-        Debug.Log("Starting Transition state");
+        Debug.Log("Starting Black Transition state");
         yield return Execute();
     }
 

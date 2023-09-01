@@ -22,7 +22,7 @@ public class CombatState : State
     public override IEnumerator Execute() {
         Debug.Log("Executing Combat state");
         while(true){
-            if (Input.GetKeyDown(GameManager.GM.Pause)){
+            if (Input.GetKeyDown(GameManager.GM.Pause) && CombatManager.CM.Fighting){
                 Debug.Log("Pressed the pause key in combat");
                 ///<summary>Wait for a frame after pressing the key</summary>
                 yield return new WaitForEndOfFrame();
@@ -31,16 +31,7 @@ public class CombatState : State
                 Time.timeScale = 0;
                 GameManager.GM.SetState(new CombatPauseState(CombatManager.CM.PauseMenu));
                 yield break;
-            }
-            //if the player is no longer fighting, exit state
-            if(CombatManager.CM.fightIsOver){
-                Debug.Log("returning to overworld state");
-                SceneManager.UnloadScene("ResultScreen");
-                GameManager.GM.SetState(new OverworldState());
-                CombatManager.CM.fightIsOver = false;
-            }
-             
-            ///<summary>Wait for a frame</summary>
+            }     
             yield return true;
         }
     }
