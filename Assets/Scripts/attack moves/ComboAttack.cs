@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ComboAttack : MonoBehaviour
 {
-    [SerializeField] private GameObject attacker;
     [SerializeField] private string moveName;
     [SerializeField] private int experience; 
     [SerializeField] private int level;
@@ -27,9 +26,9 @@ public class ComboAttack : MonoBehaviour
                 if (c.TryGetComponent<Enemy>(out Enemy enemy)){
                     Debug.Log(c.name);
                     //instantiate a popup on the collider's center with the correct damage dealt
-                    GameObject popUp = Instantiate(CombatManager.CM.blueDmgPopup, c.bounds.center, Quaternion.identity) as GameObject;
+                    GameObject popUp = Instantiate(CombatManager.CM.blueDmgPopup, h.bounds.center, Quaternion.identity) as GameObject;
                     damagePopup dmgPopup = popUp.GetComponent<damagePopup>();
-                    dmgPopup.setNumber(enemy.Hurt(damage, attacker));
+                    dmgPopup.setNumber(enemy.Hurt(damage));
                     //should wait a frame
                 }
 
@@ -42,8 +41,4 @@ public class ComboAttack : MonoBehaviour
             Gizmos.DrawWireSphere(h.bounds.center, h.bounds.extents.x); 
         }
     }
-
-    void LevelUp(){
-    }
-    
 }

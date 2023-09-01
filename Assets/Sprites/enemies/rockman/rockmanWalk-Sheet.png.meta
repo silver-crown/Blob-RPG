@@ -138,10 +138,10 @@ TextureImporter:
       name: rockmanWalk-Sheet_0
       rect:
         serializedVersion: 2
-        x: 68
-        y: 15
-        width: 49
-        height: 38
+        x: 70
+        y: 331
+        width: 46
+        height: 36
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -159,10 +159,10 @@ TextureImporter:
       name: rockmanWalk-Sheet_1
       rect:
         serializedVersion: 2
-        x: 258
-        y: 10
-        width: 52
-        height: 46
+        x: 260
+        y: 327
+        width: 49
+        height: 43
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -180,10 +180,10 @@ TextureImporter:
       name: rockmanWalk-Sheet_2
       rect:
         serializedVersion: 2
-        x: 451
-        y: 9
-        width: 49
-        height: 47
+        x: 452
+        y: 325
+        width: 47
+        height: 46
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -201,10 +201,10 @@ TextureImporter:
       name: rockmanWalk-Sheet_3
       rect:
         serializedVersion: 2
-        x: 641
-        y: 7
-        width: 48
-        height: 49
+        x: 643
+        y: 324
+        width: 45
+        height: 46
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -222,10 +222,10 @@ TextureImporter:
       name: rockmanWalk-Sheet_4
       rect:
         serializedVersion: 2
-        x: 834
-        y: 10
-        width: 39
-        height: 48
+        x: 76
+        y: 221
+        width: 36
+        height: 46
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -243,10 +243,10 @@ TextureImporter:
       name: rockmanWalk-Sheet_5
       rect:
         serializedVersion: 2
-        x: 1021
-        y: 9
-        width: 46
-        height: 52
+        x: 263
+        y: 220
+        width: 43
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -264,10 +264,10 @@ TextureImporter:
       name: rockmanWalk-Sheet_6
       rect:
         serializedVersion: 2
-        x: 1211
-        y: 10
-        width: 48
-        height: 51
+        x: 453
+        y: 221
+        width: 45
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -285,10 +285,10 @@ TextureImporter:
       name: rockmanWalk-Sheet_7
       rect:
         serializedVersion: 2
-        x: 1403
-        y: 10
-        width: 49
-        height: 48
+        x: 644
+        y: 222
+        width: 46
+        height: 45
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -306,10 +306,10 @@ TextureImporter:
       name: rockmanWalk-Sheet_8
       rect:
         serializedVersion: 2
-        x: 1593
-        y: 13
-        width: 49
-        height: 39
+        x: 74
+        y: 120
+        width: 46
+        height: 36
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -327,10 +327,10 @@ TextureImporter:
       name: rockmanWalk-Sheet_9
       rect:
         serializedVersion: 2
-        x: 1781
-        y: 12
-        width: 51
-        height: 46
+        x: 262
+        y: 118
+        width: 48
+        height: 43
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -348,10 +348,10 @@ TextureImporter:
       name: rockmanWalk-Sheet_10
       rect:
         serializedVersion: 2
-        x: 1970
-        y: 16
-        width: 49
-        height: 48
+        x: 451
+        y: 122
+        width: 47
+        height: 46
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -369,10 +369,10 @@ TextureImporter:
       name: rockmanWalk-Sheet_11
       rect:
         serializedVersion: 2
-        x: 2161
-        y: 13
-        width: 48
-        height: 48
+        x: 643
+        y: 119
+        width: 45
+        height: 46
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -390,10 +390,10 @@ TextureImporter:
       name: rockmanWalk-Sheet_12
       rect:
         serializedVersion: 2
-        x: 2359
-        y: 13
-        width: 38
-        height: 48
+        x: 80
+        y: 14
+        width: 36
+        height: 46
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -411,10 +411,10 @@ TextureImporter:
       name: rockmanWalk-Sheet_13
       rect:
         serializedVersion: 2
-        x: 2546
-        y: 10
-        width: 44
-        height: 52
+        x: 267
+        y: 12
+        width: 42
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -432,10 +432,10 @@ TextureImporter:
       name: rockmanWalk-Sheet_14
       rect:
         serializedVersion: 2
-        x: 2731
-        y: 12
-        width: 49
-        height: 49
+        x: 453
+        y: 13
+        width: 46
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -453,10 +453,10 @@ TextureImporter:
       name: rockmanWalk-Sheet_15
       rect:
         serializedVersion: 2
-        x: 2921
-        y: 15
-        width: 48
-        height: 47
+        x: 642
+        y: 16
+        width: 45
+        height: 45
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

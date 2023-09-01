@@ -144,7 +144,8 @@ MonoBehaviour:
   defense: 0
   poise: 0
   hurt: 0
-  EXPValue: 73
+  EXPValue: 24
+  dead: 0
 --- !u!95 &5544384008439442496
 Animator:
   serializedVersion: 3
@@ -177,7 +178,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debugMenu: {fileID: 2897181197422130576}
-  categoryArraySize: 0
 --- !u!1001 &954261468912959648
 PrefabInstance:
   m_ObjectHideFlags: 0

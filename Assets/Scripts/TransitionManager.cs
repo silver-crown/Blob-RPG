@@ -135,6 +135,7 @@ public class TransitionManager : MonoBehaviour
         yield return 0;
     }
     public IEnumerator TransitionIntoOverworldFromBattle(){
+        SceneManager.UnloadScene("ResultScreen");
         whiteFadeTransition.gameObject.SetActive(true);
         whiteFadeTransition.ResetTrigger("Start");
         whiteFadeTransition.SetTrigger("End");

@@ -11,8 +11,10 @@ GameObject:
   - component: {fileID: 6753856447116229965}
   - component: {fileID: 3509543212320447741}
   - component: {fileID: 5430319906053575689}
-  - component: {fileID: 2768067924665351116}
   - component: {fileID: 8515183985630010172}
+  - component: {fileID: 4243249605586768726}
+  - component: {fileID: 4826707692811325395}
+  - component: {fileID: 4641873187267204414}
   m_Layer: 11
   m_Name: rockman
   m_TagString: 2DEnemy
@@ -111,26 +113,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &2768067924665351116
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4899999750152620005}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 297aab74391c17f418ea5a1b936108c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sprite: {fileID: 3509543212320447741}
-  health: 100
-  maxHealth: 0
-  mana: 0
-  defense: 0
-  poise: 0
-  hurt: 0
-  EXPValue: 16
 --- !u!95 &8515183985630010172
 Animator:
   serializedVersion: 3
@@ -141,7 +123,7 @@ Animator:
   m_GameObject: {fileID: 4899999750152620005}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 85ce2ad59efd94748aa10b9ac10c3f04, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -150,3 +132,50 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4243249605586768726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4899999750152620005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a2ff24b6098eb140b015f82442ff97b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4826707692811325395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4899999750152620005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bb4b3f94b669e041a5bdd45d9a12a90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debugMenu: {fileID: 2669206532455871792, guid: f125725b6d80f6044b10f90d2c17d5a8,
+    type: 3}
+--- !u!114 &4641873187267204414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4899999750152620005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfe6af9252c058e4ab24ee3a698fa69d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 3509543212320447741}
+  health: 50
+  maxHealth: 0
+  mana: 0
+  defense: 3
+  poise: 0
+  hurt: 0
+  EXPValue: 16
+  dead: 0

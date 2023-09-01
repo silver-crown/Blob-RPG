@@ -192,17 +192,10 @@ public class CombatManager : MonoBehaviour
         }
     }
     void EmptyEnemyList(){
-        foreach(Enemy i in enem){
-            //players should each get the full exp amount from the enemies they beat, the rest will get 1/4 of that
-            //playerChars[0].GetComponent<player2DController>().GainEXP(i.getEXP());
-            Destroy(i.gameObject);
-        }
-
         enemies.Clear();
         enemies.TrimExcess();
         enem.Clear();
         enem.TrimExcess();
-
     }
 
     public void EmptyPlayerList(){
@@ -268,7 +261,7 @@ public class CombatManager : MonoBehaviour
     public void StartBattle(){
         Fighting = true;
         //set first in slot to be the initialplayer character
-        playerChars[0].GetComponent<player2DController>().playerChar = true;
+        playerChars[0].GetComponent<player2DController>().playerChar = true;    
     }
     void EndBattle(){
         Debug.Log("battle ended");
@@ -284,5 +277,12 @@ public class CombatManager : MonoBehaviour
         
         //disable the overworld guy
         overworldEnemy.SetActive(false);
+    }
+
+    public void DistributeEXP(int exp) {
+        foreach(GameObject p in playerChars) {
+            p.GetComponent<player2DController>().IncreaseTempEXP(exp);
+        }
+
     }
 }

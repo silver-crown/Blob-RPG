@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -12,8 +13,9 @@ public class Enemy : MonoBehaviour
     [SerializeField] private int poise;
     [SerializeField] private bool hurt;
     [SerializeField] private int EXPValue;
-    private bool dead;
+    [SerializeField] private bool dead;
     float blinkingTimer = 0.05f;
+        
     private void Update() {
         //check if the entity has more HP left
         if(getHP() <= 0){
@@ -30,24 +32,19 @@ public class Enemy : MonoBehaviour
             }
         }
         //if it's dead do dead stuff
-}
+        if (dead) {
+            CombatManager.CM.DistributeEXP(getEXP());
+            ImDead();
+        }
+    }
 
-    public int Hurt(int damage, GameObject attacker){ 
+    //
+    public int Hurt(int damage){
         hurt = true;
         int damageDealt = damage - defense;
         Debug.Log("ENEMY WAS HURT");
         health -= (damageDealt);
-        if(dead){
-            attacker.GetComponent<player2DController>().IncreaseTempEXP(getEXP());
-            ImDead();
-        }
         return damageDealt;
-    }
-
-    private void ImDead(){
-        //give player the exp and disable enemy ****add death animation later****
-
-        this.gameObject.SetActive(false);
     }
 
 
@@ -63,8 +60,13 @@ public class Enemy : MonoBehaviour
     public int getEXP(){
         return EXPValue;
     }
+    #region AI actions
 
-    public bool amIDead(){
-        return dead;
-    }
+    public virtual void MeleeAttack() { }
+    public virtual void MoveToClosestEnemy() { }
+     
+    public void ImDead() { this.gameObject.SetActive(false); }
+
+
+    #endregion
 }

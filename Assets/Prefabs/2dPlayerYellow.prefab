@@ -66,7 +66,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6889057546549210011}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: Hitboxes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,7 +102,7 @@ GameObject:
   - component: {fileID: 5354427252880922657}
   - component: {fileID: 3807642668800810352}
   - component: {fileID: 6842834185894336704}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: atkBackHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -135,6 +135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9afd6f493add9248a1378aa95f1f3a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attacker: {fileID: 0}
   moveName: 
   experience: 0
   level: 0
@@ -193,7 +194,7 @@ GameObject:
   - component: {fileID: 7630935866132635405}
   m_Layer: 11
   m_Name: 2dPlayerYellow
-  m_TagString: Untagged
+  m_TagString: 2DPlayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -249,7 +250,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1148037871
+  m_SortingLayerID: 1028290983
   m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: -1066356293641404965, guid: 854a3cb3be89e6045835ae12d88fe9b0,
@@ -276,10 +277,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 469be2a2e0a5e5240a5428175a4706b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PauseMenu: {fileID: 5961739691124276458, guid: d9aa0177f283f334a8eeaee2f6ccd5b6,
-    type: 3}
   groundDetector: {fileID: 0}
   health: 32
+  lvl: 0
   rb: {fileID: 5179117395388630903}
   anim: {fileID: 7630935866132635405}
   moveSpeed: 0.06
@@ -289,7 +289,9 @@ MonoBehaviour:
   jumpCount: 0
   maxCombo: 0
   MoveList: []
+  myChar: {fileID: 0}
   playerChar: 0
+  experiencePoints: 0
 --- !u!50 &5179117395388630903
 Rigidbody2D:
   serializedVersion: 4
@@ -374,7 +376,7 @@ GameObject:
   - component: {fileID: 7267190773211985959}
   - component: {fileID: 4487465800362059265}
   - component: {fileID: 1826317669721521138}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: atk2HOverhead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -407,6 +409,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0bf3f2bbe6b5d745a970bfe89b94b1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attacker: {fileID: 0}
   moveName: 
   experience: 0
   level: 0
@@ -462,7 +465,7 @@ GameObject:
   - component: {fileID: 2943067291696912553}
   - component: {fileID: 7533427908488122172}
   - component: {fileID: 5562573712203992398}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: atkFrontHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -527,6 +530,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a07f2917023824f4db334f0dac50f987, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attacker: {fileID: 0}
   moveName: 
   experience: 0
   level: 0

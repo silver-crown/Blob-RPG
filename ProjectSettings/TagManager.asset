@@ -32,7 +32,7 @@ TagManager:
   - hitboxes
   - enemy
   - Player
-  - 
+  - 2DPlayer
   - 
   - 
   - 
@@ -67,6 +67,9 @@ TagManager:
     locked: 0
   - name: BattlePlatform
     uniqueID: 3561476269
+    locked: 0
+  - name: 2DPlayers
+    uniqueID: 1028290983
     locked: 0
   - name: BattleEntities
     uniqueID: 1148037871

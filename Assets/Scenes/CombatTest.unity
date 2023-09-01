@@ -328,7 +328,7 @@ GameObject:
   - component: {fileID: 413035519}
   - component: {fileID: 413035518}
   - component: {fileID: 413035521}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: boundary walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -558,7 +558,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1312569497}
   - component: {fileID: 1312569496}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: backdrop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -731,7 +731,7 @@ GameObject:
   - component: {fileID: 1624047092}
   - component: {fileID: 1624047091}
   - component: {fileID: 1624047094}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: platform
   m_TagString: battleGround
   m_Icon: {fileID: 0}
@@ -904,7 +904,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 3584
+    m_Bits: 7680
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0

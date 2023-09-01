@@ -85,6 +85,7 @@ public class TestPersonality : MonoBehaviour
     #region Utility actions
     //the only thing this method should do is get closer to the player, the calculations themselves are done in the factor functions
     public void GetCloserToPlayer(){
+        this.GetComponent<Enemy>().MoveToClosestEnemy();
         Vector3 myPos = this.transform.position;
         float testMoveSpeed = 0.02f;
         //grab the player from the utility function 
@@ -99,7 +100,7 @@ public class TestPersonality : MonoBehaviour
     }
     void AttackPlayer(){
         Debug.Log("PERFORMING ATTACK");
-
+        this.GetComponent<Enemy>().MeleeAttack();
         //debug log: starting attack animation
         //1, 2, 3
         //attack/spawn hitbox (???)
