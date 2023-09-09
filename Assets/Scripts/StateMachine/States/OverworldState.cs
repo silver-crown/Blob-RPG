@@ -39,7 +39,7 @@ public partial class OverworldState : State
                 ///<summary>Making sure there's an actual player controller to begin with</summary>
                 if(PlayerController.Player.GetComponent<PlayerController>() != null) {
                     ///<summary>Set the state to PauseMenuState</summary>
-                    GameManager.GM.SetState(new PauseMenuState(PlayerController.Player.GetComponent<PlayerController>().PauseMenu));
+                    GameManager.GM.SetState(new PauseMenuState());
                 }
                 ///<summary>Iteration ends here.</summary>
                 yield break;

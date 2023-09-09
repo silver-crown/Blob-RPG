@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ComboAttack : MonoBehaviour
+public class PlayerMove : MonoBehaviour
 {
     [SerializeField] private string moveName;
     [SerializeField] private int experience; 

@@ -8,15 +8,9 @@ using UnityEngine;
 /// </summary>
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] public MenuScript PauseMenu;
     [SerializeField] public GameObject MovePoint;
     static public GameObject Player;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        PauseMenu.transform.SetParent(null);
-    }
     private void Awake() {
         //If a player doesn't already exist, make this the player
         if (Player == null) {

@@ -11,6 +11,9 @@ TextureImporter:
   - first:
       213: 4076186775067345996
     second: rockman-attack-Sheet_2
+  - first:
+      213: 3424795594195295346
+    second: rockman-attack-Sheet_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -142,6 +145,27 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 450
+        y: 16
+        width: 46
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c44c80e7646819830800000000000000
+      internalID: 4076186775067345996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rockman-attack-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 640
         y: 9
         width: 46
         height: 42
@@ -152,8 +176,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c44c80e7646819830800000000000000
-      internalID: 4076186775067345996
+      spriteID: 27c55549271578f20800000000000000
+      internalID: 3424795594195295346
       vertices: []
       indices: 
       edges: []

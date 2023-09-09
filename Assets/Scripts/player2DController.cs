@@ -24,7 +24,7 @@ public class player2DController : MonoBehaviour {
         [SerializeField] private int jumpCount;
         [SerializeField] private int maxCombo;
         [SerializeField] private Collision2D[] hitboxes;
-        [SerializeField] private List<ComboAttack> MoveList;
+        [SerializeField] private List<PlayerMove> MoveList;
 
         [SerializeField] public partyChar myChar;
 
@@ -107,6 +107,9 @@ public class player2DController : MonoBehaviour {
 
         void Attack(){
             if(Input.GetKeyDown(attackKey) && !attacking){
+
+
+
                 currentMove = 0;
                 //do the first move in combo
                 SetAnimationBools(MoveList[currentMove].animationName);

@@ -5,14 +5,12 @@ using UnityEngine;
 public class PauseMenuState : State
 {
     MenuScript PauseMenu;
-    public PauseMenuState(MenuScript pauseMenu) {
-        PauseMenu = pauseMenu; 
-    }
 
         public override IEnumerator Start() {
             Debug.Log("Starting PauseMenu state");
-            PauseMenu.gameObject.SetActive(true);
-            PauseMenu.menuInit();
+            //PauseMenu.gameObject.SetActive(true);
+            GameObject.Instantiate(Resources.Load("OverworldPauseMenu", typeof(GameObject)));
+            //PauseMenu.menuInit();
             GameManager.GM.FreezeAllEntities("Player", true);
             GameManager.GM.FreezeAllEntities("Enemy", true);
             Time.timeScale = 0;
@@ -34,7 +32,7 @@ public class PauseMenuState : State
         Debug.Log("Executing PauseMenu state");
         ///<summary>This loop runs every frame until the test key is pressed</summary>
         while (true) {
-            if (Input.GetKeyDown(GameManager.GM.Pause) || PauseMenu.ExitedPauseMenu()) {
+           /* if (Input.GetKeyDown(GameManager.GM.Pause) || PauseMenu.ExitedPauseMenu()) {
                 PauseMenu.ResetPauseMenuScreen();
                 ///<summary>Wait for a frame after pressing the key</summary>
                 yield return new WaitForEndOfFrame();
@@ -42,7 +40,7 @@ public class PauseMenuState : State
                 yield return End();
                 yield break;
             }
-            ///<summary>Wait for a frame</summary>
+            /*///<summary>Wait for a frame</summary>
             yield return true;
         }
     }

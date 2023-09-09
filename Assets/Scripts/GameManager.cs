@@ -17,7 +17,9 @@ public class GameManager : StateMachine
     public KeyCode BattleRight { get; set; }
     public KeyCode BattleLeft { get; set; }
     public KeyCode Attack { get; set; }
-    public KeyCode SubAttack { get; set; }
+    public KeyCode SubAttack1 { get; set; }
+    public KeyCode SubAttack2 { get; set; }
+    public KeyCode SubAttack3 { get; set; }
     public KeyCode CycleLeft { get; set; }
     public KeyCode CycleRight { get; set; }
     public KeyCode Jump { get; set; }
@@ -66,7 +68,11 @@ public class GameManager : StateMachine
         BattleRight = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("CombatRightKey", "D"));
         Jump = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("CombatJumpKey", "Space"));
         Attack = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("AttackKey", "K"));
-        SubAttack = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("SubAttackKey", "O"));
+
+        SubAttack1 = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("SubAttackKey", "J"));
+        SubAttack2 = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("SubAttackKey", "L"));
+        SubAttack3 = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("SubAttackKey", "I"));
+
         CycleLeft = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("CycleLeftKey", "Q"));
         CycleRight = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("CycleRightKey", "E"));
         Test =  (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Test", "T"));

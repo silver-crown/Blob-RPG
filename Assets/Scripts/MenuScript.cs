@@ -3,8 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+
+/*This script should handle all logic related to traversal of menus, pause screen or otherwise.
+ * The menus themselves (settings menu, style setup, main pause screen, opening menu) should all be preloaded
+ * prefabs that can be called whenever needed with a Show(myMenu) method or something similar. A setActive(myChild) approach carries
+ * unnecessary overhead and is a generally inefficent and sloppy way of doing things, this script's purpose is to solve that problem.
+ */
 public class MenuScript : MonoBehaviour
 {
+   /* private GameMenu currentMenu;
 
     //the different menu screens
     public GameObject pauseMenu, bagMenu, equipmentMenu, statusMenu, 
@@ -20,7 +27,6 @@ public class MenuScript : MonoBehaviour
     //the icon buttons for the party members
     public GameObject party1, party2, party3, party4;
 
-    private GameObject currentMenu;
 
     private GameObject currentlySelectedItem;
 
@@ -51,7 +57,7 @@ public class MenuScript : MonoBehaviour
         menuButtonPair.Add(statusMenu, statusButton);
         menuButtonPair.Add(journalMenu, journalButton);
         menuButtonPair.Add(saveLoadMenu, saveLoadButton);*/
-
+   /*
         menuButtonPair.Add(systemMenu,controlsButton);
         menuButtonPair.Add(controlSetupMenu,tabTestButton);
         returnMenuButtonPair.Add(systemMenu, systemButton);
@@ -147,5 +153,17 @@ public class MenuScript : MonoBehaviour
                                                         var.position.y);
     }
 
+    /*Handles "opening new menu" logic
+    *Should run every time a new menu is opened
+    */
+   /* private void OpenMenu(GameMenu m) {
+        //unload current menu
+        CloseMenu(currentMenu);
+        //open/load menu m
+    }
+    private void CloseMenu(GameMenu m) {
+        //hide/unload/remove menu m
+    }
+    */
 }
 
