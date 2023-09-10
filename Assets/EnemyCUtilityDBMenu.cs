@@ -3,17 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using static Prototype01;
+using UnityEngine.UI;
 
 public class EnemyCUtilityDBMenu : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI categoryName;
     [SerializeField] GameObject menu;
+    [SerializeField] GameObject bottomActionButton;
+    private float timer = 0.0f;
+    bool canFlash = true;
     //private string[] displayedUtilityCategories;
 
     public void DisplayUtilityDebugValues(bool display, Dictionary<string, UtilityCategory> utilityCategorydict){
         string finalUtilityString = null;
         menu.SetActive(display);
-
+        bottomActionButton.SetActive(display);
+        timer += Time.deltaTime;
+        DisplayInput();
+        if(timer >= 0.5f) {
+            timer = 0.0f;
+            canFlash = true;
+        }
 
         //Display each of the utility category names and values for the entity
         //take all the category names (with values) with their utility names+values, and make them into one string
@@ -42,5 +52,15 @@ public class EnemyCUtilityDBMenu : MonoBehaviour
             }
         }
         categoryName.GetComponent<TextMeshProUGUI>().SetText(finalUtilityString);
+    }
+
+    void DisplayInput() {
+        bottomActionButton.GetComponent<Image>().color = Color.white;
+        if (Input.GetKeyDown(GameManager.GM.BottomAttack) && canFlash) {
+            Debug.Log("debug press is correct");
+            bottomActionButton.GetComponent<Image>().color = Color.blue;
+            canFlash = false;
+        }
+
     }
 }

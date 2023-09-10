@@ -37,7 +37,7 @@ public class CombatResultScreen : MonoBehaviour
             i++;
         }
         if (finishedDistributing == characterCount && !TransitionManager.TM.Transitioning){
-            if (Input.GetKeyDown(GameManager.GM.Attack)){
+            if (Input.GetKeyDown(GameManager.GM.BottomAttack)){
                 StartCoroutine(TransitionManager.TM.TransitionIntoOverworldFromBattle());
             
             }

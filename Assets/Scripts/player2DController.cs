@@ -11,7 +11,7 @@ public class player2DController : MonoBehaviour {
 
         public int lvl;
         private float lastY;
-        private bool attacking;
+        public bool attacking;
         private bool comboEnd;
         private bool chainable;
         private int currentMove = 0;
@@ -24,15 +24,19 @@ public class player2DController : MonoBehaviour {
         [SerializeField] private int jumpCount;
         [SerializeField] private int maxCombo;
         [SerializeField] private Collision2D[] hitboxes;
-        [SerializeField] private List<PlayerMove> MoveList;
 
         [SerializeField] public partyChar myChar;
 
-        //set as player1 keycodes if player is in control
-        private KeyCode jumpKey;
+    PlayerStylesAndMoveset playerStylesAndMoveset;
+
+    //set as player1 keycodes if player is in control
+    private KeyCode jumpKey;
         private KeyCode leftKey;
         private KeyCode rightKey;
-        private KeyCode attackKey;
+        private KeyCode TopActionKey;
+        private KeyCode BottomActionKey;
+        private KeyCode LeftActionKey;
+        private KeyCode RightActionKey;
         private KeyCode cycleRight;
 
 
@@ -43,21 +47,26 @@ public class player2DController : MonoBehaviour {
 
          private void Start() {
             jumpCount = maxJumps;
+            playerStylesAndMoveset = GetComponent<PlayerStylesAndMoveset>();
          }
 
 
         private void Awake() {
-            //If a player doesn't already exist, make this the player
-            //DontDestroyOnLoad(gameObject);
+       
+        //If a player doesn't already exist, make this the player
+        //DontDestroyOnLoad(gameObject);
     }
 
-        private void Update() {
+    private void Update() {
             lastY = transform.position.y;
             ChangePlayer();
             Move();
             Jump();
             Fall();
-            Attack();
+            if(playerStylesAndMoveset != null) {
+                playerStylesAndMoveset.PerformMoveInEquippedStyle();
+
+            }
         }
         //gravity being applied to the player character
         private void Fall(){
@@ -105,7 +114,23 @@ public class player2DController : MonoBehaviour {
         }
 
 
+        /*Should handle all input logic for attacking in 2D mode with the various buttons. */
         void Attack(){
+
+        if (Input.GetKeyDown(TopActionKey)) {
+            Debug.Log("Player pressed the top action key");
+        }
+        if (Input.GetKeyDown(BottomActionKey)) {
+            Debug.Log("Player pressed the bottom action key");
+        }
+        if (Input.GetKeyDown(LeftActionKey)) {
+            Debug.Log("Player pressed the left action key");
+        }
+        if (Input.GetKeyDown(RightActionKey)) {
+            Debug.Log("Player pressed the right action key");
+        }
+
+        /*
             if(Input.GetKeyDown(attackKey) && !attacking){
 
 
@@ -128,9 +153,10 @@ public class player2DController : MonoBehaviour {
                 SetAnimationBools(MoveList[++currentMove].animationName);
                 Debug.Log("executing combo move number " + (currentMove+1));
             }
+        */
         }
 
-        void SetAnimationBools(string s) {
+        public void SetAnimationBools(string s) {
             if(!anim.GetBool(s)) {
                 ///<summary>Get all the animations in the animator</summary>
                 foreach (AnimatorControllerParameter parameter in anim.parameters) {
@@ -168,8 +194,6 @@ public class player2DController : MonoBehaviour {
                 if(message.Equals("hitbox")){
                     //make hitboxes,
                     Debug.Log("got hitbox message");
-                    MoveList[currentMove].Attack();
-                    
                 }
                 if(message.Equals("hitboxGone")){
                     //get rid of hitboxes
@@ -191,13 +215,17 @@ public class player2DController : MonoBehaviour {
                 jumpKey = GameManager.GM.Jump;
                 leftKey = GameManager.GM.BattleLeft;
                 rightKey = GameManager.GM.BattleRight;
-                attackKey = GameManager.GM.Attack;
+            // attackKey = GameManager.GM.BottomAttack;
+                BottomActionKey = GameManager.GM.BottomAttack;
+                TopActionKey = GameManager.GM.TopAttack;
+                LeftActionKey = GameManager.GM.LeftAttack;
+                RightActionKey = GameManager.GM.RightAttack;
                 cycleRight = GameManager.GM.CycleRight;
             } else if (!playerChar){
                 jumpKey = KeyCode.None;
                 leftKey = KeyCode.None;
                 rightKey = KeyCode.None;
-                attackKey = KeyCode.None;
+              //  attackKey = KeyCode.None;
                 cycleRight = KeyCode.None;  
             } 
         }

@@ -16,10 +16,10 @@ public class GameManager : StateMachine
     //Player1 battle keys
     public KeyCode BattleRight { get; set; }
     public KeyCode BattleLeft { get; set; }
-    public KeyCode Attack { get; set; }
-    public KeyCode SubAttack1 { get; set; }
-    public KeyCode SubAttack2 { get; set; }
-    public KeyCode SubAttack3 { get; set; }
+    public KeyCode TopAttack { get; set; }
+    public KeyCode BottomAttack { get; set; }
+    public KeyCode LeftAttack { get; set; }
+    public KeyCode RightAttack { get; set; }
     public KeyCode CycleLeft { get; set; }
     public KeyCode CycleRight { get; set; }
     public KeyCode Jump { get; set; }
@@ -67,11 +67,11 @@ public class GameManager : StateMachine
         BattleLeft = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("CombatLeftKey", "A"));
         BattleRight = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("CombatRightKey", "D"));
         Jump = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("CombatJumpKey", "Space"));
-        Attack = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("AttackKey", "K"));
-
-        SubAttack1 = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("SubAttackKey", "J"));
-        SubAttack2 = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("SubAttackKey", "L"));
-        SubAttack3 = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("SubAttackKey", "I"));
+        
+        TopAttack = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("TopAttackKey", "I"));
+        BottomAttack = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("BottomAttackKey", "K"));
+        LeftAttack = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("LeftAttackKey", "J"));
+        RightAttack = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("RightAttackKey", "L"));
 
         CycleLeft = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("CycleLeftKey", "Q"));
         CycleRight = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("CycleRightKey", "E"));

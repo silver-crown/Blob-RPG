@@ -102,6 +102,7 @@ GameObject:
   - component: {fileID: 7773764637896558482}
   - component: {fileID: 6693110740545853243}
   - component: {fileID: 5610883771283643077}
+  - component: {fileID: 8859992002904865219}
   m_Layer: 11
   m_Name: 2dPlayerBlue
   m_TagString: 2DPlayer
@@ -140,6 +141,7 @@ MonoBehaviour:
   groundDetector: {fileID: 0}
   health: 48
   lvl: 0
+  attacking: 0
   rb: {fileID: 5610883771283643077}
   anim: {fileID: 7773764637896558482}
   moveSpeed: 0.06
@@ -246,6 +248,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &8859992002904865219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5818423809717055531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d5330e1a5e7a0c4b8c70f2213b83929, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Moves: []
 --- !u!1 &7089897948493220871
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,6 +306,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: atkFrontHand
       objectReference: {fileID: 0}
+    - target: {fileID: 8734628871032429462, guid: 5d5a8687dbd855140949a9595ee7a9c5,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 7120880487589711055}
     - target: {fileID: 9073822826924522940, guid: 5d5a8687dbd855140949a9595ee7a9c5,
         type: 3}
       propertyPath: m_RootOrder
@@ -427,6 +447,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5916954743053637749, guid: 6b8bb7fc701774c4dbe60b9c6ff0b50d,
+        type: 3}
+      propertyPath: damage
+      value: 88
+      objectReference: {fileID: 0}
+    - target: {fileID: 5916954743053637749, guid: 6b8bb7fc701774c4dbe60b9c6ff0b50d,
+        type: 3}
+      propertyPath: isUnlocked
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5916954743053637749, guid: 6b8bb7fc701774c4dbe60b9c6ff0b50d,
+        type: 3}
+      propertyPath: unlocksAtLevel
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7456757191581823411, guid: 6b8bb7fc701774c4dbe60b9c6ff0b50d,
         type: 3}
@@ -604,6 +639,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: atkBackHand
+      objectReference: {fileID: 0}
+    - target: {fileID: 7717101280875741500, guid: dc92141993688834f9219c731d7b169d,
+        type: 3}
+      propertyPath: damage
+      value: 99
+      objectReference: {fileID: 0}
+    - target: {fileID: 7717101280875741500, guid: dc92141993688834f9219c731d7b169d,
+        type: 3}
+      propertyPath: unlocksAtLevel
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8748987438152260009, guid: dc92141993688834f9219c731d7b169d,
         type: 3}

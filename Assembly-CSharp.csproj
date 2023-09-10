@@ -68,6 +68,7 @@
     <Compile Include="Assets\Scripts\Enemy.cs" />
     <Compile Include="Assets\Scripts\Entity.cs" />
     <Compile Include="Assets\Scripts\Game Menus\OverworldPauseMenu.cs" />
+    <Compile Include="Assets\Scripts\Game Menus\StyleEditMenu.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\GameMenu.cs" />
     <Compile Include="Assets\Scripts\IUpdater.cs" />
@@ -99,7 +100,7 @@
     <Compile Include="Assets\Scripts\attack moves\BlueFrontSlash.cs" />
     <Compile Include="Assets\Scripts\attack moves\LightningStrike.cs" />
     <Compile Include="Assets\Scripts\attack moves\PlayerMove.cs" />
-    <Compile Include="Assets\Scripts\attack moves\playerStyleset.cs" />
+    <Compile Include="Assets\Scripts\attack moves\PlayerStylesAndMoveset.cs" />
     <Compile Include="Assets\Scripts\controlSetupScript.cs" />
     <Compile Include="Assets\Scripts\controlsMenuScript.cs" />
     <Compile Include="Assets\Scripts\damagePopup.cs" />

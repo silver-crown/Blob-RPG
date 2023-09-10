@@ -84,7 +84,9 @@ MonoBehaviour:
   damage: 6
   animationName: atk_frontHand
   isUnlocked: 0
+  unlocksAtLevel: 1
   attacking: 0
   hitboxes:
   - {fileID: 5299734857287241735}
   - {fileID: 2370209452091048397}
+  player: {fileID: 7120880487589711055, guid: 05e675b13edba7242a4704742fd553b8, type: 3}

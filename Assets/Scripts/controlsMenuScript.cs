@@ -87,24 +87,24 @@ public class controlsMenuScript : MonoBehaviour
                 PlayerPrefs.SetString("CombatJumpKey", GameManager.GM.Jump.ToString());
                 break;
             case ("Attack"):
-                GameManager.GM.Attack = newKey;
-                buttonText.text = GameManager.GM.Attack.ToString();
-                PlayerPrefs.SetString("AttackKey", GameManager.GM.Attack.ToString());
+                GameManager.GM.BottomAttack = newKey;
+                buttonText.text = GameManager.GM.BottomAttack.ToString();
+                PlayerPrefs.SetString("AttackKey", GameManager.GM.BottomAttack.ToString());
                 break;
             case ("Sub Attack1"):
-                GameManager.GM.SubAttack1 = newKey;
-                buttonText.text = GameManager.GM.SubAttack1.ToString();
-                PlayerPrefs.SetString("SubAttackKey1", GameManager.GM.SubAttack1.ToString());
+                GameManager.GM.TopAttack = newKey;
+                buttonText.text = GameManager.GM.TopAttack.ToString();
+                PlayerPrefs.SetString("SubAttackKey1", GameManager.GM.TopAttack.ToString());
                 break;
             case ("Sub Attack2"):
-                GameManager.GM.SubAttack2 = newKey;
-                buttonText.text = GameManager.GM.SubAttack2.ToString();
-                PlayerPrefs.SetString("SubAttackKey2", GameManager.GM.SubAttack2.ToString());
+                GameManager.GM.LeftAttack = newKey;
+                buttonText.text = GameManager.GM.LeftAttack.ToString();
+                PlayerPrefs.SetString("SubAttackKey2", GameManager.GM.LeftAttack.ToString());
                 break;
             case ("Sub Attack3"):
-                GameManager.GM.SubAttack3 = newKey;
-                buttonText.text = GameManager.GM.SubAttack3.ToString();
-                PlayerPrefs.SetString("SubAttackKey3", GameManager.GM.SubAttack3.ToString());
+                GameManager.GM.RightAttack = newKey;
+                buttonText.text = GameManager.GM.RightAttack.ToString();
+                PlayerPrefs.SetString("SubAttackKey3", GameManager.GM.RightAttack.ToString());
                 break;
             case ("Cycle Left"):
                 GameManager.GM.CycleLeft = newKey;
@@ -159,10 +159,10 @@ public class controlsMenuScript : MonoBehaviour
                     i.GetComponentInChildren<Text>().text = GameManager.GM.Jump.ToString();
                     break;  
                 case "AttackKey":
-                    i.GetComponentInChildren<Text>().text = GameManager.GM.Attack.ToString();
+                    i.GetComponentInChildren<Text>().text = GameManager.GM.BottomAttack.ToString();
                     break;  
                 case "SubAttackKey":
-                    i.GetComponentInChildren<Text>().text = GameManager.GM.SubAttack1.ToString();
+                    i.GetComponentInChildren<Text>().text = GameManager.GM.TopAttack.ToString();
                     break;  
                 case "CycleLeftKey":
                     i.GetComponentInChildren<Text>().text = GameManager.GM.CycleLeft.ToString();
