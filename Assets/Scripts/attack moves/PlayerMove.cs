@@ -16,9 +16,12 @@ public abstract class PlayerMove : MonoBehaviour
     [SerializeField] public Collider2D[] hitboxes;
     [SerializeField] public player2DController player;
 
+
     public virtual void Attack(){
+        player = PlayerMoveManager.PMM.GetPlayer2D();
+        transform.localScale = player.transform.localScale;
         //activate hitboxes and do funky stuff
-        if(!player.attacking) {
+        if (!player.attacking) {
             player.SetAnimationBools(animationName);
             player.attacking = true;
             Debug.Log("entered Attack function");
@@ -29,16 +32,25 @@ public abstract class PlayerMove : MonoBehaviour
                     if (c.TryGetComponent<Enemy>(out Enemy enemy)){
                         Debug.Log(animationName + " connected with enemy");
                         //instantiate a popup on the collider's center with the correct damage dealt
-                        GameObject popUp = Instantiate(CombatManager.CM.blueDmgPopup, h.bounds.center, Quaternion.identity) as GameObject;
+                        GameObject popUp = Instantiate(CombatManager.CM.blueDmgPopup, c.bounds.center, Quaternion.identity) as GameObject;
                         damagePopup dmgPopup = popUp.GetComponent<damagePopup>();
                         dmgPopup.setNumber(enemy.Hurt(damage));
                         //should wait a frame
                     }
                 }
-            } 
+            }
         }
     }
-
+  /*  private void OnTriggerEnter(Collider other) {
+        if(other.gameObject.tag == "2DEnemy") {
+            Debug.Log("connected with enemy in ATTACK");
+            foreach(Collider2D h in hitboxes) {
+                GameObject popUp = Instantiate(CombatManager.CM.blueDmgPopup, h.bounds.center, Quaternion.identity) as GameObject;
+                damagePopup dmgPopup = popUp.GetComponent<damagePopup>();
+                dmgPopup.setNumber(other.GetComponent<Enemy>().Hurt(damage));
+            }
+        }
+    }*/
     private void OnDrawGizmosSelected() {
         foreach (Collider2D h in hitboxes){
             Gizmos.DrawWireSphere(h.bounds.center, h.bounds.extents.x); 

@@ -9,9 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9073822826924522940}
-  - component: {fileID: 5299734857287241735}
-  - component: {fileID: 2370209452091048397}
   - component: {fileID: 8734628871032429462}
+  - component: {fileID: 959218195034350693}
   m_Layer: 12
   m_Name: atkFrontHand
   m_TagString: Untagged
@@ -33,38 +32,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &5299734857287241735
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3589685327003040025}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.014192104, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5141921
---- !u!58 &2370209452091048397
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3589685327003040025}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.7271797, y: -0.23454231}
-  serializedVersion: 2
-  m_Radius: 0.37556607
 --- !u!114 &8734628871032429462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87,6 +54,42 @@ MonoBehaviour:
   unlocksAtLevel: 1
   attacking: 0
   hitboxes:
-  - {fileID: 5299734857287241735}
-  - {fileID: 2370209452091048397}
+  - {fileID: 959218195034350693}
   player: {fileID: 7120880487589711055, guid: 05e675b13edba7242a4704742fd553b8, type: 3}
+--- !u!60 &959218195034350693
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3589685327003040025}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.09375, y: 0.96875}
+    newSize: {x: 2.09375, y: 0.96875}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 1.0173652, y: 0.4565363}
+      - {x: 0.7035035, y: 0.31452632}
+      - {x: 0.4290979, y: 0.15610552}
+      - {x: -0.18735552, y: -0.19809341}
+      - {x: -0.7227545, y: -0.38251948}
+      - {x: -0.7428069, y: -0.452425}
+      - {x: -0.77543974, y: -0.484375}
+      - {x: -0.18053246, y: -0.47253966}
+      - {x: 0.11108422, y: -0.38711}
+      - {x: 0.32866287, y: -0.25859475}
+      - {x: 0.97797894, y: 0.25058603}
+      - {x: 1.046875, y: 0.484375}

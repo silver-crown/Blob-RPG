@@ -68,6 +68,7 @@
     <Compile Include="Assets\Scripts\Enemy.cs" />
     <Compile Include="Assets\Scripts\Entity.cs" />
     <Compile Include="Assets\Scripts\Game Menus\OverworldPauseMenu.cs" />
+    <Compile Include="Assets\Scripts\Game Menus\StyleEditDropDown.cs" />
     <Compile Include="Assets\Scripts\Game Menus\StyleEditMenu.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\GameMenu.cs" />
@@ -77,6 +78,7 @@
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\PlayerFrontColliderCheck.cs" />
     <Compile Include="Assets\Scripts\PlayerGridMovement.cs" />
+    <Compile Include="Assets\Scripts\PlayerMoveManager.cs" />
     <Compile Include="Assets\Scripts\StateMachine\Interaction\InteractWithObject.cs" />
     <Compile Include="Assets\Scripts\StateMachine\Interaction\Interactable.cs" />
     <Compile Include="Assets\Scripts\StateMachine\Interaction\InteractableItem.cs" />

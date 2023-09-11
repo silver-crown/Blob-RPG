@@ -11,7 +11,7 @@ public class player2DController : MonoBehaviour {
 
         public int lvl;
         private float lastY;
-        public bool attacking;
+        public bool attacking = false;
         private bool comboEnd;
         private bool chainable;
         private int currentMove = 0;
@@ -48,6 +48,7 @@ public class player2DController : MonoBehaviour {
          private void Start() {
             jumpCount = maxJumps;
             playerStylesAndMoveset = GetComponent<PlayerStylesAndMoveset>();
+            PlayerMoveManager.PMM.SetPlayer2D(this);
          }
 
 

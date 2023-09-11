@@ -10,21 +10,35 @@ public class EnemyCUtilityDBMenu : MonoBehaviour
     [SerializeField] TextMeshProUGUI categoryName;
     [SerializeField] GameObject menu;
     [SerializeField] GameObject bottomActionButton;
-    private float timer = 0.0f;
-    bool canFlash = true;
+    [SerializeField] GameObject topActionButton;
+    [SerializeField] GameObject leftActionButton;
+    [SerializeField] GameObject rightActionButton;
+    List<GameObject> ActionButtons = new List<GameObject>();
     //private string[] displayedUtilityCategories;
+    private KeyCode BottomActionKey;
+    private KeyCode TopActionKey;
+    private KeyCode LeftActionKey;
+    private KeyCode RightActionKey;
 
+
+
+    private void Start() {
+        BottomActionKey = GameManager.GM.BottomAttack;
+        TopActionKey = GameManager.GM.TopAttack;
+        LeftActionKey = GameManager.GM.LeftAttack;
+        RightActionKey  = GameManager.GM.RightAttack;
+        ActionButtons.Add(bottomActionButton);
+        ActionButtons.Add(topActionButton);
+        ActionButtons.Add(leftActionButton);
+        ActionButtons.Add(rightActionButton);
+    }
     public void DisplayUtilityDebugValues(bool display, Dictionary<string, UtilityCategory> utilityCategorydict){
         string finalUtilityString = null;
         menu.SetActive(display);
-        bottomActionButton.SetActive(display);
-        timer += Time.deltaTime;
-        DisplayInput();
-        if(timer >= 0.5f) {
-            timer = 0.0f;
-            canFlash = true;
+        foreach(GameObject b in ActionButtons) {
+            b.SetActive(display);
         }
-
+        DisplayInput();
         //Display each of the utility category names and values for the entity
         //take all the category names (with values) with their utility names+values, and make them into one string
         //with a set space between them, do this for every category
@@ -55,12 +69,33 @@ public class EnemyCUtilityDBMenu : MonoBehaviour
     }
 
     void DisplayInput() {
-        bottomActionButton.GetComponent<Image>().color = Color.white;
-        if (Input.GetKeyDown(GameManager.GM.BottomAttack) && canFlash) {
-            Debug.Log("debug press is correct");
+        //Bottom action key
+        if (Input.GetKeyDown(BottomActionKey)) {
             bottomActionButton.GetComponent<Image>().color = Color.blue;
-            canFlash = false;
         }
-
+        if(Input.GetKeyUp(BottomActionKey)) {
+            bottomActionButton.GetComponent<Image>().color = Color.white;
+        }
+        //Top action key
+        if (Input.GetKeyDown(TopActionKey)) {
+            topActionButton.GetComponent<Image>().color = Color.blue;
+        }
+        if(Input.GetKeyUp(TopActionKey)) {
+            topActionButton.GetComponent<Image>().color = Color.white;
+        }
+        //Left Action key
+        if (Input.GetKeyDown(LeftActionKey)) {
+            leftActionButton.GetComponent<Image>().color = Color.blue;
+        }
+        if(Input.GetKeyUp(LeftActionKey)) {
+            leftActionButton.GetComponent<Image>().color = Color.white;
+        }
+        //Right Action key
+        if (Input.GetKeyDown(RightActionKey)) {
+            rightActionButton.GetComponent<Image>().color = Color.blue;
+        }
+        if(Input.GetKeyUp(RightActionKey)) {
+            rightActionButton.GetComponent<Image>().color = Color.white;
+        }
     }
 }

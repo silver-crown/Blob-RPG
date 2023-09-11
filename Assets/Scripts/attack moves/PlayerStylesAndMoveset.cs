@@ -118,26 +118,26 @@ public class PlayerStylesAndMoveset : MonoBehaviour
         if (Input.GetKeyDown(BottomAction)) {
             //perform voodoo, then jump out, you're no longer looking for input
             Debug.Log("Pressed the bottom action key");
-            SelectedStyle[0].Attack();
+            PlayerMoveManager.PMM.SelectedStyle[0].Attack();
             return;
         }
         //Default key J
         if(Input.GetKeyDown(LeftAction)) {
 
             Debug.Log("pressed the left action key");
-            SelectedStyle[1].Attack();
+            PlayerMoveManager.PMM.SelectedStyle[1].Attack();
             return;
         }
         //Default key L
         if (Input.GetKeyDown(RightAction)) {
             Debug.Log("Pressed the right action key");
-            SelectedStyle[2].Attack();
+            PlayerMoveManager.PMM.SelectedStyle[2].Attack();
             return;
         }
         //Default key I
         if (Input.GetKeyDown(TopAction)) {
             Debug.Log("Pressed the top action key");
-            SelectedStyle[3].Attack();
+            PlayerMoveManager.PMM.SelectedStyle[3].Attack();
             return; 
         }
 
