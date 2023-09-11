@@ -138,7 +138,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8013373497179482552
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1022,10 +1022,10 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'normalBehavior  Prototype01+UtilityCategory
 
-    moveCloser  9.668451E-13
+    moveCloser  4.365106E-12
 
     meleeAttack 
-    6.399999E-11
+    0
 
     runAway  0
 

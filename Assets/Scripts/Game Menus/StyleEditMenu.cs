@@ -58,6 +58,7 @@ public class StyleEditMenu : GameMenu
      The drop-down should show the UNLOCKED content of the PlayerStylesAndMoveset's Moves list */
     private void ShowMovesDropDown() {
         MovesDropDown.SetActive(true);
+        MovesDropDown.GetComponent<StyleEditDropDown>().GenerateMoveButtons();
     }
 
     //Self explanatory
@@ -72,15 +73,20 @@ public class StyleEditMenu : GameMenu
      *LEFT would be associated with the J key by default
      *RIGHT would be associated with the L key by default
      */
-    private void ReplaceMove() {
+    public void ReplaceMove(string newMove) {
+        PlayerMove m = PlayerMoveManager.PMM.Moves.Find(x => x.animationName == newMove);
         switch(mMoveToBeEdited) {
             case MoveToBeEdited.TOP:
+                PlayerMoveManager.PMM.SelectedStyle[3] = m;
                 break;
             case MoveToBeEdited.BOTTOM:
+                PlayerMoveManager.PMM.SelectedStyle[0] = m;
                 break;
             case MoveToBeEdited.LEFT:
+                PlayerMoveManager.PMM.SelectedStyle[1] = m;
                 break;
             case MoveToBeEdited.RIGHT:
+                PlayerMoveManager.PMM.SelectedStyle[2] = m;
                 break;
         }
     }
